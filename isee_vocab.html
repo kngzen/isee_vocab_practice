@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>ISEE Vocabulary Quiz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#1b6bff" />
+  <!-- Quiz-themed favicon (SVG question mark in gradient circle) -->
+  <link
+    rel="icon"
+    type="image/svg+xml"
+    href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="%23ffb703"/><stop offset="1" stop-color="%231b6bff"/></linearGradient></defs><circle cx="32" cy="32" r="30" fill="url(%23g)" stroke="%23000" stroke-opacity=".06"/><text x="32" y="42" font-size="36" text-anchor="middle" font-family="Segoe UI, Roboto, Arial, sans-serif" fill="%23ffffff" font-weight="800">?</text></svg>' />
+
+  <style>
+    /* ===== Theme (brighter colors, larger type) ===== */
+    :root {
+      --ow-green:#00c779;     /* brighter success */
+      --ow-blue:#1b6bff;      /* brighter header */
+      --ow-gray:#f2f4f8;      /* lighter panels background */
+      --ink:#1a1a1a;
+
+      --accent-red:#ff3b3b;   /* brighter error */
+      --accent-green:#03d387; /* brighter correct marker */
+      --accent-yellow:#fff068;/* highlight */
+      --panel-border:#d7dce3;
+    }
+
+    /* Base typography and layout */
+    html, body { height: 100%; }
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--ink);
+      margin: 0;
+      background: #fbfdff;
+      font-size: 18px;                 /* larger base font */
+      line-height: 1.5;
+    }
+    header {
+      background: var(--ow-blue);
+      color: #fff;
+      padding: 20px 22px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.08);
+    }
+    h1 {
+      margin: 0;
+      font-size: 28px;                 /* larger title */
+      letter-spacing: .2px;
+    }
+    main { max-width: 1100px; margin: 24px auto; padding: 0 18px 50px; }
+    .panel {
+      background: #fff;
+      border: 1px solid var(--panel-border);
+      border-radius: 12px;
+      padding: 18px;
+      margin-bottom: 18px;
+      box-shadow: 0 2px 10px rgba(0,0,0,.03);
+    }
+    .grid { display: grid; gap: 14px; }
+    .controls {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      align-items: end;
+    }
+    .controls > div { display: flex; flex-direction: column; gap: 10px; }
+    label { font-size: 14px; text-transform: uppercase; color: #3f3f3f; letter-spacing: .4px; }
+    input[type="number"], select {
+      border: 1px solid #c7ced6;
+      border-radius: 10px;
+      padding: 10px;
+      font-size: 18px;
+      background: #fff;
+    }
+    .hint { font-size: 14px; color: #576173; }
+
+    button.primary {
+      background: var(--ow-green);
+      color: #fff;
+      border: 0;
+      border-radius: 10px;
+      padding: 12px 16px;
+      cursor: pointer;
+      font-size: 18px;
+      box-shadow: 0 2px 8px rgba(0, 199, 121, .25);
+    }
+    button.primary:hover { filter: brightness(1.05); }
+    button.primary:disabled { opacity: .6; cursor: not-allowed; }
+    button.ghost {
+      background: #fff;
+      border: 2px solid #c7ced6;
+      border-radius: 10px;
+      padding: 10px 14px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+    .row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    #status { font-size: 16px; color: #2a2f36; }
+    .good { color: var(--accent-green); } .warn { color: #ff8c00; } .bad { color: var(--accent-red); }
+
+    /* Quiz UI */
+    .quiz-card { padding: 18px; border: 1px solid var(--panel-border); border-radius: 12px; background: #fff; }
+    .q-meta { font-size: 14px; color: #6b7280; margin-bottom: 10px; }
+    .q-word { font-size: 24px; font-weight: 800; margin: 4px 0 10px; letter-spacing: .3px; }
+    .choices { display: grid; gap: 10px; }
+    .choice {
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 12px;
+      display: flex; gap: 12px; align-items: center;
+      transition: border-color .2s ease, box-shadow .2s ease;
+      background: #fff;
+    }
+    .choice:hover { border-color: #d0d8e2; box-shadow: 0 2px 8px rgba(0,0,0,.04); }
+    .choice input {
+      transform: scale(1.25) translateY(1px);   /* bigger radios */
+      accent-color: var(--ow-blue);
+    }
+    .choice span { font-size: 18px; }
+
+    .feedback { margin-top: 12px; font-weight: 700; font-size: 20px; }
+    .feedback.correct { color: var(--accent-green); }
+    .feedback.incorrect { color: var(--accent-red); }
+
+    .actions { display: flex; gap: 12px; align-items: center; margin-top: 14px; }
+    .pill {
+      background: #edf2ff;
+      color: #16233b;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 14px;
+      margin-left: auto;
+      border: 1px solid #c8d6ff;
+    }
+    .summary { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; }
+    .summary > div {
+      background: var(--ow-gray);
+      border: 1px solid var(--panel-border);
+      padding: 14px;
+      border-radius: 12px;
+      font-size: 18px;
+    }
+
+    /* Graphical score counter */
+    .score-wrap { display: grid; gap: 8px; margin-left: auto; min-width: 280px; }
+    .score-track { position: relative; height: 12px; background: #e7edf6; border-radius: 999px; overflow: hidden; }
+    .score-track .bar { position: absolute; top: 0; height: 100%; transition: width 300ms ease; }
+    .score-track .bar.correct { background: var(--accent-green); }
+    .score-track .bar.incorrect { background: var(--accent-red); }
+    .score-legend { display: flex; gap: 14px; font-size: 14px; justify-content: flex-end; }
+    .legend-item { display: inline-flex; align-items: center; gap: 6px; }
+
+    /* Score number pulse */
+    .pulse { animation: pulseScale 280ms ease; }
+    @keyframes pulseScale { 0% { transform: scale(1); } 40% { transform: scale(1.15); } 100% { transform: scale(1); } }
+
+    /* Confetti overlay + trophy */
+    .confetti { position: fixed; inset: 0; pointer-events: none; z-index: 9999; }
+    .celebration-badge {
+      position: fixed; inset: 0; display: grid; place-items: center;
+      font-size: 84px; z-index: 10000; pointer-events: none;
+      animation: badgeBounce 1600ms ease-in-out infinite;
+      text-shadow: 0 8px 20px rgba(0,0,0,.2);
+    }
+    @keyframes badgeBounce {
+      0%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-10px); }
+    }
+
+    /* Incorrect list */
+    .incorrect-panel h4 { margin: 0 0 10px; font-size: 22px; }
+    .incorrect-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+    .incorrect-item { border: 1px solid var(--panel-border); border-radius: 12px; padding: 12px; background: #fff; }
+    .incorrect-word { font-weight: 800; font-size: 20px; }
+    .incorrect-def { color: #374151; margin-top: 6px; font-size: 18px; }
+    .empty-state { color: #555; font-style: italic; font-size: 18px; }
+
+    /* Highlighting for example word */
+    .def-example mark {
+      background: var(--accent-yellow);
+      padding: 0 3px;
+      border-radius: 3px;
+      box-shadow: inset 0 -2px 0 rgba(0,0,0,.05);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>ISEE Vocabulary Quiz</h1>
+  </header>
+
+  <main id="appRoot">
+    <!-- Controls -->
+    <section class="panel grid" id="controlsSection">
+      <div class="controls">
+        <div>
+          <label for="subsetSel">Number of questions</label>
+          <select id="subsetSel">
+            <option value="10" selected>10</option>
+            <option value="20">20</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+            <option value="200">200</option>
+            <option value="300">300</option>
+          </select>
+          <div class="hint">Pick how many questions to include (randomized subset).</div>
+        </div>
+        <div>
+          <label for="shuffleChoices">Shuffle choices</label>
+          <div class="row" style="padding-top:6px;">
+            <input id="shuffleChoices" type="checkbox" />
+            <span class="hint">Randomize A–D order per question</span>
+          </div>
+        </div>
+        <div>
+          <label>&nbsp;</label>
+          <button id="buildBtn" class="primary">Build quiz</button>
+        </div>
+        <div>
+          <label>&nbsp;</label>
+          <div id="status" aria-live="polite">Ready.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quiz -->
+    <section id="quizSection" class="panel" style="display:none;">
+      <div class="row" style="width:100%;">
+        <strong>Progress:</strong>
+        <span id="progress">0 / 0</span>
+        <span id="scorePill" class="pill" title="Correct so far">Score: 0</span>
+
+        <!-- Graphical score counter -->
+        <div id="scoreWrap" class="score-wrap" aria-label="Score progress">
+          <div class="score-track" role="img" aria-label="Correct and incorrect progress">
+            <span id="barCorrect" class="bar correct" style="width:0;"></span>
+            <span id="barIncorrect" class="bar incorrect" style="width:0; left:0;"></span>
+          </div>
+          <div class="score-legend">
+            <span class="legend-item good">✔ <span id="cntCorrect">0</span></span>
+            <span class="legend-item bad">✖ <span id="cntIncorrect">0</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="quiz-card" id="quizCard">
+        <div class="q-meta" id="qMeta"></div>
+        <div class="q-word" id="qWord"></div>
+        <div class="choices" id="choices"></div>
+        <div id="feedback" class="feedback" aria-live="polite"></div>
+
+        <div class="actions">
+          <button id="submitBtn" class="primary">Submit</button>
+          <button id="nextBtn" class="ghost" style="display:none;">Next</button>
+          <span class="pill" id="qIdPill"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Summary -->
+    <section id="summarySection" class="panel" style="display:none;">
+      <h3>Quiz summary</h3>
+      <div class="summary">
+        <div><strong>Total questions:</strong> <span id="sumTotal">0</span></div>
+        <div><strong>Correct:</strong> <span id="sumCorrect">0</span></div>
+        <div><strong>Incorrect:</strong> <span id="sumIncorrect">0</span></div>
+        <div><strong>Accuracy:</strong> <span id="sumAcc">0%</span></div>
+      </div>
+      <p class="hint">Click “Build quiz” to choose a different number and reshuffle.</p>
+    </section>
+
+    <!-- Incorrect answers panel -->
+    <section id="incorrectPanel" class="panel incorrect-panel" style="display:none;">
+      <h4>Incorrect answers</h4>
+      <p class="hint">Review the words you missed and their definitions.</p>
+      <ul id="incorrectList" class="incorrect-list" aria-live="polite"></ul>
+    </section>
+  </main>
+
+  <!-- Celebration visuals -->
+  <canvas id="confettiCanvas" class="confetti" style="display:none;"></canvas>
+  <div id="celebrationBadge" class="celebration-badge" style="display:none;" aria-hidden="true">🏆</div>
+
+  <!-- Load data first (classic script, same folder) -->
+  <script src="isee_vocab_data.js"></script>
+
+  <!-- App logic -->
+  <script>
+    // ===== Utilities =====
+    const app = document.getElementById('appRoot');
+    const $ = (sel) => app.querySelector(sel);
+    function shuffle(arr) {
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    // ===== Elements (scoped to appRoot) =====
+    const subsetSel = $("#subsetSel");
+    const statusEl = $("#status");
+    const quizSection = $("#quizSection");
+    const summarySection = $("#summarySection");
+    const incorrectPanel = $("#incorrectPanel");
+    const incorrectList = $("#incorrectList");
+
+    const qMeta = $("#qMeta");
+    const qWord = $("#qWord");
+    const choicesEl = $("#choices");
+    const feedbackEl = $("#feedback");
+    const progressEl = $("#progress");
+    const scorePill = $("#scorePill");
+    const qIdPill = $("#qIdPill");
+    const buildBtn = $("#buildBtn");
+    const submitBtn = $("#submitBtn");
+    const nextBtn = $("#nextBtn");
+    const sumTotal = $("#sumTotal");
+    const sumCorrect = $("#sumCorrect");
+    const sumIncorrect = $("#sumIncorrect");
+    const sumAcc = $("#sumAcc");
+
+    // Graphical score
+    const barCorrect = $("#barCorrect");
+    const barIncorrect = $("#barIncorrect");
+    const cntCorrect = $("#cntCorrect");
+    const cntIncorrect = $("#cntIncorrect");
+    const confettiCanvas = document.getElementById("confettiCanvas");
+    const celebrationBadge = document.getElementById("celebrationBadge");
+
+    // ===== State =====
+    let QUIZ = [];
+    let idx = 0;
+    let score = 0;
+    let answered = new Map();   // number -> { selected, correct }
+    let choiceOrder = {};       // number -> ['A','B','C','D']
+
+    // ===== Score UI =====
+    function updateScoreUI() {
+      const totalDone = answered.size;
+      const correctSoFar = Array.from(answered.values()).filter(a => a.correct).length;
+      const incorrectSoFar = totalDone - correctSoFar;
+
+      const total = QUIZ.length || 1;
+      const pCorrect = (correctSoFar / total) * 100;
+      const pIncorrect = (incorrectSoFar / total) * 100;
+
+      barCorrect.style.width = pCorrect + "%";
+      barIncorrect.style.width = pIncorrect + "%";
+      barIncorrect.style.left = pCorrect + "%";
+
+      cntCorrect.textContent = correctSoFar;
+      cntIncorrect.textContent = incorrectSoFar;
+    }
+
+    // ===== Celebration =====
+    function launchCelebration(durationMs = 5000) {
+      confettiCanvas.width = window.innerWidth;
+      confettiCanvas.height = window.innerHeight;
+      confettiCanvas.style.display = "block";
+      celebrationBadge.style.display = "grid";
+
+      const ctx = confettiCanvas.getContext("2d");
+      const colors = ["#ff5a5f","#ffb703","#03d387","#1b6bff","#9b5de5","#00bbf9"];
+      const pieces = Array.from({length: 200}, () => ({
+        x: Math.random() * window.innerWidth,
+        y: -20 - Math.random() * 100,
+        r: 5 + Math.random() * 7,
+        c: colors[Math.floor(Math.random() * colors.length)],
+        vy: 2 + Math.random() * 3.5,
+        vx: -1 + Math.random() * 2,
+        rot: Math.random() * Math.PI,
+        vr: -0.2 + Math.random() * 0.4
+      }));
+
+      function resize() {
+        confettiCanvas.width = window.innerWidth;
+        confettiCanvas.height = window.innerHeight;
+      }
+
+      let confettiTimer;
+      function draw() {
+        const w = confettiCanvas.width, h = confettiCanvas.height;
+        ctx.clearRect(0, 0, w, h);
+        pieces.forEach(p => {
+          p.x += p.vx;
+          p.y += p.vy;
+          p.rot += p.vr;
+          if (p.y > h + 20) { p.y = -20; p.x = Math.random() * w; }
+          ctx.save();
+          ctx.translate(p.x, p.y);
+          ctx.rotate(p.rot);
+          ctx.fillStyle = p.c;
+          ctx.fillRect(-p.r, -p.r/2, p.r*2, p.r);
+          ctx.restore();
+        });
+        confettiTimer = requestAnimationFrame(draw);
+      }
+      draw();
+
+      setTimeout(() => {
+        cancelAnimationFrame(confettiTimer);
+        confettiCanvas.style.display = "none";
+        celebrationBadge.style.display = "none";
+      }, durationMs);
+
+      window.addEventListener("resize", resize, { once: true });
+    }
+
+    // ===== Core logic =====
+    function buildQuiz() {
+      // Ensure QUESTIONS is present (populated by isee_vocab_data.js)
+      if (typeof window.QUESTIONS === "undefined" || !Array.isArray(window.QUESTIONS) || !window.QUESTIONS.length) {
+        statusEl.innerHTML = '<span class="bad">No QUESTIONS found. Ensure isee_vocab_data.js is loaded before this script.</span>';
+        return;
+      }
+
+      const size = parseInt(subsetSel.value, 10) || 300;
+
+      const pool = window.QUESTIONS.slice();
+      shuffle(pool);
+      QUIZ = pool.slice(0, Math.min(size, pool.length));
+
+      idx = 0; score = 0; answered.clear(); choiceOrder = {};
+      quizSection.style.display = "";
+      summarySection.style.display = "none";
+      incorrectPanel.style.display = "none";
+      incorrectList.innerHTML = "";
+
+      const picked = QUIZ.length;
+      const total = window.QUESTIONS.length;
+      statusEl.innerHTML = `<span class="good">Using ${picked} question(s) out of ${total}. Randomized order.</span>`;
+
+      renderQuestion();
+    }
+
+    function renderQuestion() {
+      const total = QUIZ.length;
+      if (idx < 0) idx = 0;
+      if (idx >= total) { showSummary(); return; }
+
+      const q = QUIZ[idx];
+      progressEl.textContent = `${idx + 1} / ${total}`;
+      scorePill.textContent = `Score: ${score}`;
+      qMeta.textContent = `Question ${q.number}`;
+      qWord.textContent = `${q.word}`;
+      qIdPill.textContent = `ID: ${q.number}`;
+      feedbackEl.textContent = "";
+      feedbackEl.className = "feedback";
+
+      // Hide Next until submit unless already answered
+      nextBtn.style.display = "none";
+
+      // Stable per-question order; optionally shuffle
+      const letters = ['A','B','C','D'];
+      const doShuffleChoices = $("#shuffleChoices").checked;
+      let order = choiceOrder[q.number];
+      if (!order) {
+        order = letters.slice();
+        if (doShuffleChoices) shuffle(order);
+        choiceOrder[q.number] = order;
+      }
+
+      // Render choices
+      choicesEl.innerHTML = "";
+      order.forEach(letter => {
+        const wrap = document.createElement("label");
+        wrap.className = "choice";
+        const input = document.createElement("input");
+        input.type = "radio";
+        input.name = "choice";
+        input.value = letter;
+        input.setAttribute("aria-label", `${letter}) ${q.choices[letter]}`);
+        const text = document.createElement("span");
+        text.textContent = `${letter}) ${q.choices[letter]}`;
+        wrap.appendChild(input);
+        wrap.appendChild(text);
+        choicesEl.appendChild(wrap);
+      });
+
+      // If already answered earlier, show nav and keep Submit hidden
+      if (answered.has(q.number)) {
+        submitBtn.style.display = "none";
+        nextBtn.style.display = "";
+
+        // Keep the prior selection visible and disable all radios
+        const prev = answered.get(q.number);
+        Array.from(choicesEl.querySelectorAll('input[name="choice"]')).forEach(i => {
+          i.checked = (i.value === prev.selected);
+          i.disabled = true;
+        });
+
+        // Re-apply choice outlines for correct/incorrect visual
+        Array.from(choicesEl.querySelectorAll('.choice')).forEach(label => {
+          const input = label.querySelector('input');
+          label.style.outline = '';
+          if (input.value === q.answer) label.style.outline = `3px solid var(--accent-green)`;
+          if (input.value === prev.selected && prev.selected !== q.answer) label.style.outline = `3px solid var(--accent-red)`;
+        });
+      } else {
+        submitBtn.style.display = "";
+      }
+
+      updateScoreUI();
+    }
+
+    function submitCurrent() {
+      if (!QUIZ.length) return;
+
+      const q = QUIZ[idx];
+      const selected = Array.from(app.querySelectorAll('input[name="choice"]')).find(i => i.checked)?.value;
+      if (!selected) {
+        feedbackEl.textContent = "Please select an answer.";
+        feedbackEl.className = "feedback incorrect";
+        return;
+      }
+      const correct = (selected === q.answer);
+      if (!answered.has(q.number)) {
+        answered.set(q.number, { selected, correct });
+        if (correct) score++;
+      }
+
+      feedbackEl.className = "feedback " + (correct ? "correct" : "incorrect");
+      if (correct) {
+        feedbackEl.textContent = "Correct!";
+      } else {
+        const correctText = q.choices[q.answer];
+        feedbackEl.innerHTML = `Incorrect. Correct answer: ${q.answer}) ${correctText}`;
+      }
+
+      // Append definition if available WITH example highlighting
+      const defs = window.DEFINITIONS || {};
+      const defRaw = (defs[q.word] || defs[q.word?.toUpperCase()] || "").trim?.() || "";
+      if (defRaw) {
+        const defNode = document.createElement("div");
+        defNode.className = "hint def-example";
+
+        // Split on em dash "— Example:"
+        const parts = defRaw.split(/—\s*Example:\s*/i);
+        if (parts.length === 2) {
+          const baseDef = parts[0];
+          const example = parts[1];
+
+          // Highlight base word and simple variants (e.g., devour, devoured, devouring, devours)
+          const base = String(q.word || "").toLowerCase();
+          const highlightedExample = example.replace(
+            new RegExp(`\\b(${base}\\w*)\\b`, "gi"),
+            '<mark>$1</mark>'
+          );
+
+          defNode.innerHTML = `Definition: ${baseDef} — Example: ${highlightedExample}`;
+        } else {
+          // Fallback if Example portion not present
+          defNode.textContent = `Definition: ${defRaw}`;
+        }
+
+        feedbackEl.appendChild(defNode);
+      }
+
+      // Highlight choice outlines (brighter colors)
+      Array.from(choicesEl.querySelectorAll('.choice')).forEach(label => {
+        const input = label.querySelector('input');
+        label.style.outline = '';
+        if (input.value === q.answer) label.style.outline = '3px solid var(--accent-green)';
+        if (input.value === selected && selected !== q.answer) label.style.outline = '3px solid var(--accent-red)';
+      });
+
+      // Disable all radio inputs after submission
+      Array.from(app.querySelectorAll('input[name="choice"]')).forEach(i => { i.disabled = true; });
+
+      // Update score pill + pulse
+      scorePill.textContent = `Score: ${score}`;
+      scorePill.classList.remove("pulse");
+      void scorePill.offsetWidth;
+      scorePill.classList.add("pulse");
+
+      updateScoreUI();
+
+      // After submit: hide Submit, show Next
+      submitBtn.style.display = "none";
+      nextBtn.style.display = "";
+    }
+
+    function showSummary() {
+      quizSection.style.display = "none";
+      summarySection.style.display = "";
+
+      const total = QUIZ.length;
+      const correct = score;
+      const incorrect = total - score;
+
+      sumTotal.textContent = total;
+      sumCorrect.textContent = correct;
+      sumIncorrect.textContent = incorrect;
+      sumAcc.textContent = total ? `${Math.round((correct/total)*100)}%` : "0%";
+
+      // Build incorrect answers panel
+      buildIncorrectPanel();
+
+      // Celebrate
+      launchCelebration(6000);
+    }
+
+    function buildIncorrectPanel() {
+      incorrectList.innerHTML = "";
+      const defs = window.DEFINITIONS || {};
+
+      // Collect incorrect in order of appearance in the quiz
+      const incorrectItems = QUIZ.filter(q => {
+        const a = answered.get(q.number);
+        return a && a.correct === false;
+      });
+
+      if (!incorrectItems.length) {
+        incorrectPanel.style.display = "";
+        const li = document.createElement('li');
+        li.className = "incorrect-item empty-state";
+        li.textContent = "Great job — no missed words!";
+        incorrectList.appendChild(li);
+        return;
+      }
+
+      incorrectItems.forEach(q => {
+        const li = document.createElement('li');
+        li.className = "incorrect-item";
+
+        const word = document.createElement('div');
+        word.className = "incorrect-word";
+        word.textContent = q.word;
+
+        // Build definition with highlighted example in the incorrect list
+        const defTextRaw = (defs[q.word] || defs[q.word?.toUpperCase()] || "").trim?.() || "";
+        const def = document.createElement('div');
+        def.className = "incorrect-def def-example";
+
+        if (defTextRaw) {
+          const parts = defTextRaw.split(/—\s*Example:\s*/i);
+          if (parts.length === 2) {
+            const baseDef = parts[0];
+            const example = parts[1];
+
+            // Highlight base word and simple variants
+            const base = String(q.word || "").toLowerCase();
+            const highlightedExample = example.replace(
+              new RegExp(`\\b(${base}\\w*)\\b`, "gi"),
+              '<mark>$1</mark>'
+            );
+
+            def.innerHTML = `Definition: ${baseDef} — Example: ${highlightedExample}`;
+          } else {
+            def.textContent = `Definition: ${defTextRaw}`;
+          }
+        } else {
+          def.textContent = "Definition: (not available)";
+        }
+
+        li.appendChild(word);
+        li.appendChild(def);
+        incorrectList.appendChild(li);
+      });
+
+      incorrectPanel.style.display = "";
+    }
+
+    // ===== Events =====
+    nextBtn.addEventListener("click", () => { idx++; renderQuestion(); });
+    submitBtn.addEventListener("click", submitCurrent);
+    buildBtn.addEventListener("click", buildQuiz);
+  </script>
+</body>
+</html>
