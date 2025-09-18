@@ -213,7 +213,7 @@
   <div id="celebrationBadge" class="celebration-badge" style="display:none;" aria-hidden="true">🏆</div>
 
   <!-- Load data first (classic script, same folder) -->
-  <script src="isee_vocab_data.js"></script> <!-- Your app expects this first [2] -->
+  <script src="isee_vocab_data.js"></script> <!-- Your app expects this first   -->
 
   <!-- App logic + analytics -->
   <script>
@@ -357,7 +357,7 @@
 
       const picked = QUIZ.length;
       const total = window.QUESTIONS.length;
-      statusEl.innerHTML = `<span class="good">Using ${picked} question(s) out of ${total}. Randomized order.</span>`; // Your existing status update [2]
+      statusEl.innerHTML = `<span class="good">Using ${picked} question(s) out of ${total}. Randomized order.</span>`; /* existing status update */
 
       // ANALYTICS: quiz_start
       track("quiz_start", { picked, total });
@@ -517,7 +517,7 @@
         q_word: q.word,
         selected,
         correct
-      }); // Hooked at the natural point after correctness is known [2]
+      });
     }
 
     function showSummary() {
@@ -542,7 +542,7 @@
         correct,
         incorrect,
         accuracy_pct: total ? Math.round((correct/total)*100) : 0
-      }); // Inserted before the celebration, after totals computed [2]
+      });
 
       // Celebrate
       launchCelebration(6000);
@@ -615,9 +615,9 @@
     buildBtn.addEventListener("click", buildQuiz);
 
     // ===== Analytics helper (Google Sheets via Apps Script) =====
-    // Configure these two values:
-    const ANALYTICS_ENDPOINT = "https://script.google.com/macros/s/AKfycbzA56_nu0_c7yUbe37xljISHYLRy39_kCSXmQC6UjOxNPEb6uGhWzOrwEarADUhCkrsog/exec"; // e.g., https://script.google.com/macros/s/AKfycb.../exec
-    const ANALYTICS_TOKEN    = "ASDFASDFABASEAFSDKJVJ@#$KJASKJFAJSDF"; // must match STATIC_TOKEN in Apps Script
+    // Configured with your values:
+    const ANALYTICS_ENDPOINT = "https://script.google.com/macros/s/AKfycbzA56_nu0_c7yUbe37xljISHYLRy39_kCSXmQC6UjOxNPEb6uGhWzOrwEarADUhCkrsog/exec";
+    const ANALYTICS_TOKEN    = "ASDFASDFABASEAFSDKJVJ@#$KJASKJFAJSDF";
 
     function track(eventName, payload = {}) {
       const data = {
