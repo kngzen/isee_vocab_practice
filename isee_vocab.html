@@ -117,7 +117,7 @@
   <!-- App logic -->
   <script>
     // ===== Analytics Configuration =====
-    const ANALYTICS_URL = 'https://script.google.com/macros/s/AKfycbzVQaWjrVLsOvMIgaz3w1x25ZFBdbZORa2XDa3E29u6EYmMUyx4KJ5r0SAwwknycSQ/exec'; // Replace with your deployed web app URL
+    const ANALYTICS_URL = 'https://script.google.com/macros/s/AKfycbyZ6LisloD8yiSjwpSdmPiISnbKWAaPjT3E4uUGVWaQCFlPH0ZZ4wl0K2fXcdA86igq/exec'; // Replace with your deployed web app URL
     const SESSION_ID = 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
     let quizStartTime = null;
     let userIP = null;
@@ -146,51 +146,32 @@
         return;
       }
 
-      const data = {
-        ...eventData,
+      // Build URL parameters
+      const params = new URLSearchParams({
+        event: eventData.event,
         sessionId: SESSION_ID,
         userAgent: navigator.userAgent,
         referrer: document.referrer,
         ipAddress: userIP || 'unknown',
-        timestamp: new Date().toISOString()
-      };
+        timestamp: new Date().toISOString(),
+        ...eventData
+      });
 
-      console.log('ANALYTICS_URL:', ANALYTICS_URL);
-      console.log('Sending analytics data:', data);
-      console.log('Request body:', JSON.stringify(data));
+      const url = ANALYTICS_URL + '?' + params.toString();
+      console.log('Sending analytics via GET:', url);
 
-      // Try a simple GET request first as a test
-      fetch(ANALYTICS_URL + '?test=1', {
+      fetch(url, {
         method: 'GET'
       })
       .then(response => {
-        console.log('GET test response status:', response.status);
+        console.log('Analytics response status:', response.status);
         return response.text();
       })
       .then(text => {
-        console.log('GET test response text:', text);
+        console.log('Analytics response:', text);
       })
       .catch(error => {
-        console.error('GET test failed:', error);
-      });
-
-      // Now try the actual POST
-      fetch(ANALYTICS_URL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data)
-      })
-      .then(response => {
-        console.log('POST Analytics response status:', response.status);
-        return response.text();
-      })
-      .then(text => {
-        console.log('POST Analytics response:', text);
-      })
-      .catch(error => {
-        console.error('POST Analytics error:', error);
+        console.error('Analytics error:', error);
       });
     }
 
