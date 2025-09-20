@@ -5,6 +5,12 @@
   <title>ISEE Vocabulary Quiz</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#1b6bff" />
+  
+  <!-- Cache prevention meta tags -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  
   <!-- Quiz-themed favicon (SVG question mark in gradient circle) -->
   <link
     rel="icon"
@@ -12,17 +18,66 @@
     href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="%23ffb703"/><stop offset="1" stop-color="%231b6bff"/></linearGradient></defs><circle cx="32" cy="32" r="30" fill="url(%23g)" stroke="%23000" stroke-opacity=".06"/><text x="32" y="42" font-size="36" text-anchor="middle" font-family="Segoe UI, Roboto, Arial, sans-serif" fill="%23ffffff" font-weight="800">?</text></svg>' />
   
   <!-- External CSS -->
-  <link rel="stylesheet" href="isee_styles.css" />
+  <link rel="stylesheet" href="isee_styles.css?v=20250920_085300" />
+  
+  <!-- Additional CSS for user dropdown -->
+  <style>
+    /* User dropdown styles - added inline to avoid modifying separate CSS file for this small addition */
+    #userSel {
+      border: 1px solid #c7ced6;
+      border-radius: 10px;
+      padding: 10px;
+      font-size: 18px;
+      background: #fff;
+    }
+    
+    #userSel:invalid {
+      border-color: var(--accent-red);
+    }
+    
+    #userSel option[value=""] {
+      color: #999;
+    }
+    
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      filter: grayscale(0.8);
+    }
+    
+    /* Build date styling */
+    .build-date {
+      font-size: 12px;
+      color: #888;
+      margin-top: 5px;
+      font-weight: normal;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <h1>ISEE Vocabulary Quiz</h1>
+    <h1>
+      ISEE Vocabulary Quiz
+      <div class="build-date">Build: Sep 20, 2025 8:53 AM PST</div>
+    </h1>
   </header>
 
   <main id="appRoot">
     <!-- Controls -->
     <section class="panel grid" id="controlsSection">
       <div class="controls">
+        <div>
+          <label for="userSel">User</label>
+          <select id="userSel">
+            <option value="" disabled selected>Select user</option>
+            <option value="Bryant">Bryant</option>
+            <option value="Dylan">Dylan</option>
+            <option value="Mummy">Mummy</option>
+            <option value="Daddy">Daddy</option>
+            <option value="Other">Other</option>
+          </select>
+          <div class="hint">Choose who is taking the quiz.</div>
+        </div>
         <div>
           <label for="subsetSel">Number of questions</label>
           <select id="subsetSel">
@@ -48,7 +103,7 @@
         </div>
         <div>
           <label>&nbsp;</label>
-          <div id="status" aria-live="polite">Ready.</div>
+          <div id="status" aria-live="polite">Ready. Please select a user first.</div>
         </div>
       </div>
     </section>
@@ -68,7 +123,7 @@
           </div>
           <div class="score-legend">
             <span class="legend-item good">✓ <span id="cntCorrect">0</span></span>
-            <span class="legend-item bad">✖ <span id="cntIncorrect">0</span></span>
+            <span class="legend-item bad">✗ <span id="cntIncorrect">0</span></span>
           </div>
         </div>
       </div>
@@ -112,15 +167,16 @@
   <div id="celebrationBadge" class="celebration-badge" style="display:none;" aria-hidden="true">🏆</div>
 
   <!-- Load data first (classic script, same folder) -->
-  <script src="isee_vocab_data.js"></script>
+  <script src="isee_vocab_data.js?v=20250920_085300"></script>
 
   <!-- App logic -->
   <script>
     // ===== Analytics Configuration =====
-    const ANALYTICS_URL = 'https://script.google.com/macros/s/AKfycbyZ6LisloD8yiSjwpSdmPiISnbKWAaPjT3E4uUGVWaQCFlPH0ZZ4wl0K2fXcdA86igq/exec'; // Replace with your deployed web app URL
+    const ANALYTICS_URL = 'https://script.google.com/macros/s/AKfycbyy_ETV4BKrilkr2UalfgiBG_4NlTuKLGt8HRfgb-17sdWyJBZ_6VaxyaQGupk1Nfzi/exec'; // Replace with your deployed web app URL
     const SESSION_ID = 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
     let quizStartTime = null;
     let userIP = null;
+    let selectedUser = null;
 
     // Get user's IP address
     async function getUserIP() {
@@ -150,6 +206,7 @@
       const params = new URLSearchParams({
         event: eventData.event,
         sessionId: SESSION_ID,
+        user: selectedUser || 'unknown',
         userAgent: navigator.userAgent,
         referrer: document.referrer,
         ipAddress: userIP || 'unknown',
@@ -159,6 +216,8 @@
 
       const url = ANALYTICS_URL + '?' + params.toString();
       console.log('Sending analytics via GET:', url);
+      console.log('Selected user:', selectedUser);
+      console.log('Full params:', Object.fromEntries(params));
 
       fetch(url, {
         method: 'GET'
@@ -220,6 +279,7 @@
     }
 
     // ===== Elements (scoped to appRoot) =====
+    const userSel = $("#userSel");
     const subsetSel = $("#subsetSel");
     const statusEl = $("#status");
     const quizSection = $("#quizSection");
@@ -257,6 +317,18 @@
     let answered = new Map();   // number -> { selected, correct }
     let choiceOrder = {};       // number -> ['A','B','C','D']
 
+    // ===== User Selection Logic =====
+    function updateUserSelection() {
+      selectedUser = userSel.value;
+      if (selectedUser) {
+        statusEl.innerHTML = `<span class="good">User: ${selectedUser}. Ready to build quiz.</span>`;
+        buildBtn.disabled = false;
+      } else {
+        statusEl.innerHTML = 'Ready. Please select a user first.';
+        buildBtn.disabled = true;
+      }
+    }
+
     // ===== Score UI =====
     function updateScoreUI() {
       const totalDone = answered.size;
@@ -273,6 +345,38 @@
 
       cntCorrect.textContent = correctSoFar;
       cntIncorrect.textContent = incorrectSoFar;
+    }
+
+    // ===== Definition Display Helper =====
+    function createDefinitionElement(word, correct = false) {
+      const defs = window.DEFINITIONS || {};
+      const defRaw = (defs[word] || defs[word?.toUpperCase()] || "").trim?.() || "";
+      
+      if (!defRaw) return null;
+
+      const defNode = document.createElement("div");
+      defNode.className = "hint def-example";
+
+      // Split on em dash "— Example:"
+      const parts = defRaw.split(/—\s*Example:\s*/i);
+      if (parts.length === 2) {
+        const baseDef = parts[0];
+        const example = parts[1];
+
+        // Highlight base word and simple variants (e.g., devour, devoured, devouring, devours)
+        const base = String(word || "").toLowerCase();
+        const highlightedExample = example.replace(
+          new RegExp(`\\b(${base}\\w*)\\b`, "gi"),
+          '<mark>$1</mark>'
+        );
+
+        defNode.innerHTML = `Definition: ${baseDef} — Example: ${highlightedExample}`;
+      } else {
+        // Fallback if Example portion not present
+        defNode.textContent = `Definition: ${defRaw}`;
+      }
+
+      return defNode;
     }
 
     // ===== Celebration =====
@@ -331,6 +435,12 @@
 
     // ===== Core logic =====
     function buildQuiz() {
+      // Check if user is selected
+      if (!selectedUser) {
+        statusEl.innerHTML = '<span class="bad">Please select a user first.</span>';
+        return;
+      }
+
       // Ensure QUESTIONS is present (populated by isee_vocab_data.js)
       if (typeof window.QUESTIONS === "undefined" || !Array.isArray(window.QUESTIONS) || !window.QUESTIONS.length) {
         statusEl.innerHTML = '<span class="bad">No QUESTIONS found. Ensure isee_vocab_data.js is loaded before this script.</span>';
@@ -352,7 +462,7 @@
 
       const picked = QUIZ.length;
       const total = window.QUESTIONS.length;
-      statusEl.innerHTML = `<span class="good">Using ${picked} question(s) out of ${total}. Randomized order.</span>`;
+      statusEl.innerHTML = `<span class="good">User: ${selectedUser}. Using ${picked} question(s) out of ${total}. Randomized order.</span>`;
 
       // Track quiz start
       trackQuizStart(picked, shuffleChoices);
@@ -423,6 +533,21 @@
           if (input.value === q.answer) label.style.outline = `3px solid var(--accent-green)`;
           if (input.value === prev.selected && prev.selected !== q.answer) label.style.outline = `3px solid var(--accent-red)`;
         });
+
+        // Show feedback and definition for previously answered questions
+        feedbackEl.className = "feedback " + (prev.correct ? "correct" : "incorrect");
+        if (prev.correct) {
+          feedbackEl.textContent = "Correct!";
+        } else {
+          const correctText = q.choices[q.answer];
+          feedbackEl.innerHTML = `Incorrect. Correct answer: ${q.answer}) ${correctText}`;
+        }
+
+        // Show definition for previously answered questions
+        const defElement = createDefinitionElement(q.word, prev.correct);
+        if (defElement) {
+          feedbackEl.appendChild(defElement);
+        }
       } else {
         submitBtn.style.display = "";
       }
@@ -457,33 +582,10 @@
         feedbackEl.innerHTML = `Incorrect. Correct answer: ${q.answer}) ${correctText}`;
       }
 
-      // Append definition if available WITH example highlighting
-      const defs = window.DEFINITIONS || {};
-      const defRaw = (defs[q.word] || defs[q.word?.toUpperCase()] || "").trim?.() || "";
-      if (defRaw) {
-        const defNode = document.createElement("div");
-        defNode.className = "hint def-example";
-
-        // Split on em dash "– Example:"
-        const parts = defRaw.split(/–\s*Example:\s*/i);
-        if (parts.length === 2) {
-          const baseDef = parts[0];
-          const example = parts[1];
-
-          // Highlight base word and simple variants (e.g., devour, devoured, devouring, devours)
-          const base = String(q.word || "").toLowerCase();
-          const highlightedExample = example.replace(
-            new RegExp(`\\b(${base}\\w*)\\b`, "gi"),
-            '<mark>$1</mark>'
-          );
-
-          defNode.innerHTML = `Definition: ${baseDef} – Example: ${highlightedExample}`;
-        } else {
-          // Fallback if Example portion not present
-          defNode.textContent = `Definition: ${defRaw}`;
-        }
-
-        feedbackEl.appendChild(defNode);
+      // Always append definition (whether correct or incorrect)
+      const defElement = createDefinitionElement(q.word, correct);
+      if (defElement) {
+        feedbackEl.appendChild(defElement);
       }
 
       // Highlight choice outlines (brighter colors)
@@ -549,7 +651,7 @@
         incorrectPanel.style.display = "";
         const li = document.createElement('li');
         li.className = "incorrect-item empty-state";
-        li.textContent = "Great job – no missed words!";
+        li.textContent = "Great job — no missed words!";
         incorrectList.appendChild(li);
         return;
       }
@@ -568,7 +670,7 @@
         def.className = "incorrect-def def-example";
 
         if (defTextRaw) {
-          const parts = defTextRaw.split(/–\s*Example:\s*/i);
+          const parts = defTextRaw.split(/—\s*Example:\s*/i);
           if (parts.length === 2) {
             const baseDef = parts[0];
             const example = parts[1];
@@ -580,7 +682,7 @@
               '<mark>$1</mark>'
             );
 
-            def.innerHTML = `Definition: ${baseDef} – Example: ${highlightedExample}`;
+            def.innerHTML = `Definition: ${baseDef} — Example: ${highlightedExample}`;
           } else {
             def.textContent = `Definition: ${defTextRaw}`;
           }
@@ -600,6 +702,33 @@
     nextBtn.addEventListener("click", () => { idx++; renderQuestion(); });
     submitBtn.addEventListener("click", submitCurrent);
     buildBtn.addEventListener("click", buildQuiz);
+    userSel.addEventListener("change", updateUserSelection);
+
+    // Add keyboard support for Enter key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault(); // Prevent default form submission
+        
+        // If submit button is visible and enabled, submit the current question
+        if (submitBtn.style.display !== "none" && !submitBtn.disabled) {
+          submitCurrent();
+        }
+        // If next button is visible, go to next question
+        else if (nextBtn.style.display !== "none") {
+          idx++;
+          renderQuestion();
+        }
+        // If build button is focused and enabled, build quiz
+        else if (document.activeElement === buildBtn && !buildBtn.disabled) {
+          buildQuiz();
+        }
+      }
+    });
+
+    // ===== Initialize =====
+    // Set initial state
+    buildBtn.disabled = true;
+    updateUserSelection();
   </script>
 </body>
 </html>
