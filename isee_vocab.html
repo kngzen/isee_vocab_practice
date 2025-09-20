@@ -172,11 +172,83 @@
   <!-- App logic -->
   <script>
     // ===== Analytics Configuration =====
-    const ANALYTICS_URL = 'https://script.google.com/macros/s/AKfycbyy_ETV4BKrilkr2UalfgiBG_4NlTuKLGt8HRfgb-17sdWyJBZ_6VaxyaQGupk1Nfzi/exec'; // Replace with your deployed web app URL
+    const ANALYTICS_URL = 'https://script.google.com/macros/s/AKfycbyZ6LisloD8yiSjwpSdmPiISnbKWAaPjT3E4uUGVWaQCFlPH0ZZ4wl0K2fXcdA86igq/exec'; // Replace with your deployed web app URL
     const SESSION_ID = 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
     let quizStartTime = null;
     let userIP = null;
     let selectedUser = null;
+
+    // ===== Audio System =====
+    let audioContext = null;
+
+    // Initialize audio context (must be done after user interaction)
+    function initAudio() {
+      if (!audioContext) {
+        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      return audioContext;
+    }
+
+    // Play a simple tone
+    function playTone(frequency, duration, type = 'sine', volume = 0.1) {
+      const ctx = initAudio();
+      const oscillator = ctx.createOscillator();
+      const gainNode = ctx.createGain();
+      
+      oscillator.connect(gainNode);
+      gainNode.connect(ctx.destination);
+      
+      oscillator.frequency.setValueAtTime(frequency, ctx.currentTime);
+      oscillator.type = type;
+      
+      gainNode.gain.setValueAtTime(0, ctx.currentTime);
+      gainNode.gain.linearRampToValueAtTime(volume, ctx.currentTime + 0.01);
+      gainNode.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + duration);
+      
+      oscillator.start(ctx.currentTime);
+      oscillator.stop(ctx.currentTime + duration);
+    }
+
+    // Success sound - gentle ascending chime
+    function playSuccessSound() {
+      try {
+        playTone(523.25, 0.15, 'sine', 0.08); // C5
+        setTimeout(() => playTone(659.25, 0.15, 'sine', 0.06), 80); // E5
+      } catch (e) {
+        console.log('Audio not available');
+      }
+    }
+
+    // Error sound - gentle descending tone
+    function playErrorSound() {
+      try {
+        playTone(311.13, 0.2, 'sine', 0.06); // Eb4
+        setTimeout(() => playTone(246.94, 0.25, 'sine', 0.05), 100); // B3
+      } catch (e) {
+        console.log('Audio not available');
+      }
+    }
+
+    // Build sound - single confident tone
+    function playBuildSound() {
+      try {
+        playTone(440, 0.12, 'sine', 0.07); // A4 - neutral, confident tone
+      } catch (e) {
+        console.log('Audio not available');
+      }
+    }
+
+    // Celebration sound - cheerful ascending sequence
+    function playCelebrationSound() {
+      try {
+        const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
+        notes.forEach((freq, i) => {
+          setTimeout(() => playTone(freq, 0.3, 'sine', 0.08), i * 150);
+        });
+      } catch (e) {
+        console.log('Audio not available');
+      }
+    }
 
     // Get user's IP address
     async function getUserIP() {
@@ -447,6 +519,9 @@
         return;
       }
 
+      // Play build sound
+      playBuildSound();
+
       const size = parseInt(subsetSel.value, 10) || 300;
       const shuffleChoices = $("#shuffleChoices").checked;
 
@@ -577,9 +652,11 @@
       feedbackEl.className = "feedback " + (correct ? "correct" : "incorrect");
       if (correct) {
         feedbackEl.textContent = "Correct!";
+        playSuccessSound(); // Play success sound
       } else {
         const correctText = q.choices[q.answer];
         feedbackEl.innerHTML = `Incorrect. Correct answer: ${q.answer}) ${correctText}`;
+        playErrorSound(); // Play error sound
       }
 
       // Always append definition (whether correct or incorrect)
@@ -633,7 +710,8 @@
       // Build incorrect answers panel
       buildIncorrectPanel();
 
-      // Celebrate
+      // Play celebration sound and launch visual celebration
+      playCelebrationSound();
       launchCelebration(6000);
     }
 
