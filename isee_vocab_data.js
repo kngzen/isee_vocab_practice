@@ -550,7 +550,7 @@ window.QUESTIONS = [
 
     // 201–208
   { number:201, word:"OPAQUE", choices:{A:"aquatic", B:"cloudy", C:"tangible", D:"vast"}, answer:"B" },
-  { number:202, word:"ORNATE", choices:{A:"contemplative", B:"elaborate", C:"judicial", D:"precise"}, answer:"A" },
+  { number:202, word:"ORNATE", choices:{A:"contemplative", B:"elaborate", C:"judicial", D:"precise"}, answer:"B" },
   { number:203, word:"OSTENTATIOUS",choices:{A:"extravagant", B:"fatalistic", C:"inept", D:"lamentable"}, answer:"A" },
   { number:204, word:"PACIFY", choices:{A:"agitate", B:"appease", C:"bestow", D:"bewitch"}, answer:"B" },
   { number:205, word:"PALPATE", choices:{A:"avoid", B:"claim", C:"touch", D:"vow"}, answer:"C" },
