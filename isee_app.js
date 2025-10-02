@@ -748,7 +748,7 @@ function submitCurrent() {
     if (correct) score++;
     
     // Track question answer
-    trackQuestionAnswer(q.number, q.word, correct, selected, q.answer);
+    // trackQuestionAnswer(q.number, q.word, correct, selected, q.answer);
   }
 
   feedbackEl.className = "feedback " + (correct ? "correct" : "incorrect");
