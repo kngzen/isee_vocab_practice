@@ -533,7 +533,7 @@ window.QUESTIONS = [
   { number:186, word:"MOTLEY", choices:{A:"distant", B:"substantive", C:"varied", D:"wasteful"}, answer:"C" },
   { number:187, word:"MUNDANE", choices:{A:"momentous", B:"ordinary", C:"questionable", D:"receptive"}, answer:"B" },
   { number:188, word:"MUTATION", choices:{A:"alteration", B:"disqualification", C:"inquiry", D:"rationale"}, answer:"A" },
-  { number:189, word:"NAIVE", choices:{A:"clumsy", B:"gullible", C:"joyous", D:"squeamish"}, answer:"A" }, // official key
+  { number:189, word:"NAIVE", choices:{A:"clumsy", B:"gullible", C:"joyous", D:"squeamish"}, answer:"B" }, // official key
   { number:190, word:"NEMESIS", choices:{A:"adversary", B:"advocate", C:"interloper", D:"prodigy"}, answer:"A" },
   { number:191, word:"NONCHALANT", choices:{A:"unconcerned", B:"understanding", C:"unerring", D:"unforgiving"}, answer:"A" },
   { number:192, word:"NOSTALGIA", choices:{A:"dilemma", B:"exasperation", C:"sentimentality", D:"tangent"}, answer:"C" },

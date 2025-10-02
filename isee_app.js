@@ -356,7 +356,7 @@ function createDefinitionElement(word, correct = false) {
   const defNode = document.createElement("div");
   defNode.className = "hint def-example";
 
-  // Split on em dash "— Example:"
+  // Split on em dash "—" Example:"
   const parts = defRaw.split(/—\s*Example:\s*/i);
   if (parts.length === 2) {
     const baseDef = parts[0];
@@ -386,17 +386,175 @@ function launchCelebration(durationMs = 5000) {
   celebrationBadge.style.display = "grid";
 
   const ctx = confettiCanvas.getContext("2d");
-  const colors = ["#ff5a5f","#ffb703","#03d387","#1b6bff","#9b5de5","#00bbf9"];
-  const pieces = Array.from({length: 200}, () => ({
-    x: Math.random() * window.innerWidth,
-    y: -20 - Math.random() * 100,
-    r: 5 + Math.random() * 7,
-    c: colors[Math.floor(Math.random() * colors.length)],
-    vy: 2 + Math.random() * 3.5,
-    vx: -1 + Math.random() * 2,
-    rot: Math.random() * Math.PI,
-    vr: -0.2 + Math.random() * 0.4
-  }));
+  
+  // Randomly choose animation type: 0 = confetti, 1 = carrots, 2 = cows
+  const animationType = Math.floor(Math.random() * 3);
+  
+  let pieces;
+  
+  if (animationType === 0) {
+    // Traditional confetti
+    const colors = ["#ff5a5f","#ffb703","#03d387","#1b6bff","#9b5de5","#00bbf9"];
+    pieces = Array.from({length: 200}, () => ({
+      type: 'confetti',
+      x: Math.random() * window.innerWidth,
+      y: -20 - Math.random() * 100,
+      r: 5 + Math.random() * 7,
+      c: colors[Math.floor(Math.random() * colors.length)],
+      vy: 2 + Math.random() * 3.5,
+      vx: -1 + Math.random() * 2,
+      rot: Math.random() * Math.PI,
+      vr: -0.2 + Math.random() * 0.4
+    }));
+  } else if (animationType === 1) {
+    // Carrots
+    pieces = Array.from({length: 100}, () => ({
+      type: 'carrot',
+      x: Math.random() * window.innerWidth,
+      y: -20 - Math.random() * 100,
+      size: 20 + Math.random() * 20,
+      vy: 2 + Math.random() * 3,
+      vx: -0.5 + Math.random() * 1,
+      rot: Math.random() * Math.PI * 2,
+      vr: -0.1 + Math.random() * 0.2
+    }));
+  } else {
+    // Cows
+    pieces = Array.from({length: 100}, () => ({
+      type: 'cow',
+      x: Math.random() * window.innerWidth,
+      y: -20 - Math.random() * 100,
+      size: 25 + Math.random() * 25,
+      vy: 2 + Math.random() * 3,
+      vx: -0.5 + Math.random() * 1,
+      rot: Math.random() * Math.PI * 2,
+      vr: -0.1 + Math.random() * 0.2
+    }));
+  }
+
+  function drawCarrot(ctx, size) {
+  // Draw carrot body (orange triangle, point down)
+  ctx.fillStyle = "#ff6b35";
+  ctx.beginPath();
+  ctx.moveTo(0, size * 0.6);  // Point at bottom
+  ctx.lineTo(-size * 0.3, -size * 0.4);  // Left side of wide top
+  ctx.lineTo(size * 0.3, -size * 0.4);  // Right side of wide top
+  ctx.closePath();
+  ctx.fill();
+  
+  // Draw carrot top (green leaves) at the wide end
+  ctx.fillStyle = "#4caf50";
+  ctx.beginPath();
+  ctx.moveTo(-size * 0.2, -size * 0.5);
+  ctx.lineTo(-size * 0.3, -size * 0.8);
+  ctx.lineTo(-size * 0.1, -size * 0.6);
+  ctx.closePath();
+  ctx.fill();
+  
+  ctx.beginPath();
+  ctx.moveTo(0, -size * 0.5);
+  ctx.lineTo(0, -size * 0.9);
+  ctx.lineTo(size * 0.1, -size * 0.6);
+  ctx.closePath();
+  ctx.fill();
+  
+  ctx.beginPath();
+  ctx.moveTo(size * 0.2, -size * 0.5);
+  ctx.lineTo(size * 0.3, -size * 0.8);
+  ctx.lineTo(size * 0.1, -size * 0.6);
+  ctx.closePath();
+  ctx.fill();
+}
+  
+  function drawCow(ctx, size) {
+  // Draw cow body (white rounded rectangle)
+  ctx.fillStyle = "#ffffff";
+  ctx.strokeStyle = "#000000";
+  ctx.lineWidth = size * 0.04;
+  ctx.beginPath();
+  ctx.roundRect(-size * 0.5, -size * 0.2, size, size * 0.6, size * 0.15);
+  ctx.fill();
+  ctx.stroke();
+  
+  // Draw black spots
+  ctx.fillStyle = "#000000";
+  ctx.beginPath();
+  ctx.ellipse(-size * 0.25, -size * 0.05, size * 0.12, size * 0.08, 0.3, 0, Math.PI * 2);
+  ctx.fill();
+  
+  ctx.beginPath();
+  ctx.ellipse(size * 0.15, 0.1, size * 0.15, size * 0.1, -0.2, 0, Math.PI * 2);
+  ctx.fill();
+  
+  ctx.beginPath();
+  ctx.ellipse(size * 0.25, -size * 0.15, size * 0.08, size * 0.06, 0, 0, Math.PI * 2);
+  ctx.fill();
+  
+  // Draw head (white circle)
+  ctx.fillStyle = "#ffffff";
+  ctx.beginPath();
+  ctx.arc(-size * 0.5, -size * 0.35, size * 0.25, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.stroke();
+  
+  // Draw pink snout
+  ctx.fillStyle = "#ffb3ba";
+  ctx.beginPath();
+  ctx.ellipse(-size * 0.5, -size * 0.3, size * 0.12, size * 0.08, 0, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.stroke();
+  
+  // Draw nostrils
+  ctx.fillStyle = "#000000";
+  ctx.beginPath();
+  ctx.arc(-size * 0.55, -size * 0.3, size * 0.02, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.beginPath();
+  ctx.arc(-size * 0.45, -size * 0.3, size * 0.02, 0, Math.PI * 2);
+  ctx.fill();
+  
+  // Draw eyes
+  ctx.beginPath();
+  ctx.arc(-size * 0.55, -size * 0.42, size * 0.03, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.beginPath();
+  ctx.arc(-size * 0.45, -size * 0.42, size * 0.03, 0, Math.PI * 2);
+  ctx.fill();
+  
+  // Draw ears (pink inside)
+  ctx.fillStyle = "#ffb3ba";
+  ctx.beginPath();
+  ctx.ellipse(-size * 0.65, -size * 0.5, size * 0.08, size * 0.12, -0.3, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.strokeStyle = "#000000";
+  ctx.stroke();
+  
+  ctx.beginPath();
+  ctx.ellipse(-size * 0.35, -size * 0.5, size * 0.08, size * 0.12, 0.3, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.stroke();
+  
+  // Draw legs (white rectangles)
+  ctx.fillStyle = "#ffffff";
+  ctx.fillRect(-size * 0.35, size * 0.35, size * 0.12, size * 0.15);
+  ctx.strokeRect(-size * 0.35, size * 0.35, size * 0.12, size * 0.15);
+  
+  ctx.fillRect(-size * 0.1, size * 0.35, size * 0.12, size * 0.15);
+  ctx.strokeRect(-size * 0.1, size * 0.35, size * 0.12, size * 0.15);
+  
+  ctx.fillRect(size * 0.15, size * 0.35, size * 0.12, size * 0.15);
+  ctx.strokeRect(size * 0.15, size * 0.35, size * 0.12, size * 0.15);
+  
+  ctx.fillRect(size * 0.35, size * 0.35, size * 0.12, size * 0.15);
+  ctx.strokeRect(size * 0.35, size * 0.35, size * 0.12, size * 0.15);
+  
+  // Draw hooves (black)
+  ctx.fillStyle = "#000000";
+  ctx.fillRect(-size * 0.35, size * 0.48, size * 0.12, size * 0.04);
+  ctx.fillRect(-size * 0.1, size * 0.48, size * 0.12, size * 0.04);
+  ctx.fillRect(size * 0.15, size * 0.48, size * 0.12, size * 0.04);
+  ctx.fillRect(size * 0.35, size * 0.48, size * 0.12, size * 0.04);
+}
 
   function resize() {
     confettiCanvas.width = window.innerWidth;
@@ -411,12 +569,21 @@ function launchCelebration(durationMs = 5000) {
       p.x += p.vx;
       p.y += p.vy;
       p.rot += p.vr;
-      if (p.y > h + 20) { p.y = -20; p.x = Math.random() * w; }
+      if (p.y > h + 50) { p.y = -50; p.x = Math.random() * w; }
+      
       ctx.save();
       ctx.translate(p.x, p.y);
       ctx.rotate(p.rot);
-      ctx.fillStyle = p.c;
-      ctx.fillRect(-p.r, -p.r/2, p.r*2, p.r);
+      
+      if (p.type === 'confetti') {
+        ctx.fillStyle = p.c;
+        ctx.fillRect(-p.r, -p.r/2, p.r*2, p.r);
+      } else if (p.type === 'carrot') {
+        drawCarrot(ctx, p.size);
+      } else if (p.type === 'cow') {
+        drawCow(ctx, p.size);
+      }
+      
       ctx.restore();
     });
     confettiTimer = requestAnimationFrame(draw);
@@ -434,6 +601,14 @@ function launchCelebration(durationMs = 5000) {
 
 // ===== Core logic =====
 function buildQuiz() {
+  // Stop and clear any running celebration animation
+  if (confettiCanvas) {
+    confettiCanvas.style.display = "none";
+  }
+  if (celebrationBadge) {
+    celebrationBadge.style.display = "none";
+  }
+  
   // Check if user is selected
   if (!selectedUser) {
     statusEl.innerHTML = '<span class="bad">Please select a user first.</span>';
@@ -718,8 +893,8 @@ document.addEventListener("keydown", (e) => {
     if (submitBtn.style.display !== "none" && !submitBtn.disabled) {
       submitCurrent();
     }
-    // If next button is visible, go to next question
-    else if (nextBtn.style.display !== "none") {
+    // If next button is visible AND quiz section is visible, go to next question
+    else if (nextBtn.style.display !== "none" && quizSection.style.display !== "none") {
       idx++;
       renderQuestion();
     }
