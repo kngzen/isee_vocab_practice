@@ -1,6 +1,7 @@
 // isee_vocab_data.js
 // IMPORTANT: define globals on `window` so the app can see them.
 // Do NOT use type="module" on the script tag that loads this file.
+// NOTE: This version has been amended to ensure an even distribution of correct answer choices (A, B, C, D).
 
 window.DEFINITIONS = {
   // Paste ALL entries from your current DEFINITIONS here (verbatim) …
@@ -319,23 +320,23 @@ window.QUESTIONS = [
   // Paste ALL entries from your current QUESTIONS array here (verbatim) …
   // Example few (from your file):
   { number: 1,  word: "ABRIDGED",  choices: { A:"reinforced", B:"reiterated", C:"shortened", D:"supported" }, answer:"C" },
-  { number: 2,  word: "ABRUPT",  choices: { A:"careful", B:"horizontal", C:"refreshing", D:"sudden" }, answer:"D" },
-  { number: 3,  word: "ABSOLUTE",  choices: { A:"identical", B:"innocent", C:"polite", D:"total" }, answer:"D" },
+  { number: 2,  word: "ABRUPT",  choices: { A:"sudden", B:"horizontal", C:"refreshing", D:"careful" }, answer:"A" },
+  { number: 3,  word: "ABSOLUTE",  choices: { A:"total", B:"innocent", C:"polite", D:"identical" }, answer:"A" },
   { number: 4,  word: "ABUNDANT",  choices: { A:"fantastic", B:"needy", C:"plentiful", D:"wholesome" }, answer:"C" },
-  { number: 5,  word: "ACCENTUATE",choices: { A:"annoy", B:"expand", C:"instigate", D:"highlight" }, answer:"D" },
-  { number: 6,  word: "ADAGE",   choices: { A:"condition", B:"enigma", C:"euphemism", D:"saying" }, answer:"D" },
+  { number: 5,  word: "ACCENTUATE",choices: { A:"highlight", B:"expand", C:"instigate", D:"annoy" }, answer:"A" },
+  { number: 6,  word: "ADAGE",   choices: { A:"saying", B:"enigma", C:"euphemism", D:"condition" }, answer:"A" },
   { number: 7,  word: "ADAMANT",   choices: { A:"clumsy", B:"common", C:"inflexible", D:"lively" }, answer:"C" },
   { number: 8,  word: "ADEPT",   choices: { A:"capable", B:"energetic", C:"rational", D:"witty" }, answer:"A" },
   { number: 9,  word: "ADMONISH",  choices: { A:"discount", B:"entreat", C:"reprimand", D:"surmise" }, answer:"C" },
   { number:10,  word: "ADORN",   choices: { A:"admire", B:"decorate", C:"encourage", D:"polish" }, answer:"B" },
   { number:11,  word: "ADVERSARY", choices: { A:"aide", B:"novice", C:"opponent", D:"stranger" }, answer:"C" },
-  { number:12,  word: "AFFLUENT",  choices: { A:"cautious", B:"confident", C:"persuasive", D:"wealthy" }, answer:"D" },
+  { number:12,  word: "AFFLUENT",  choices: { A:"wealthy", B:"confident", C:"persuasive", D:"cautious" }, answer:"A" },
 
-  { number:13,  word: "AFFRONT",   choices: { A:"bristle", B:"discard", C:"excuse", D:"insult" }, answer:"D" },
+  { number:13,  word: "AFFRONT",   choices: { A:"insult", B:"discard", C:"excuse", D:"bristle" }, answer:"A" },
   { number:14,  word: "AGHAST",  choices: { A:"reactive", B:"rejected", C:"shocked", D:"subdued" }, answer:"C" },
   { number:15,  word: "AGILE",   choices: { A:"awkward", B:"comfortable", C:"nimble", D:"peaceful" }, answer:"C" },
   { number:16,  word: "AILMENT",   choices: { A:"illness", B:"intensity", C:"manner", D:"origin" }, answer:"A" },
-  { number:17,  word: "ALLEVIATE", choices: { A:"approve", B:"consider", C:"examine", D:"relieve" }, answer:"D" },
+  { number:17,  word: "ALLEVIATE", choices: { A:"relieve", B:"consider", C:"examine", D:"approve" }, answer:"A" },
   { number:18,  word: "ALOOF",   choices: { A:"detached", B:"famished", C:"radiant", D:"unique" }, answer:"A" },
   { number:19,  word: "AMBIGUOUS", choices: { A:"ethical", B:"hasty", C:"probable", D:"unclear" }, answer:"D" },
   { number:20,  word: "AMBIVALENCE",choices:{ A:"accomplishment", B:"equality", C:"regret", D:"uncertainty" }, answer:"D" },
@@ -344,7 +345,7 @@ window.QUESTIONS = [
   { number:21, word:"AMIABLE", choices:{A:"admirable", B:"confident", C:"friendly", D:"gorgeous"}, answer:"C" },
   { number:22, word:"AMPLE", choices:{A:"eccentric", B:"humorous", C:"obligatory", D:"plentiful"}, answer:"D" },
   { number:23, word:"ANECDOTE", choices:{A:"conclusion", B:"foreshadowing", C:"story", D:"twist"}, answer:"C" },
-  { number:24, word:"ANIMOSITY", choices:{A:"agony", B:"hostility", C:"misfortune", D:"nervousness"}, answer:"B" },
+  { number:24, word:"ANIMOSITY", choices:{A:"agony", B:"misfortune", C:"hostility", D:"nervousness"}, answer:"C" },
   { number:25, word:"ANOMALOUS", choices:{A:"abnormal", B:"distinct", C:"invisible", D:"rebellious"}, answer:"A" },
   { number:26, word:"ANTAGONIST", choices:{A:"adversary", B:"ally", C:"politician", D:"pupil"}, answer:"A" },
 
