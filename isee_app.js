@@ -1,11 +1,13 @@
 // isee_app.js - Main application logic for ISEE Vocabulary Quiz
+// Enhanced version with multiple word list support
 
 // ===== Analytics Configuration =====
-const ANALYTICS_URL = 'https://script.google.com/macros/s/AKfycbyy_ETV4BKrilkr2UalfgiBG_4NlTuKLGt8HRfgb-17sdWyJBZ_6VaxyaQGupk1Nfzi/exec';
+const ANALYTICS_URL = 'https://script.google.com/macros/s/AKfycbw1uYItdlWIh35SpHXoDL-dqLO6dp_u8A4RU1mlyFkvYOdQxcxkHYZTjcjRLvb-G4E/exec';
 const SESSION_ID = 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
 let quizStartTime = null;
 let userIP = null;
 let selectedUser = null;
+let selectedWordList = null;
 
 // ===== Audio System =====
 let audioContext = null;
@@ -201,7 +203,7 @@ function sendAnalytics(eventData) {
     return;
   }
 
-  // Build URL parameters
+  // Build URL parameters - wordList is added at the end to be the last column
   const params = new URLSearchParams({
     event: eventData.event,
     sessionId: SESSION_ID,
@@ -210,12 +212,14 @@ function sendAnalytics(eventData) {
     referrer: document.referrer,
     ipAddress: userIP || 'unknown',
     timestamp: new Date().toISOString(),
-    ...eventData
+    ...eventData,
+    wordList: selectedWordList || 'unknown'  // Add wordList last for Google Sheets
   });
 
   const url = ANALYTICS_URL + '?' + params.toString();
   console.log('Sending analytics via GET:', url);
   console.log('Selected user:', selectedUser);
+  console.log('Selected word list:', selectedWordList);
   console.log('Full params:', Object.fromEntries(params));
 
   fetch(url, {
@@ -266,6 +270,35 @@ function trackQuizComplete(numQuestions, shuffleChoices, score, accuracy) {
   });
 }
 
+// ===== Word List Data Management =====
+function getWordListData(listName) {
+  const wordLists = {
+    original: {
+      definitions: window.DEFINITIONS || {},
+      questions: window.QUESTIONS || []
+    },
+    enhanced1: {
+      definitions: window.DEFINITIONS_ENHANCED1 || {},
+      questions: window.QUESTIONS_ENHANCED1 || []
+    },
+    enhanced2: {
+      definitions: window.DEFINITIONS_ENHANCED2 || {},
+      questions: window.QUESTIONS_ENHANCED2 || []
+    }
+  };
+  
+  return wordLists[listName] || wordLists.original;
+}
+
+function getWordListDisplayName(listName) {
+  const displayNames = {
+    original: 'Original (Standard)',
+    enhanced1: 'Enhanced Set 1 (Standard)',
+    enhanced2: 'Enhanced Set 2 (Advanced)'
+  };
+  return displayNames[listName] || listName;
+}
+
 // ===== Utilities =====
 const app = document.getElementById('appRoot');
 const $ = (sel) => app.querySelector(sel);
@@ -279,6 +312,7 @@ function shuffle(arr) {
 
 // ===== Elements (scoped to appRoot) =====
 const userSel = $("#userSel");
+const wordListSel = $("#wordListSel");
 const subsetSel = $("#subsetSel");
 const statusEl = $("#status");
 const quizSection = $("#quizSection");
@@ -311,19 +345,33 @@ const celebrationBadge = document.getElementById("celebrationBadge");
 
 // ===== State =====
 let QUIZ = [];
+let CURRENT_DEFINITIONS = {};
 let idx = 0;
 let score = 0;
 let answered = new Map();   // number -> { selected, correct }
 let choiceOrder = {};       // number -> ['A','B','C','D']
 
-// ===== User Selection Logic =====
-function updateUserSelection() {
+// ===== User and Word List Selection Logic =====
+function updateSelections() {
   selectedUser = userSel.value;
-  if (selectedUser) {
-    statusEl.innerHTML = `<span class="good">User: ${selectedUser}. Ready to build quiz.</span>`;
+  selectedWordList = wordListSel.value;
+  
+  const userSelected = !!selectedUser;
+  const wordListSelected = !!selectedWordList;
+  
+  if (userSelected && wordListSelected) {
+    const listDisplay = getWordListDisplayName(selectedWordList);
+    statusEl.innerHTML = `<span class="good">User: ${selectedUser} | Word List: ${listDisplay}. Ready to build quiz.</span>`;
     buildBtn.disabled = false;
+  } else if (userSelected && !wordListSelected) {
+    statusEl.innerHTML = `<span class="warn">User: ${selectedUser}. Please select a word list.</span>`;
+    buildBtn.disabled = true;
+  } else if (!userSelected && wordListSelected) {
+    const listDisplay = getWordListDisplayName(selectedWordList);
+    statusEl.innerHTML = `<span class="warn">Word List: ${listDisplay}. Please select a user.</span>`;
+    buildBtn.disabled = true;
   } else {
-    statusEl.innerHTML = 'Ready. Please select a user first.';
+    statusEl.innerHTML = 'Ready. Please select a user and word list first.';
     buildBtn.disabled = true;
   }
 }
@@ -348,8 +396,7 @@ function updateScoreUI() {
 
 // ===== Definition Display Helper =====
 function createDefinitionElement(word, correct = false) {
-  const defs = window.DEFINITIONS || {};
-  const defRaw = (defs[word] || defs[word?.toUpperCase()] || "").trim?.() || "";
+  const defRaw = (CURRENT_DEFINITIONS[word] || CURRENT_DEFINITIONS[word?.toUpperCase()] || "").trim?.() || "";
   
   if (!defRaw) return null;
 
@@ -362,7 +409,7 @@ function createDefinitionElement(word, correct = false) {
     const baseDef = parts[0];
     const example = parts[1];
 
-    // Highlight base word and simple variants (e.g., devour, devoured, devouring, devours)
+    // Highlight base word and simple variants
     const base = String(word || "").toLowerCase();
     const highlightedExample = example.replace(
       new RegExp(`\\b(${base}\\w*)\\b`, "gi"),
@@ -433,128 +480,128 @@ function launchCelebration(durationMs = 5000) {
   }
 
   function drawCarrot(ctx, size) {
-  // Draw carrot body (orange triangle, point down)
-  ctx.fillStyle = "#ff6b35";
-  ctx.beginPath();
-  ctx.moveTo(0, size * 0.6);  // Point at bottom
-  ctx.lineTo(-size * 0.3, -size * 0.4);  // Left side of wide top
-  ctx.lineTo(size * 0.3, -size * 0.4);  // Right side of wide top
-  ctx.closePath();
-  ctx.fill();
-  
-  // Draw carrot top (green leaves) at the wide end
-  ctx.fillStyle = "#4caf50";
-  ctx.beginPath();
-  ctx.moveTo(-size * 0.2, -size * 0.5);
-  ctx.lineTo(-size * 0.3, -size * 0.8);
-  ctx.lineTo(-size * 0.1, -size * 0.6);
-  ctx.closePath();
-  ctx.fill();
-  
-  ctx.beginPath();
-  ctx.moveTo(0, -size * 0.5);
-  ctx.lineTo(0, -size * 0.9);
-  ctx.lineTo(size * 0.1, -size * 0.6);
-  ctx.closePath();
-  ctx.fill();
-  
-  ctx.beginPath();
-  ctx.moveTo(size * 0.2, -size * 0.5);
-  ctx.lineTo(size * 0.3, -size * 0.8);
-  ctx.lineTo(size * 0.1, -size * 0.6);
-  ctx.closePath();
-  ctx.fill();
-}
+    // Draw carrot body (orange triangle, point down)
+    ctx.fillStyle = "#ff6b35";
+    ctx.beginPath();
+    ctx.moveTo(0, size * 0.6);  // Point at bottom
+    ctx.lineTo(-size * 0.3, -size * 0.4);  // Left side of wide top
+    ctx.lineTo(size * 0.3, -size * 0.4);  // Right side of wide top
+    ctx.closePath();
+    ctx.fill();
+    
+    // Draw carrot top (green leaves) at the wide end
+    ctx.fillStyle = "#4caf50";
+    ctx.beginPath();
+    ctx.moveTo(-size * 0.2, -size * 0.5);
+    ctx.lineTo(-size * 0.3, -size * 0.8);
+    ctx.lineTo(-size * 0.1, -size * 0.6);
+    ctx.closePath();
+    ctx.fill();
+    
+    ctx.beginPath();
+    ctx.moveTo(0, -size * 0.5);
+    ctx.lineTo(0, -size * 0.9);
+    ctx.lineTo(size * 0.1, -size * 0.6);
+    ctx.closePath();
+    ctx.fill();
+    
+    ctx.beginPath();
+    ctx.moveTo(size * 0.2, -size * 0.5);
+    ctx.lineTo(size * 0.3, -size * 0.8);
+    ctx.lineTo(size * 0.1, -size * 0.6);
+    ctx.closePath();
+    ctx.fill();
+  }
   
   function drawCow(ctx, size) {
-  // Draw cow body (white rounded rectangle)
-  ctx.fillStyle = "#ffffff";
-  ctx.strokeStyle = "#000000";
-  ctx.lineWidth = size * 0.04;
-  ctx.beginPath();
-  ctx.roundRect(-size * 0.5, -size * 0.2, size, size * 0.6, size * 0.15);
-  ctx.fill();
-  ctx.stroke();
-  
-  // Draw black spots
-  ctx.fillStyle = "#000000";
-  ctx.beginPath();
-  ctx.ellipse(-size * 0.25, -size * 0.05, size * 0.12, size * 0.08, 0.3, 0, Math.PI * 2);
-  ctx.fill();
-  
-  ctx.beginPath();
-  ctx.ellipse(size * 0.15, 0.1, size * 0.15, size * 0.1, -0.2, 0, Math.PI * 2);
-  ctx.fill();
-  
-  ctx.beginPath();
-  ctx.ellipse(size * 0.25, -size * 0.15, size * 0.08, size * 0.06, 0, 0, Math.PI * 2);
-  ctx.fill();
-  
-  // Draw head (white circle)
-  ctx.fillStyle = "#ffffff";
-  ctx.beginPath();
-  ctx.arc(-size * 0.5, -size * 0.35, size * 0.25, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.stroke();
-  
-  // Draw pink snout
-  ctx.fillStyle = "#ffb3ba";
-  ctx.beginPath();
-  ctx.ellipse(-size * 0.5, -size * 0.3, size * 0.12, size * 0.08, 0, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.stroke();
-  
-  // Draw nostrils
-  ctx.fillStyle = "#000000";
-  ctx.beginPath();
-  ctx.arc(-size * 0.55, -size * 0.3, size * 0.02, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.beginPath();
-  ctx.arc(-size * 0.45, -size * 0.3, size * 0.02, 0, Math.PI * 2);
-  ctx.fill();
-  
-  // Draw eyes
-  ctx.beginPath();
-  ctx.arc(-size * 0.55, -size * 0.42, size * 0.03, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.beginPath();
-  ctx.arc(-size * 0.45, -size * 0.42, size * 0.03, 0, Math.PI * 2);
-  ctx.fill();
-  
-  // Draw ears (pink inside)
-  ctx.fillStyle = "#ffb3ba";
-  ctx.beginPath();
-  ctx.ellipse(-size * 0.65, -size * 0.5, size * 0.08, size * 0.12, -0.3, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.strokeStyle = "#000000";
-  ctx.stroke();
-  
-  ctx.beginPath();
-  ctx.ellipse(-size * 0.35, -size * 0.5, size * 0.08, size * 0.12, 0.3, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.stroke();
-  
-  // Draw legs (white rectangles)
-  ctx.fillStyle = "#ffffff";
-  ctx.fillRect(-size * 0.35, size * 0.35, size * 0.12, size * 0.15);
-  ctx.strokeRect(-size * 0.35, size * 0.35, size * 0.12, size * 0.15);
-  
-  ctx.fillRect(-size * 0.1, size * 0.35, size * 0.12, size * 0.15);
-  ctx.strokeRect(-size * 0.1, size * 0.35, size * 0.12, size * 0.15);
-  
-  ctx.fillRect(size * 0.15, size * 0.35, size * 0.12, size * 0.15);
-  ctx.strokeRect(size * 0.15, size * 0.35, size * 0.12, size * 0.15);
-  
-  ctx.fillRect(size * 0.35, size * 0.35, size * 0.12, size * 0.15);
-  ctx.strokeRect(size * 0.35, size * 0.35, size * 0.12, size * 0.15);
-  
-  // Draw hooves (black)
-  ctx.fillStyle = "#000000";
-  ctx.fillRect(-size * 0.35, size * 0.48, size * 0.12, size * 0.04);
-  ctx.fillRect(-size * 0.1, size * 0.48, size * 0.12, size * 0.04);
-  ctx.fillRect(size * 0.15, size * 0.48, size * 0.12, size * 0.04);
-  ctx.fillRect(size * 0.35, size * 0.48, size * 0.12, size * 0.04);
-}
+    // Draw cow body (white rounded rectangle)
+    ctx.fillStyle = "#ffffff";
+    ctx.strokeStyle = "#000000";
+    ctx.lineWidth = size * 0.04;
+    ctx.beginPath();
+    ctx.roundRect(-size * 0.5, -size * 0.2, size, size * 0.6, size * 0.15);
+    ctx.fill();
+    ctx.stroke();
+    
+    // Draw black spots
+    ctx.fillStyle = "#000000";
+    ctx.beginPath();
+    ctx.ellipse(-size * 0.25, -size * 0.05, size * 0.12, size * 0.08, 0.3, 0, Math.PI * 2);
+    ctx.fill();
+    
+    ctx.beginPath();
+    ctx.ellipse(size * 0.15, 0.1, size * 0.15, size * 0.1, -0.2, 0, Math.PI * 2);
+    ctx.fill();
+    
+    ctx.beginPath();
+    ctx.ellipse(size * 0.25, -size * 0.15, size * 0.08, size * 0.06, 0, 0, Math.PI * 2);
+    ctx.fill();
+    
+    // Draw head (white circle)
+    ctx.fillStyle = "#ffffff";
+    ctx.beginPath();
+    ctx.arc(-size * 0.5, -size * 0.35, size * 0.25, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.stroke();
+    
+    // Draw pink snout
+    ctx.fillStyle = "#ffb3ba";
+    ctx.beginPath();
+    ctx.ellipse(-size * 0.5, -size * 0.3, size * 0.12, size * 0.08, 0, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.stroke();
+    
+    // Draw nostrils
+    ctx.fillStyle = "#000000";
+    ctx.beginPath();
+    ctx.arc(-size * 0.55, -size * 0.3, size * 0.02, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.arc(-size * 0.45, -size * 0.3, size * 0.02, 0, Math.PI * 2);
+    ctx.fill();
+    
+    // Draw eyes
+    ctx.beginPath();
+    ctx.arc(-size * 0.55, -size * 0.42, size * 0.03, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.arc(-size * 0.45, -size * 0.42, size * 0.03, 0, Math.PI * 2);
+    ctx.fill();
+    
+    // Draw ears (pink inside)
+    ctx.fillStyle = "#ffb3ba";
+    ctx.beginPath();
+    ctx.ellipse(-size * 0.65, -size * 0.5, size * 0.08, size * 0.12, -0.3, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle = "#000000";
+    ctx.stroke();
+    
+    ctx.beginPath();
+    ctx.ellipse(-size * 0.35, -size * 0.5, size * 0.08, size * 0.12, 0.3, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.stroke();
+    
+    // Draw legs (white rectangles)
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(-size * 0.35, size * 0.35, size * 0.12, size * 0.15);
+    ctx.strokeRect(-size * 0.35, size * 0.35, size * 0.12, size * 0.15);
+    
+    ctx.fillRect(-size * 0.1, size * 0.35, size * 0.12, size * 0.15);
+    ctx.strokeRect(-size * 0.1, size * 0.35, size * 0.12, size * 0.15);
+    
+    ctx.fillRect(size * 0.15, size * 0.35, size * 0.12, size * 0.15);
+    ctx.strokeRect(size * 0.15, size * 0.35, size * 0.12, size * 0.15);
+    
+    ctx.fillRect(size * 0.35, size * 0.35, size * 0.12, size * 0.15);
+    ctx.strokeRect(size * 0.35, size * 0.35, size * 0.12, size * 0.15);
+    
+    // Draw hooves (black)
+    ctx.fillStyle = "#000000";
+    ctx.fillRect(-size * 0.35, size * 0.48, size * 0.12, size * 0.04);
+    ctx.fillRect(-size * 0.1, size * 0.48, size * 0.12, size * 0.04);
+    ctx.fillRect(size * 0.15, size * 0.48, size * 0.12, size * 0.04);
+    ctx.fillRect(size * 0.35, size * 0.48, size * 0.12, size * 0.04);
+  }
 
   function resize() {
     confettiCanvas.width = window.innerWidth;
@@ -609,15 +656,25 @@ function buildQuiz() {
     celebrationBadge.style.display = "none";
   }
   
-  // Check if user is selected
+  // Check if user and word list are selected
   if (!selectedUser) {
     statusEl.innerHTML = '<span class="bad">Please select a user first.</span>';
     return;
   }
+  
+  if (!selectedWordList) {
+    statusEl.innerHTML = '<span class="bad">Please select a word list first.</span>';
+    return;
+  }
 
-  // Ensure QUESTIONS is present (populated by isee_vocab_data.js)
-  if (typeof window.QUESTIONS === "undefined" || !Array.isArray(window.QUESTIONS) || !window.QUESTIONS.length) {
-    statusEl.innerHTML = '<span class="bad">No QUESTIONS found. Ensure isee_vocab_data.js is loaded before this script.</span>';
+  // Get the selected word list data
+  const wordListData = getWordListData(selectedWordList);
+  const questions = wordListData.questions;
+  CURRENT_DEFINITIONS = wordListData.definitions;
+
+  // Validate that questions are available
+  if (!Array.isArray(questions) || !questions.length) {
+    statusEl.innerHTML = `<span class="bad">No questions found for the selected word list. Please ensure the data file is loaded correctly.</span>`;
     return;
   }
 
@@ -627,7 +684,7 @@ function buildQuiz() {
   const size = parseInt(subsetSel.value, 10) || 300;
   const shuffleChoices = $("#shuffleChoices").checked;
 
-  const pool = window.QUESTIONS.slice();
+  const pool = questions.slice();
   shuffle(pool);
   QUIZ = pool.slice(0, Math.min(size, pool.length));
 
@@ -638,8 +695,9 @@ function buildQuiz() {
   incorrectList.innerHTML = "";
 
   const picked = QUIZ.length;
-  const total = window.QUESTIONS.length;
-  statusEl.innerHTML = `<span class="good">User: ${selectedUser}. Using ${picked} question(s) out of ${total}. Randomized order.</span>`;
+  const total = questions.length;
+  const listDisplay = getWordListDisplayName(selectedWordList);
+  statusEl.innerHTML = `<span class="good">User: ${selectedUser} | Word List: ${listDisplay}. Using ${picked} question(s) out of ${total}. Randomized order.</span>`;
 
   // Track quiz start
   trackQuizStart(picked, shuffleChoices);
@@ -754,11 +812,11 @@ function submitCurrent() {
   feedbackEl.className = "feedback " + (correct ? "correct" : "incorrect");
   if (correct) {
     feedbackEl.textContent = "Correct!";
-    playSuccessSound(); // Play success sound
+    playSuccessSound();
   } else {
     const correctText = q.choices[q.answer];
     feedbackEl.innerHTML = `Incorrect. Correct answer: ${q.answer}) ${correctText}`;
-    playErrorSound(); // Play error sound
+    playErrorSound();
   }
 
   // Always append definition (whether correct or incorrect)
@@ -767,7 +825,7 @@ function submitCurrent() {
     feedbackEl.appendChild(defElement);
   }
 
-  // Highlight choice outlines (brighter colors)
+  // Highlight choice outlines
   Array.from(choicesEl.querySelectorAll('.choice')).forEach(label => {
     const input = label.querySelector('input');
     label.style.outline = '';
@@ -819,7 +877,6 @@ function showSummary() {
 
 function buildIncorrectPanel() {
   incorrectList.innerHTML = "";
-  const defs = window.DEFINITIONS || {};
 
   // Collect incorrect in order of appearance in the quiz
   const incorrectItems = QUIZ.filter(q => {
@@ -845,7 +902,7 @@ function buildIncorrectPanel() {
     word.textContent = q.word;
 
     // Build definition with highlighted example in the incorrect list
-    const defTextRaw = (defs[q.word] || defs[q.word?.toUpperCase()] || "").trim?.() || "";
+    const defTextRaw = (CURRENT_DEFINITIONS[q.word] || CURRENT_DEFINITIONS[q.word?.toUpperCase()] || "").trim?.() || "";
     const def = document.createElement('div');
     def.className = "incorrect-def def-example";
 
@@ -882,12 +939,13 @@ function buildIncorrectPanel() {
 nextBtn.addEventListener("click", () => { idx++; renderQuestion(); });
 submitBtn.addEventListener("click", submitCurrent);
 buildBtn.addEventListener("click", buildQuiz);
-userSel.addEventListener("change", updateUserSelection);
+userSel.addEventListener("change", updateSelections);
+wordListSel.addEventListener("change", updateSelections);
 
 // Add keyboard support for Enter key
 document.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
-    e.preventDefault(); // Prevent default form submission
+    e.preventDefault();
     
     // If submit button is visible and enabled, submit the current question
     if (submitBtn.style.display !== "none" && !submitBtn.disabled) {
@@ -908,4 +966,4 @@ document.addEventListener("keydown", (e) => {
 // ===== Initialize =====
 // Set initial state
 buildBtn.disabled = true;
-updateUserSelection();
+updateSelections();

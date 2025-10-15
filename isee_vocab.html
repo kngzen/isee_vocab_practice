@@ -20,10 +20,10 @@
   <!-- External CSS -->
   <link rel="stylesheet" href="isee_styles.css?v=20250920_095200" />
   
-  <!-- Additional CSS for user dropdown -->
+  <!-- Additional CSS for user dropdown and word list selection -->
   <style>
-    /* User dropdown styles - added inline to avoid modifying separate CSS file for this small addition */
-    #userSel {
+    /* User dropdown and word list styles */
+    #userSel, #wordListSel {
       border: 1px solid #c7ced6;
       border-radius: 10px;
       padding: 10px;
@@ -31,11 +31,11 @@
       background: #fff;
     }
     
-    #userSel:invalid {
+    #userSel:invalid, #wordListSel:invalid {
       border-color: var(--accent-red);
     }
     
-    #userSel option[value=""] {
+    #userSel option[value=""], #wordListSel option[value=""] {
       color: #999;
     }
     
@@ -52,13 +52,33 @@
       margin-top: 5px;
       font-weight: normal;
     }
+    
+    /* Word list difficulty badge */
+    .difficulty-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-left: 8px;
+    }
+    
+    .difficulty-standard {
+      background: #e3f2fd;
+      color: #1976d2;
+    }
+    
+    .difficulty-advanced {
+      background: #fff3e0;
+      color: #f57c00;
+    }
   </style>
 </head>
 <body>
   <header>
     <h1>
       ISEE Vocabulary Quiz
-      <div class="build-date">Build: Oct 2, 2025 10:47 AM PST</div>
+      <div class="build-date">Build: Oct 15, 2025 2:30 PM PST</div>
     </h1>
   </header>
 
@@ -79,6 +99,18 @@
           </select>
           <div class="hint">Choose who is taking the quiz.</div>
         </div>
+        
+        <div>
+          <label for="wordListSel">Word list</label>
+          <select id="wordListSel">
+            <option value="" disabled selected>Select list</option>
+            <option value="original">Original (Standard)</option>
+            <option value="enhanced1">Enhanced Set 1 (Standard)</option>
+            <option value="enhanced2">Enhanced Set 2 (Advanced)</option>
+          </select>
+          <div class="hint">Choose difficulty level.</div>
+        </div>
+        
         <div>
           <label for="subsetSel">Number of questions</label>
           <select id="subsetSel">
@@ -91,6 +123,7 @@
           </select>
           <div class="hint">Pick how many questions to include (randomized subset).</div>
         </div>
+        
         <div>
           <label for="shuffleChoices">Shuffle choices</label>
           <div class="row" style="padding-top:6px;">
@@ -98,13 +131,14 @@
             <span class="hint">Randomize A–D order per question</span>
           </div>
         </div>
+        
         <div>
           <label>&nbsp;</label>
           <button id="buildBtn" class="primary">Build quiz</button>
         </div>
-        <div>
-          <label>&nbsp;</label>
-          <div id="status" aria-live="polite">Ready. Please select a user first.</div>
+        
+        <div style="grid-column: 1 / -1;">
+          <div id="status" aria-live="polite">Ready. Please select a user and word list first.</div>
         </div>
       </div>
     </section>
@@ -167,10 +201,12 @@
   <canvas id="confettiCanvas" class="confetti" style="display:none;"></canvas>
   <div id="celebrationBadge" class="celebration-badge" style="display:none;" aria-hidden="true">🏆</div>
 
-  <!-- Load vocabulary data first -->
-  <script src="isee_vocab_data.js?v=20250920_093500"></script>
+  <!-- Load vocabulary data files -->
+  <script src="isee_vocab_data.js?v=20251015_143000"></script>
+  <script src="isee_vocab_enhanced1.js?v=20251015_143000"></script>
+  <script src="isee_vocab_enhanced2.js?v=20251015_143000"></script>
   
   <!-- Load main application logic -->
-  <script src="isee_app.js?v=20250920_093500"></script>
+  <script src="isee_app.js?v=20251015_143000"></script>
 </body>
 </html>
