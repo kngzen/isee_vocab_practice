@@ -360,7 +360,7 @@ window.QUESTIONS_ENHANCED1 = [
   { number: 315, word: "BENEVOLENT", choices: { A:"forgiving", B:"helpful", C:"kind", D:"tolerant" }, answer:"C" },
   { number: 316, word: "BESTOW", choices: { A:"lend", B:"share", C:"offer", D:"give" }, answer:"D" },
   { number: 317, word: "BREVITY", choices: { A:"briefness", B:"simplicity", C:"speed", D:"effectiveness" }, answer:"A" },
-  { number: 318, word: "BRISK", choices: { A:"cold", B:"lively", C:"refreshing", D:"sudden" }, answer:"B" },
+  { number: 318, word: "BRISK", choices: { A:"slow", B:"lively", C:"refreshing", D:"sudden" }, answer:"B" },
   { number: 319, word: "BRITTLE", choices: { A:"old", B:"fragile", C:"sharp", D:"stiff" }, answer:"B" },
   { number: 320, word: "BROOD", choices: { A:"ponder", B:"regret", C:"resent", D:"daydream" }, answer:"A" },
   { number: 321, word: "BRUSQUE", choices: { A:"impatient", B:"informal", C:"abrupt", D:"hasty" }, answer:"C" },
@@ -405,7 +405,7 @@ window.QUESTIONS_ENHANCED1 = [
   { number: 356, word: "DISCRETE", choices: { A:"hidden", B:"separate", C:"subtle", D:"minor" }, answer:"B" },
   { number: 357, word: "DISPARITY", choices: { A:"disadvantage", B:"conflict", C:"difference", D:"injustice" }, answer:"C" },
   { number: 358, word: "DISPERSE", choices: { A:"scatter", B:"evacuate", C:"flee", D:"dissolve" }, answer:"A" },
-  { number: 359, word: "DISSENT", choices: { A:"protest", B:"disagreement", C:"rebellion", D:"conflict" }, answer:"B" },
+  { number: 359, word: "DISSENT", choices: { A:"an argument", B:"disagreement", C:"rebellion", D:"conflict" }, answer:"B" },
   { number: 360, word: "DIVERGE", choices: { A:"separate", B:"curve", C:"recede", D:"transform" }, answer:"A" },
 
   // E words (18 questions: 361-378)
@@ -507,7 +507,7 @@ window.QUESTIONS_ENHANCED1 = [
   // L words (12 questions: 443-454)
   { number: 443, word: "LABORIOUS", choices: { A:"taxing", B:"lengthy", C:"repetitive", D:"difficult" }, answer:"D" },
   { number: 444, word: "LAMPOON", choices: { A:"imitate", B:"criticize", C:"expose", D:"satirize" }, answer:"D" },
-  { number: 445, word: "LANGUID", choices: { A:"sluggish", B:"droopy", C:"indifferent", D:"lethargic" }, answer:"A" },
+  { number: 445, word: "LANGUID", choices: { A:"sluggish", B:"droopy", C:"indifferent", D:"relaxed" }, answer:"A" },
   { number: 446, word: "LATENT", choices: { A:"old", B:"forgotten", C:"hidden", D:"undeveloped" }, answer:"C" },
   { number: 447, word: "LAUDABLE", choices: { A:"effective", B:"beneficial", C:"praiseworthy", D:"virtuous" }, answer:"C" },
   { number: 448, word: "LAVISH", choices: { A:"extravagant", B:"ornate", C:"wasteful", D:"plentiful" }, answer:"A" },
@@ -523,7 +523,7 @@ window.QUESTIONS_ENHANCED1 = [
   { number: 456, word: "MAGNITUDE", choices: { A:"weight", B:"difficulty", C:"severity", D:"size" }, answer:"D" },
   { number: 457, word: "MALICIOUS", choices: { A:"destructive", B:"spiteful", C:"deceitful", D:"violent" }, answer:"B" },
   { number: 458, word: "MANDATE", choices: { A:"law", B:"command", C:"expectation", D:"suggestion" }, answer:"B" },
-  { number: 459, word: "MANIFEST", choices: { A:"proven", B:"unmistakable", C:"evident", D:"important" }, answer:"C" },
+  { number: 459, word: "MANIFEST", choices: { A:"proven", B:"significant", C:"evident", D:"important" }, answer:"C" },
   { number: 460, word: "MEAGER", choices: { A:"miserable", B:"trivial", C:"unhealthy", D:"scanty" }, answer:"D" },
   { number: 461, word: "MELLOW", choices: { A:"ripe", B:"gentle", C:"sweet", D:"quiet" }, answer:"B" },
   { number: 462, word: "MENACE", choices: { A:"bully", B:"nuisance", C:"threat", D:"criminal" }, answer:"C" },
@@ -557,7 +557,7 @@ window.QUESTIONS_ENHANCED1 = [
   { number: 486, word: "OVERT", choices: { A:"public", B:"unashamed", C:"deliberate", D:"obvious" }, answer:"D" },
 
   // P words (18 questions: 487-504)
-  { number: 487, word: "PACIFY", choices: { A:"aid", B:"distract", C:"calm", D:"quiet" }, answer:"C" },
+  { number: 487, word: "PACIFY", choices: { A:"aid", B:"distract", C:"calm", D:"comfort" }, answer:"C" },
   { number: 488, word: "PALPABLE", choices: { A:"intense", B:"obvious", C:"unmistakable", D:"tangible" }, answer:"D" },
   { number: 489, word: "PARAMOUNT", choices: { A:"fundamental", B:"urgent", C:"supreme", D:"dominant" }, answer:"C" },
   { number: 490, word: "PARDON", choices: { A:"release", B:"liberate", C:"acquit", D:"forgive" }, answer:"D" },
@@ -603,9 +603,9 @@ window.QUESTIONS_ENHANCED1 = [
   { number: 524, word: "SAGE", choices: { A:"spiritual", B:"calm", C:"ancient", D:"wise" }, answer:"D" },
   { number: 525, word: "SALIENT", choices: { A:"vital", B:"relevant", C:"prominent", D:"apparent" }, answer:"C" },
   { number: 526, word: "SALVAGE", choices: { A:"save", B:"seize", C:"collect", D:"restore" }, answer:"A" },
-  { number: 527, word: "SANCTION", choices: { A:"subsidize", B:"approve", C:"reward", D:"permit" }, answer:"B" },
+  { number: 527, word: "SANCTION", choices: { A:"subsidize", B:"approve", C:"reward", D:"encourage" }, answer:"B" },
   { number: 528, word: "SATURATE", choices: { A:"overflow", B:"submerge", C:"contaminate", D:"soak" }, answer:"D" },
-  { number: 529, word: "SCANTY", choices: { A:"trivial", B:"meager", C:"flimsy", D:"inadequate" }, answer:"B" },
+  { number: 529, word: "SCANTY", choices: { A:"trivial", B:"meager", C:"flimsy", D:"unreliable" }, answer:"B" },
   { number: 530, word: "SCRUTINIZE", choices: { A:"examine", B:"judge", C:"scan", D:"question" }, answer:"A" },
   { number: 531, word: "SECLUDE", choices: { A:"imprison", B:"isolate", C:"conceal", D:"quarantine" }, answer:"B" },
   { number: 532, word: "SEDATE", choices: { A:"dignified", B:"somber", C:"calm", D:"leisurely" }, answer:"C" },
@@ -621,7 +621,7 @@ window.QUESTIONS_ENHANCED1 = [
   // T words (12 questions: 541-552)
   { number: 541, word: "TACITURN", choices: { A:"introspective", B:"quiet", C:"antisocial", D:"melancholy" }, answer:"B" },
   { number: 542, word: "TANGIBLE", choices: { A:"visible", B:"durable", C:"valuable", D:"real" }, answer:"D" },
-  { number: 543, word: "TARNISH", choices: { A:"damage", B:"weaken", C:"disgrace", D:"discolor" }, answer:"A" },
+  { number: 543, word: "TARNISH", choices: { A:"damage", B:"weaken", C:"disgrace", D:"corrode" }, answer:"A" },
   { number: 544, word: "TAUT", choices: { A:"inflexible", B:"tight", C:"strained", D:"stiff" }, answer:"B" },
   { number: 545, word: "TEEM", choices: { A:"drizzle", B:"overflow", C:"congregate", D:"swarm" }, answer:"D" },
   { number: 546, word: "TEMPER", choices: { A:"moderate", B:"adjust", C:"influence", D:"weaken" }, answer:"A" },
@@ -633,7 +633,7 @@ window.QUESTIONS_ENHANCED1 = [
   { number: 552, word: "TURBULENT", choices: { A:"frightening", B:"unpredictable", C:"chaotic", D:"dangerous" }, answer:"C" },
 
   // U words (8 questions: 553-560)
-  { number: 553, word: "UBIQUITOUS", choices: { A:"fashionable", B:"inescapable", C:"pervasive", D:"everywhere" }, answer:"D" },
+  { number: 553, word: "UBIQUITOUS", choices: { A:"fashionable", B:"inescapable", C:"global", D:"everywhere" }, answer:"D" },
   { number: 554, word: "ULTIMATE", choices: { A:"definitive", B:"final", C:"supreme", D:"concluding" }, answer:"B" },
   { number: 555, word: "UNASSUMING", choices: { A:"modest", B:"insecure", C:"reserved", D:"timid" }, answer:"A" },
   { number: 556, word: "UNCANNY", choices: { A:"remarkable", B:"coincidental", C:"strange", D:"supernatural" }, answer:"C" },
@@ -643,7 +643,7 @@ window.QUESTIONS_ENHANCED1 = [
   { number: 560, word: "UPHOLD", choices: { A:"promote", B:"justify", C:"support", D:"approve" }, answer:"C" },
 
   // V words (12 questions: 561-572)
-  { number: 561, word: "VALID", choices: { A:"important", B:"sound", C:"proven", D:"correct" }, answer:"B" },
+  { number: 561, word: "VALID", choices: { A:"important", B:"sound", C:"proven", D:"persuasive" }, answer:"B" },
   { number: 562, word: "VALOR", choices: { A:"gallantry", B:"fortitude", C:"determination", D:"bravery" }, answer:"D" },
   { number: 563, word: "VANQUISH", choices: { A:"exile", B:"humiliate", C:"defeat", D:"eliminate" }, answer:"C" },
   { number: 564, word: "VENERATE", choices: { A:"revere", B:"cherish", C:"idolize", D:"obey" }, answer:"A" },
@@ -661,7 +661,7 @@ window.QUESTIONS_ENHANCED1 = [
   { number: 574, word: "WANE", choices: { A:"decrease", B:"falter", C:"subside", D:"recede" }, answer:"A" },
   { number: 575, word: "WARY", choices: { A:"skeptical", B:"cautious", C:"vigilant", D:"paranoid" }, answer:"B" },
   { number: 576, word: "WHOLESOME", choices: { A:"healthy", B:"decent", C:"pure", D:"moral" }, answer:"A" },
-  { number: 577, word: "WIELD", choices: { A:"employ", B:"manipulate", C:"hold", D:"possess" }, answer:"C" },
+  { number: 577, word: "WIELD", choices: { A:"employ", B:"manipulate", C:"hold", D:"possess" }, answer:"A" },
   { number: 578, word: "WILLFUL", choices: { A:"childish", B:"malicious", C:"obstinate", D:"deliberate" }, answer:"D" },
   { number: 579, word: "WITHER", choices: { A:"atrophy", B:"shrivel", C:"disintegrate", D:"spoil" }, answer:"B" },
   { number: 580, word: "WRATH", choices: { A:"violence", B:"vengeance", C:"hatred", D:"anger" }, answer:"D" },
@@ -691,6 +691,6 @@ window.QUESTIONS_ENHANCED1 = [
   { number: 600, word: "PIVOTAL", choices: { A:"preliminary", B:"crucial", C:"unexpected", D:"complicated" }, answer:"B" },
 ];
 
+
 // Optional sentinel
 window.__VOCAB_ENHANCED1_LOADED__ = true;
-
