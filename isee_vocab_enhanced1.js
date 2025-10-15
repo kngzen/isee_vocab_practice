@@ -378,7 +378,7 @@ window.QUESTIONS_ENHANCED1 = [
   { number: 331, word: "COHERENT", choices: { A:"fluent", B:"persuasive", C:"logical", D:"grammatical" }, answer:"C" },
   { number: 332, word: "COMMEMORATE", choices: { A:"announce", B:"recall", C:"honor", D:"broadcast" }, answer:"C" },
   { number: 333, word: "COMPELLING", choices: { A:"persuasive", B:"fascinating", C:"important", D:"dramatic" }, answer:"A" },
-  { number: 334, word: "COMPENSATE", choices: { A:"repay", B:"reward", C:"fix", D:"subsidize" }, answer:"A" },
+  { number: 334, word: "COMPENSATE", choices: { A:"repay", B:"praise", C:"fix", D:"subsidize" }, answer:"A" },
   { number: 335, word: "COMPLACENT", choices: { A:"lazy", B:"proud", C:"satisfied", D:"inattentive" }, answer:"C" },
   { number: 336, word: "COMPLY", choices: { A:"accept", B:"yield", C:"surrender", D:"obey" }, answer:"D" },
   { number: 337, word: "COMPOSURE", choices: { A:"patience", B:"dignity", C:"calmness", D:"peace" }, answer:"C" },
@@ -492,7 +492,7 @@ window.QUESTIONS_ENHANCED1 = [
 
   // J words (6 questions: 433-438)
   { number: 433, word: "JEOPARDIZE", choices: { A:"endanger", B:"worsen", C:"compromise", D:"ruin" }, answer:"A" },
-  { number: 434, word: "JUBILANT", choices: { A:"celebratory", B:"relieved", C:"joyful", D:"ecstatic" }, answer:"C" },
+  { number: 434, word: "JUBILANT", choices: { A:"celebratory", B:"relieved", C:"joyful", D:"proud" }, answer:"C" },
   { number: 435, word: "JUDICIOUS", choices: { A:"wise", B:"cautious", C:"legal", D:"official" }, answer:"A" },
   { number: 436, word: "JUNCTION", choices: { A:"boundary", B:"intersection", C:"union", D:"merger" }, answer:"B" },
   { number: 437, word: "JUSTIFY", choices: { A:"clarify", B:"advocate", C:"confirm", D:"defend" }, answer:"D" },
@@ -558,7 +558,7 @@ window.QUESTIONS_ENHANCED1 = [
 
   // P words (18 questions: 487-504)
   { number: 487, word: "PACIFY", choices: { A:"aid", B:"distract", C:"calm", D:"comfort" }, answer:"C" },
-  { number: 488, word: "PALPABLE", choices: { A:"intense", B:"obvious", C:"unmistakable", D:"tangible" }, answer:"D" },
+  { number: 488, word: "PALPABLE", choices: { A:"intense", B:"sudden", C:"unmistakable", D:"tangible" }, answer:"D" },
   { number: 489, word: "PARAMOUNT", choices: { A:"fundamental", B:"urgent", C:"supreme", D:"dominant" }, answer:"C" },
   { number: 490, word: "PARDON", choices: { A:"release", B:"liberate", C:"acquit", D:"forgive" }, answer:"D" },
   { number: 491, word: "PARODY", choices: { A:"farce", B:"satire", C:"comedy", D:"performance" }, answer:"B" },
@@ -572,13 +572,13 @@ window.QUESTIONS_ENHANCED1 = [
   { number: 499, word: "PERIL", choices: { A:"adversity", B:"vulnerability", C:"uncertainty", D:"danger" }, answer:"D" },
   { number: 500, word: "PERIPHERAL", choices: { A:"superficial", B:"irrelevant", C:"outer", D:"adjacent" }, answer:"C" },
   { number: 501, word: "PERPETUAL", choices: { A:"continuous", B:"recurrent", C:"boring", D:"relentless" }, answer:"A" },
-  { number: 502, word: "PERSIST", choices: { A:"repeat", B:"resist", C:"endure", D:"continue" }, answer:"D" },
+  { number: 502, word: "PERSIST", choices: { A:"repeat", B:"resist", C:"worsen", D:"continue" }, answer:"D" },
   { number: 503, word: "PERTURB", choices: { A:"disturb", B:"confuse", C:"frighten", D:"inconvenience" }, answer:"A" },
   { number: 504, word: "PIVOTAL", choices: { A:"difficult", B:"transformative", C:"crucial", D:"complex" }, answer:"C" },
 
   // Q words (6 questions: 505-510)
   { number: 505, word: "QUAINT", choices: { A:"appealing", B:"humble", C:"charming", D:"historic" }, answer:"C" },
-  { number: 506, word: "QUALIFY", choices: { A:"define", B:"clarify", C:"limit", D:"elaborate" }, answer:"C" },
+  { number: 506, word: "QUALIFY", choices: { A:"attempt", B:"succeed", C:"meet requirements", D:"compete" }, answer:"C" },
   { number: 507, word: "QUALM", choices: { A:"anxiety", B:"objection", C:"suspicion", D:"doubt" }, answer:"D" },
   { number: 508, word: "QUELL", choices: { A:"silence", B:"tame", C:"conquer", D:"suppress" }, answer:"D" },
   { number: 509, word: "QUEST", choices: { A:"search", B:"expedition", C:"pilgrimage", D:"challenge" }, answer:"A" },
@@ -637,7 +637,7 @@ window.QUESTIONS_ENHANCED1 = [
   { number: 554, word: "ULTIMATE", choices: { A:"definitive", B:"final", C:"supreme", D:"concluding" }, answer:"B" },
   { number: 555, word: "UNASSUMING", choices: { A:"modest", B:"insecure", C:"reserved", D:"timid" }, answer:"A" },
   { number: 556, word: "UNCANNY", choices: { A:"remarkable", B:"coincidental", C:"strange", D:"supernatural" }, answer:"C" },
-  { number: 557, word: "UNDERMINE", choices: { A:"corrupt", B:"discredit", C:"weaken", D:"attack" }, answer:"C" },
+  { number: 557, word: "UNDERMINE", choices: { A:"corrupt", B:"challenge", C:"weaken", D:"attack" }, answer:"C" },
   { number: 558, word: "UNIFORM", choices: { A:"rigid", B:"consistent", C:"orderly", D:"level" }, answer:"B" },
   { number: 559, word: "UNPRECEDENTED", choices: { A:"miraculous", B:"groundbreaking", C:"extraordinary", D:"unparalleled" }, answer:"D" },
   { number: 560, word: "UPHOLD", choices: { A:"promote", B:"justify", C:"support", D:"approve" }, answer:"C" },
@@ -658,7 +658,7 @@ window.QUESTIONS_ENHANCED1 = [
 
   // W words (8 questions: 573-580)
   { number: 573, word: "WAIVE", choices: { A:"yield", B:"relinquish", C:"postpone", D:"cancel" }, answer:"B" },
-  { number: 574, word: "WANE", choices: { A:"decrease", B:"falter", C:"subside", D:"recede" }, answer:"A" },
+  { number: 574, word: "WANE", choices: { A:"decrease", B:"falter", C:"disappear", D:"recede" }, answer:"A" },
   { number: 575, word: "WARY", choices: { A:"skeptical", B:"cautious", C:"vigilant", D:"paranoid" }, answer:"B" },
   { number: 576, word: "WHOLESOME", choices: { A:"healthy", B:"decent", C:"pure", D:"moral" }, answer:"A" },
   { number: 577, word: "WIELD", choices: { A:"employ", B:"manipulate", C:"hold", D:"possess" }, answer:"A" },
@@ -669,7 +669,7 @@ window.QUESTIONS_ENHANCED1 = [
   // X, Y, Z words (4 questions: 581-584)
   { number: 581, word: "XENOPHOBIA", choices: { A:"nationalism", B:"ignorance", C:"hostility", D:"fear of foreigners" }, answer:"D" },
   { number: 582, word: "YEARN", choices: { A:"long for", B:"envy", C:"reminisce", D:"anticipate" }, answer:"A" },
-  { number: 583, word: "YIELD", choices: { A:"sacrifice", B:"result in", C:"concede", D:"produce" }, answer:"D" },
+  { number: 583, word: "YIELD", choices: { A:"sacrifice", B:"result in", C:"harvest", D:"produce" }, answer:"D" },
   { number: 584, word: "ZENITH", choices: { A:"objective", B:"peak", C:"destination", D:"completion" }, answer:"B" },
   
   // Padding questions 585-600 to reach exactly 300
