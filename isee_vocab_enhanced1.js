@@ -1,8 +1,9 @@
-// isee_vocab_enhanced1.js
+// isee_vocab_enhanced_improved.js
 // Enhanced Option 1: 300 additional ISEE-level vocabulary words
 // These words are at the same difficulty level as the original 300
 // None of these words appear in the original list
 // Words distributed proportionally across all letters A-Z
+// NOTE: This version contains improved questions with more challenging distractors.
 
 window.DEFINITIONS_ENHANCED1 = {
   // A words (12)
@@ -18,7 +19,7 @@ window.DEFINITIONS_ENHANCED1 = {
   ARBITRARY: "random, unpredictable, capricious — Example: The decision seemed arbitrary and unfair.",
   ASCEND: "rise, climb, mount — Example: The hikers will ascend the mountain at dawn.",
   AUSTERE: "severe, stern, strict — Example: The monastery maintained an austere lifestyle.",
-  
+
   // B words (12)
   BAFFLE: "confuse, puzzle, perplex — Example: The mystery continued to baffle investigators.",
   BELIE: "contradict, misrepresent, disguise — Example: Her calm demeanor belies her inner anxiety.",
@@ -32,7 +33,7 @@ window.DEFINITIONS_ENHANCED1 = {
   BULWARK: "defense, protection, safeguard — Example: The constitution serves as a bulwark against tyranny.",
   BUOYANT: "cheerful, optimistic, upbeat — Example: She remained buoyant despite the setback.",
   BUTTRESS: "support, reinforce, strengthen — Example: Additional evidence will buttress the argument.",
-  
+
   // C words (18)
   CANDOR: "honesty, frankness, sincerity — Example: Her candor about the situation was refreshing.",
   CAPACIOUS: "spacious, roomy, large — Example: The capacious hall accommodated all the guests.",
@@ -52,7 +53,7 @@ window.DEFINITIONS_ENHANCED1 = {
   CONDUCIVE: "helpful, favorable, beneficial — Example: A quiet room is conducive to studying.",
   CONSENSUS: "agreement, accord, unity — Example: The committee reached a consensus on the issue.",
   CONSTRAIN: "restrict, limit, restrain — Example: Budget cuts constrain the department's activities.",
-  
+
   // D words (18)
   DAUNTING: "intimidating, discouraging, formidable — Example: The daunting task required careful planning.",
   DEFT: "skillful, adept, expert — Example: The surgeon's deft movements ensured success.",
@@ -72,7 +73,7 @@ window.DEFINITIONS_ENHANCED1 = {
   DISPERSE: "scatter, spread, disseminate — Example: Police ordered crowds to disperse peacefully.",
   DISSENT: "disagreement, opposition, protest — Example: One judge filed a dissent from the ruling.",
   DIVERGE: "separate, split, branch — Example: Their opinions diverge on economic policy.",
-  
+
   // E words (18)
   ECCENTRIC: "unconventional, odd, quirky — Example: The eccentric artist lived in a converted warehouse.",
   EDIFY: "educate, enlighten, instruct — Example: The lecture will edify students on history.",
@@ -92,7 +93,7 @@ window.DEFINITIONS_ENHANCED1 = {
   ENDORSE: "support, approve, back — Example: The organization will endorse the candidate.",
   ENHANCE: "improve, increase, augment — Example: New features enhance the product's appeal.",
   ENLIGHTEN: "inform, educate, illuminate — Example: The documentary will enlighten viewers about wildlife.",
-  
+
   // F words (18)
   FACILITATE: "assist, help, enable — Example: Technology can facilitate remote learning.",
   FACILE: "easy, simple, effortless — Example: The problem has no facile solution.",
@@ -112,7 +113,7 @@ window.DEFINITIONS_ENHANCED1 = {
   FORTIFY: "strengthen, reinforce, secure — Example: Troops fortify their positions against attack.",
   FOSTER: "encourage, promote, nurture — Example: Good teachers foster creativity in students.",
   FRAUGHT: "filled, laden, charged — Example: The situation is fraught with danger.",
-  
+
   // G words (12)
   GARNER: "gather, collect, accumulate — Example: The film will garner critical acclaim.",
   GAUNT: "thin, emaciated, haggard — Example: Illness left him gaunt and weak.",
@@ -126,7 +127,7 @@ window.DEFINITIONS_ENHANCED1 = {
   GRACIOUS: "courteous, kind, polite — Example: She was gracious in accepting the award.",
   GRADUAL: "slow, steady, progressive — Example: Gradual changes are easier to adapt to.",
   GRATIFY: "please, satisfy, delight — Example: The results gratify months of hard work.",
-  
+
   // H words (12)
   HACKNEYED: "overused, trite, cliched — Example: The speech was full of hackneyed phrases.",
   HAMPER: "hinder, obstruct, impede — Example: Bad weather will hamper rescue efforts.",
@@ -140,7 +141,7 @@ window.DEFINITIONS_ENHANCED1 = {
   HERMIT: "recluse, loner, solitary — Example: The hermit lived alone in the mountains.",
   HINDER: "obstruct, impede, block — Example: Traffic congestion will hinder our progress.",
   HUMBLE: "modest, unassuming, unpretentious — Example: Despite success, she remained humble.",
-  
+
   // I words (12)
   IDEOLOGY: "belief system, doctrine, philosophy — Example: Political parties differ in ideology.",
   IGNITE: "light, kindle, inflame — Example: A single spark can ignite a forest fire.",
@@ -154,7 +155,7 @@ window.DEFINITIONS_ENHANCED1 = {
   IMPEDE: "hinder, obstruct, block — Example: Debris will impede traffic flow.",
   IMPERATIVE: "essential, necessary, urgent — Example: It is imperative that we act quickly.",
   IMPERVIOUS: "resistant, immune, impenetrable — Example: The material is impervious to water.",
-  
+
   // J words (6)
   JEOPARDIZE: "endanger, threaten, risk — Example: Careless actions could jeopardize the mission.",
   JUBILANT: "joyful, exultant, triumphant — Example: The jubilant crowd celebrated the victory.",
@@ -162,13 +163,13 @@ window.DEFINITIONS_ENHANCED1 = {
   JUNCTION: "intersection, crossroads, connection — Example: Turn left at the next junction.",
   JUSTIFY: "defend, explain, validate — Example: Can you justify your reasoning?",
   JUXTAPOSE: "place side by side, compare, contrast — Example: The exhibit juxtaposes ancient and modern art.",
-  
+
   // K words (4)
   KINDLE: "ignite, light, spark — Example: Dry wood helps kindle a fire quickly.",
   KNACK: "talent, skill, aptitude — Example: She has a knack for solving puzzles.",
   KNOLL: "hill, mound, rise — Example: They picnicked on a grassy knoll.",
   KUDOS: "praise, acclaim, recognition — Example: Kudos to the team for excellent work.",
-  
+
   // L words (12)
   LABORIOUS: "difficult, arduous, strenuous — Example: The laborious task took all day.",
   LAMPOON: "satirize, mock, ridicule — Example: The comedy show lampooned political figures.",
@@ -182,7 +183,7 @@ window.DEFINITIONS_ENHANCED1 = {
   LEVITY: "humor, lightheartedness, frivolity — Example: A little levity helped ease the tension.",
   LUCID: "clear, understandable, coherent — Example: The professor gave a lucid explanation.",
   LUMINOUS: "bright, shining, radiant — Example: The moon cast a luminous glow over the lake.",
-  
+
   // M words (12)
   MAGNANIMOUS: "generous, forgiving, noble — Example: The magnanimous leader pardoned his critics.",
   MAGNITUDE: "size, extent, importance — Example: The magnitude of the problem became clear.",
@@ -196,7 +197,7 @@ window.DEFINITIONS_ENHANCED1 = {
   METICULOUS: "careful, thorough, precise — Example: He kept meticulous records of expenses.",
   MIRTH: "merriment, joy, laughter — Example: The party was full of mirth and celebration.",
   MITIGATE: "lessen, reduce, alleviate — Example: Sandbags helped mitigate flood damage.",
-  
+
   // N words (10)
   NASCENT: "emerging, budding, developing — Example: The nascent technology shows great promise.",
   NEGLIGIBLE: "insignificant, trivial, minor — Example: The cost difference is negligible.",
@@ -208,7 +209,7 @@ window.DEFINITIONS_ENHANCED1 = {
   NULLIFY: "cancel, invalidate, void — Example: The court will nullify the contract.",
   NOTABLE: "remarkable, significant, noteworthy — Example: She achieved notable success in her field.",
   NOTION: "idea, concept, belief — Example: He had a vague notion of what to do.",
-  
+
   // O words (10)
   OBLIGE: "require, compel, accommodate — Example: The law will oblige companies to report emissions.",
   OBLITERATE: "destroy, erase, eliminate — Example: The explosion obliterated the building.",
@@ -220,7 +221,7 @@ window.DEFINITIONS_ENHANCED1 = {
   OPTIMUM: "best, ideal, optimal — Example: These are the optimum conditions for growth.",
   OPULENT: "luxurious, wealthy, lavish — Example: The opulent mansion had marble floors.",
   OVERT: "obvious, open, apparent — Example: His overt hostility surprised everyone.",
-  
+
   // P words (18)
   PACIFY: "calm, soothe, appease — Example: Soft music helped pacify the crying baby.",
   PALPABLE: "tangible, obvious, evident — Example: The tension in the room was palpable.",
@@ -240,7 +241,7 @@ window.DEFINITIONS_ENHANCED1 = {
   PERSIST: "continue, persevere, endure — Example: The symptoms persist despite treatment.",
   PERTURB: "disturb, upset, trouble — Example: The news will perturb investors.",
   PIVOTAL: "crucial, critical, vital — Example: This is a pivotal moment in history.",
-  
+
   // Q words (6)
   QUAINT: "charming, old-fashioned, picturesque — Example: The quaint village attracted tourists.",
   QUALIFY: "modify, limit, meet requirements — Example: Few candidates qualify for the position.",
@@ -248,7 +249,7 @@ window.DEFINITIONS_ENHANCED1 = {
   QUELL: "suppress, subdue, crush — Example: Police moved to quell the riot.",
   QUEST: "search, pursuit, journey — Example: The scientist's quest for truth continues.",
   QUIBBLE: "argue, object, nitpick — Example: Don't quibble over minor details.",
-  
+
   // R words (12)
   RAMBLE: "wander, roam, meander — Example: We rambled through the countryside.",
   RANCOR: "bitterness, resentment, animosity — Example: The debate was filled with rancor.",
@@ -262,7 +263,7 @@ window.DEFINITIONS_ENHANCED1 = {
   RELENTLESS: "persistent, unremitting, continuous — Example: The relentless rain flooded streets.",
   RENOUNCE: "reject, abandon, disown — Example: He chose to renounce his citizenship.",
   REPUDIATE: "reject, deny, disavow — Example: The senator repudiated the accusations.",
-  
+
   // S words (18)
   SABOTAGE: "undermine, damage, subvert — Example: Hackers attempted to sabotage the system.",
   SAGE: "wise, prudent, sensible — Example: The sage advisor offered valuable counsel.",
@@ -282,7 +283,7 @@ window.DEFINITIONS_ENHANCED1 = {
   SLUGGISH: "slow, lethargic, inactive — Example: The economy remained sluggish.",
   SOMBER: "serious, grave, solemn — Example: The funeral was a somber occasion.",
   SPORADIC: "irregular, occasional, intermittent — Example: There were sporadic outbreaks of violence.",
-  
+
   // T words (12)
   TACITURN: "quiet, reserved, uncommunicative — Example: The taciturn guard rarely spoke.",
   TANGIBLE: "real, concrete, physical — Example: We need tangible proof of progress.",
@@ -296,7 +297,7 @@ window.DEFINITIONS_ENHANCED1 = {
   TIMOROUS: "fearful, timid, apprehensive — Example: The timorous rabbit fled quickly.",
   TOIL: "work hard, labor, struggle — Example: Farmers toil in the fields daily.",
   TURBULENT: "chaotic, stormy, violent — Example: The flight encountered turbulent weather.",
-  
+
   // U words (8)
   UBIQUITOUS: "everywhere, omnipresent, universal — Example: Smartphones are ubiquitous in modern society.",
   ULTIMATE: "final, eventual, supreme — Example: Victory was their ultimate goal.",
@@ -306,7 +307,7 @@ window.DEFINITIONS_ENHANCED1 = {
   UNIFORM: "consistent, identical, unchanging — Example: The temperature remained uniform.",
   UNPRECEDENTED: "unparalleled, novel, unique — Example: The crisis was unprecedented in scope.",
   UPHOLD: "support, maintain, sustain — Example: Courts uphold constitutional rights.",
-  
+
   // V words (12)
   VALID: "sound, legitimate, acceptable — Example: She raised a valid concern.",
   VALOR: "bravery, courage, heroism — Example: Soldiers displayed great valor in battle.",
@@ -320,7 +321,7 @@ window.DEFINITIONS_ENHANCED1 = {
   VINDICATE: "clear, exonerate, justify — Example: New evidence will vindicate him.",
   VIRTUAL: "nearly, practically, almost — Example: The project came to a virtual standstill.",
   VIRULENT: "poisonous, toxic, deadly — Example: The virulent disease spread rapidly.",
-  
+
   // W words (8)
   WAIVE: "relinquish, forgo, surrender — Example: They agreed to waive the fee.",
   WANE: "decrease, decline, diminish — Example: His influence began to wane.",
@@ -330,7 +331,7 @@ window.DEFINITIONS_ENHANCED1 = {
   WILLFUL: "deliberate, intentional, stubborn — Example: His willful disobedience had consequences.",
   WITHER: "shrivel, wilt, fade — Example: Plants wither without water.",
   WRATH: "anger, fury, rage — Example: The king's wrath was fearsome.",
-  
+
   // X, Y, Z words (4)
   XENOPHOBIA: "fear of foreigners, prejudice, intolerance — Example: Xenophobia has no place in modern society.",
   YEARN: "long for, desire, crave — Example: She yearned for adventure.",
@@ -340,355 +341,356 @@ window.DEFINITIONS_ENHANCED1 = {
 
 window.QUESTIONS_ENHANCED1 = [
   // A words (12 questions: 301-312)
-  { number: 301, word: "ABSURD", choices: { A:"logical", B:"ridiculous", C:"pleasant", D:"simple" }, answer:"B" },
-  { number: 302, word: "ACCLAIM", choices: { A:"praise", B:"reject", C:"silence", D:"whisper" }, answer:"A" },
-  { number: 303, word: "ACUTE", choices: { A:"mild", B:"chronic", C:"sharp", D:"dull" }, answer:"C" },
-  { number: 304, word: "ADVERSITY", choices: { A:"happiness", B:"hardship", C:"success", D:"fortune" }, answer:"B" },
-  { number: 305, word: "AFFABLE", choices: { A:"hostile", B:"mysterious", C:"friendly", D:"serious" }, answer:"C" },
-  { number: 306, word: "ALACRITY", choices: { A:"reluctance", B:"confusion", C:"eagerness", D:"sorrow" }, answer:"C" },
-  { number: 307, word: "ALLOCATE", choices: { A:"distribute", B:"withhold", C:"destroy", D:"create" }, answer:"A" },
-  { number: 308, word: "AMBUSH", choices: { A:"retreat", B:"greeting", C:"trap", D:"warning" }, answer:"C" },
-  { number: 309, word: "ANALOGY", choices: { A:"difference", B:"comparison", C:"opposition", D:"conclusion" }, answer:"B" },
-  { number: 310, word: "ARBITRARY", choices: { A:"planned", B:"fair", C:"random", D:"necessary" }, answer:"C" },
-  { number: 311, word: "ASCEND", choices: { A:"descend", B:"remain", C:"rise", D:"fall" }, answer:"C" },
-  { number: 312, word: "AUSTERE", choices: { A:"luxurious", B:"severe", C:"comfortable", D:"decorated" }, answer:"B" },
-  
+  { number: 301, word: "ABSURD", choices: { A:"ridiculous", B:"unusual", C:"silly", D:"impossible" }, answer:"A" },
+  { number: 302, word: "ACCLAIM", choices: { A:"fame", B:"praise", C:"acknowledgment", D:"popularity" }, answer:"B" },
+  { number: 303, word: "ACUTE", choices: { A:"sharp", B:"sudden", C:"severe", D:"noticeable" }, answer:"A" },
+  { number: 304, word: "ADVERSITY", choices: { A:"disaster", B:"obstacle", C:"hardship", D:"tragedy" }, answer:"C" },
+  { number: 305, word: "AFFABLE", choices: { A:"friendly", B:"polite", C:"talkative", D:"welcoming" }, answer:"A" },
+  { number: 306, word: "ALACRITY", choices: { A:"eagerness", B:"speed", C:"excitement", D:"happiness" }, answer:"A" },
+  { number: 307, word: "ALLOCATE", choices: { A:"organize", B:"share", C:"divide", D:"distribute" }, answer:"D" },
+  { number: 308, word: "AMBUSH", choices: { A:"a blockade", B:"an obstacle", C:"a secret plan", D:"a surprise attack" }, answer:"D" },
+  { number: 309, word: "ANALOGY", choices: { A:"a puzzle", B:"a comparison", C:"a suggestion", D:"a story" }, answer:"B" },
+  { number: 310, word: "ARBITRARY", choices: { A:"random", B:"senseless", C:"reckless", D:"inconsistent" }, answer:"A" },
+  { number: 311, word: "ASCEND", choices: { A:"levitate", B:"overcome", C:"soar", D:"rise" }, answer:"D" },
+  { number: 312, word: "AUSTERE", choices: { A:"traditional", B:"simple", C:"severe", D:"somber" }, answer:"C" },
+
   // B words (12 questions: 313-324)
-  { number: 313, word: "BAFFLE", choices: { A:"clarify", B:"simplify", C:"confuse", D:"explain" }, answer:"C" },
-  { number: 314, word: "BELIE", choices: { A:"confirm", B:"contradict", C:"prove", D:"support" }, answer:"B" },
-  { number: 315, word: "BENEVOLENT", choices: { A:"cruel", B:"kind", C:"neutral", D:"indifferent" }, answer:"B" },
-  { number: 316, word: "BESTOW", choices: { A:"take", B:"refuse", C:"give", D:"borrow" }, answer:"C" },
-  { number: 317, word: "BREVITY", choices: { A:"length", B:"briefness", C:"complexity", D:"detail" }, answer:"B" },
-  { number: 318, word: "BRISK", choices: { A:"slow", B:"lazy", C:"quick", D:"tired" }, answer:"C" },
-  { number: 319, word: "BRITTLE", choices: { A:"strong", B:"flexible", C:"fragile", D:"durable" }, answer:"C" },
-  { number: 320, word: "BROOD", choices: { A:"celebrate", B:"ignore", C:"ponder", D:"forget" }, answer:"C" },
-  { number: 321, word: "BRUSQUE", choices: { A:"polite", B:"gentle", C:"abrupt", D:"patient" }, answer:"C" },
-  { number: 322, word: "BULWARK", choices: { A:"weakness", B:"attack", C:"defense", D:"surrender" }, answer:"C" },
-  { number: 323, word: "BUOYANT", choices: { A:"depressed", B:"heavy", C:"cheerful", D:"sinking" }, answer:"C" },
-  { number: 324, word: "BUTTRESS", choices: { A:"weaken", B:"undermine", C:"support", D:"destroy" }, answer:"C" },
-  
+  { number: 313, word: "BAFFLE", choices: { A:"confuse", B:"interrupt", C:"frustrate", D:"amuse" }, answer:"A" },
+  { number: 314, word: "BELIE", choices: { A:"disguise", B:"contradict", C:"corrupt", D:"withhold" }, answer:"B" },
+  { number: 315, word: "BENEVOLENT", choices: { A:"forgiving", B:"helpful", C:"kind", D:"tolerant" }, answer:"C" },
+  { number: 316, word: "BESTOW", choices: { A:"lend", B:"share", C:"offer", D:"give" }, answer:"D" },
+  { number: 317, word: "BREVITY", choices: { A:"briefness", B:"simplicity", C:"speed", D:"effectiveness" }, answer:"A" },
+  { number: 318, word: "BRISK", choices: { A:"cold", B:"lively", C:"refreshing", D:"sudden" }, answer:"B" },
+  { number: 319, word: "BRITTLE", choices: { A:"old", B:"fragile", C:"sharp", D:"stiff" }, answer:"B" },
+  { number: 320, word: "BROOD", choices: { A:"ponder", B:"regret", C:"resent", D:"daydream" }, answer:"A" },
+  { number: 321, word: "BRUSQUE", choices: { A:"rude", B:"informal", C:"abrupt", D:"hasty" }, answer:"C" },
+  { number: 322, word: "BULWARK", choices: { A:"fortress", B:"barrier", C:"weapon", D:"defense" }, answer:"D" },
+  { number: 323, word: "BUOYANT", choices: { A:"afloat", B:"successful", C:"cheerful", D:"weightless" }, answer:"C" },
+  { number: 324, word: "BUTTRESS", choices: { A:"build", B:"defend", C:"support", D:"enclose" }, answer:"C" },
+
   // C words (18 questions: 325-342)
-  { number: 325, word: "CANDOR", choices: { A:"deception", B:"honesty", C:"secrecy", D:"confusion" }, answer:"B" },
-  { number: 326, word: "CAPACIOUS", choices: { A:"tiny", B:"narrow", C:"spacious", D:"cramped" }, answer:"C" },
-  { number: 327, word: "CEDE", choices: { A:"take", B:"surrender", C:"demand", D:"claim" }, answer:"B" },
-  { number: 328, word: "CIRCUMVENT", choices: { A:"confront", B:"avoid", C:"attack", D:"embrace" }, answer:"B" },
-  { number: 329, word: "COERCE", choices: { A:"persuade", B:"force", C:"request", D:"suggest" }, answer:"B" },
-  { number: 330, word: "COGNIZANT", choices: { A:"unaware", B:"confused", C:"aware", D:"ignorant" }, answer:"C" },
-  { number: 331, word: "COHERENT", choices: { A:"illogical", B:"confused", C:"logical", D:"random" }, answer:"C" },
-  { number: 332, word: "COMMEMORATE", choices: { A:"forget", B:"ignore", C:"honor", D:"dismiss" }, answer:"C" },
-  { number: 333, word: "COMPELLING", choices: { A:"weak", B:"unconvincing", C:"persuasive", D:"boring" }, answer:"C" },
-  { number: 334, word: "COMPENSATE", choices: { A:"punish", B:"repay", C:"take", D:"refuse" }, answer:"B" },
-  { number: 335, word: "COMPLACENT", choices: { A:"worried", B:"concerned", C:"satisfied", D:"anxious" }, answer:"C" },
-  { number: 336, word: "COMPLY", choices: { A:"resist", B:"rebel", C:"obey", D:"refuse" }, answer:"C" },
-  { number: 337, word: "COMPOSURE", choices: { A:"panic", B:"hysteria", C:"calmness", D:"excitement" }, answer:"C" },
-  { number: 338, word: "COMPREHENSIVE", choices: { A:"incomplete", B:"partial", C:"complete", D:"limited" }, answer:"C" },
-  { number: 339, word: "CONDEMN", choices: { A:"praise", B:"approve", C:"criticize", D:"support" }, answer:"C" },
-  { number: 340, word: "CONDUCIVE", choices: { A:"harmful", B:"helpful", C:"neutral", D:"detrimental" }, answer:"B" },
-  { number: 341, word: "CONSENSUS", choices: { A:"disagreement", B:"conflict", C:"agreement", D:"debate" }, answer:"C" },
-  { number: 342, word: "CONSTRAIN", choices: { A:"free", B:"release", C:"restrict", D:"liberate" }, answer:"C" },
-  
+  { number: 325, word: "CANDOR", choices: { A:"confidence", B:"honesty", C:"courage", D:"certainty" }, answer:"B" },
+  { number: 326, word: "CAPACIOUS", choices: { A:"hollow", B:"huge", C:"spacious", D:"tall" }, answer:"C" },
+  { number: 327, word: "CEDE", choices: { A:"surrender", B:"sacrifice", C:"negotiate", D:"withdraw" }, answer:"A" },
+  { number: 328, word: "CIRCUMVENT", choices: { A:"disrupt", B:"avoid", C:"cancel", D:"outwit" }, answer:"B" },
+  { number: 329, word: "COERCE", choices: { A:"persuade", B:"threaten", C:"bribe", D:"force" }, answer:"D" },
+  { number: 330, word: "COGNIZANT", choices: { A:"intelligent", B:"aware", C:"thoughtful", D:"wary" }, answer:"B" },
+  { number: 331, word: "COHERENT", choices: { A:"fluent", B:"persuasive", C:"logical", D:"grammatical" }, answer:"C" },
+  { number: 332, word: "COMMEMORATE", choices: { A:"celebrate", B:"remember", C:"honor", D:"broadcast" }, answer:"C" },
+  { number: 333, word: "COMPELLING", choices: { A:"persuasive", B:"fascinating", C:"forceful", D:"dramatic" }, answer:"A" },
+  { number: 334, word: "COMPENSATE", choices: { A:"repay", B:"reward", C:"fix", D:"subsidize" }, answer:"A" },
+  { number: 335, word: "COMPLACENT", choices: { A:"lazy", B:"arrogant", C:"satisfied", D:"careless" }, answer:"C" },
+  { number: 336, word: "COMPLY", choices: { A:"accept", B:"yield", C:"surrender", D:"obey" }, answer:"D" },
+  { number: 337, word: "COMPOSURE", choices: { A:"patience", B:"dignity", C:"calmness", D:"peace" }, answer:"C" },
+  { number: 338, word: "COMPREHENSIVE", choices: { A:"complete", B:"accurate", C:"enormous", D:"official" }, answer:"A" },
+  { number: 339, word: "CONDEMN", choices: { A:"punish", B:"criticize", C:"blame", D:"forbid" }, answer:"B" },
+  { number: 340, word: "CONDUCIVE", choices: { A:"helpful", B:"related", C:"necessary", D:"effective" }, answer:"A" },
+  { number: 341, word: "CONSENSUS", choices: { A:"a decision", B:"a compromise", C:"agreement", D:"a majority" }, answer:"C" },
+  { number: 342, word: "CONSTRAIN", choices: { A:"frustrate", B:"prevent", C:"restrict", D:"force" }, answer:"C" },
+
   // D words (18 questions: 343-360)
-  { number: 343, word: "DAUNTING", choices: { A:"encouraging", B:"easy", C:"intimidating", D:"simple" }, answer:"C" },
-  { number: 344, word: "DEFT", choices: { A:"clumsy", B:"awkward", C:"skillful", D:"incompetent" }, answer:"C" },
-  { number: 345, word: "DELEGATE", choices: { A:"claim", B:"hoard", C:"assign", D:"keep" }, answer:"C" },
-  { number: 346, word: "DELINEATE", choices: { A:"obscure", B:"confuse", C:"outline", D:"hide" }, answer:"C" },
-  { number: 347, word: "DENOUNCE", choices: { A:"praise", B:"support", C:"condemn", D:"approve" }, answer:"C" },
-  { number: 348, word: "DEPLETE", choices: { A:"replenish", B:"fill", C:"exhaust", D:"restore" }, answer:"C" },
-  { number: 349, word: "DERIDE", choices: { A:"praise", B:"compliment", C:"mock", D:"admire" }, answer:"C" },
-  { number: 350, word: "DERIVE", choices: { A:"give", B:"donate", C:"obtain", D:"lose" }, answer:"C" },
-  { number: 351, word: "DETER", choices: { A:"encourage", B:"motivate", C:"discourage", D:"inspire" }, answer:"C" },
-  { number: 352, word: "DEVIATE", choices: { A:"follow", B:"conform", C:"diverge", D:"obey" }, answer:"C" },
-  { number: 353, word: "DEVISE", choices: { A:"destroy", B:"copy", C:"invent", D:"imitate" }, answer:"C" },
-  { number: 354, word: "DILIGENT", choices: { A:"lazy", B:"careless", C:"hardworking", D:"negligent" }, answer:"C" },
-  { number: 355, word: "DISCERN", choices: { A:"ignore", B:"overlook", C:"perceive", D:"miss" }, answer:"C" },
-  { number: 356, word: "DISCRETE", choices: { A:"connected", B:"merged", C:"separate", D:"combined" }, answer:"C" },
-  { number: 357, word: "DISPARITY", choices: { A:"equality", B:"similarity", C:"difference", D:"sameness" }, answer:"C" },
-  { number: 358, word: "DISPERSE", choices: { A:"gather", B:"collect", C:"scatter", D:"assemble" }, answer:"C" },
-  { number: 359, word: "DISSENT", choices: { A:"agreement", B:"consent", C:"disagreement", D:"approval" }, answer:"C" },
-  { number: 360, word: "DIVERGE", choices: { A:"converge", B:"meet", C:"separate", D:"unite" }, answer:"C" },
-  
+  { number: 343, word: "DAUNTING", choices: { A:"intimidating", B:"difficult", C:"stressful", D:"unpleasant" }, answer:"A" },
+  { number: 344, word: "DEFT", choices: { A:"quick", B:"delicate", C:"skillful", D:"careful" }, answer:"C" },
+  { number: 345, word: "DELEGATE", choices: { A:"choose", B:"assign", C:"promote", D:"instruct" }, answer:"B" },
+  { number: 346, word: "DELINEATE", choices: { A:"design", B:"illustrate", C:"portray", D:"outline" }, answer:"D" },
+  { number: 347, word: "DENOUNCE", choices: { A:"condemn", B:"expose", C:"accuse", D:"disprove" }, answer:"A" },
+  { number: 348, word: "DEPLETE", choices: { A:"waste", B:"exhaust", C:"remove", D:"spoil" }, answer:"B" },
+  { number: 349, word: "DERIDE", choices: { A:"offend", B:"mock", C:"dislike", D:"underestimate" }, answer:"B" },
+  { number: 350, word: "DERIVE", choices: { A:"conclude", B:"obtain", C:"understand", D:"create" }, answer:"B" },
+  { number: 351, word: "DETER", choices: { A:"warn", B:"prevent", C:"discourage", D:"frighten" }, answer:"C" },
+  { number: 352, word: "DEVIATE", choices: { A:"rebel", B:"diverge", C:"modify", D:"contradict" }, answer:"B" },
+  { number: 353, word: "DEVISE", choices: { A:"invent", B:"plan", C:"imagine", D:"discover" }, answer:"A" },
+  { number: 354, word: "DILIGENT", choices: { A:"patient", B:"focused", C:"hardworking", D:"ambitious" }, answer:"C" },
+  { number: 355, word: "DISCERN", choices: { A:"imagine", B:"consider", C:"guess", D:"perceive" }, answer:"D" },
+  { number: 356, word: "DISCRETE", choices: { A:"hidden", B:"separate", C:"subtle", D:"minor" }, answer:"B" },
+  { number: 357, word: "DISPARITY", choices: { A:"disadvantage", B:"conflict", C:"difference", D:"injustice" }, answer:"C" },
+  { number: 358, word: "DISPERSE", choices: { A:"scatter", B:"evacuate", C:"flee", D:"dissolve" }, answer:"A" },
+  { number: 359, word: "DISSENT", choices: { A:"protest", B:"disagreement", C:"rebellion", D:"conflict" }, answer:"B" },
+  { number: 360, word: "DIVERGE", choices: { A:"separate", B:"curve", C:"recede", D:"transform" }, answer:"A" },
+
   // E words (18 questions: 361-378)
-  { number: 361, word: "ECCENTRIC", choices: { A:"conventional", B:"normal", C:"unconventional", D:"typical" }, answer:"C" },
-  { number: 362, word: "EDIFY", choices: { A:"confuse", B:"mislead", C:"educate", D:"deceive" }, answer:"C" },
-  { number: 363, word: "ELABORATE", choices: { A:"simple", B:"plain", C:"detailed", D:"basic" }, answer:"C" },
-  { number: 364, word: "ELICIT", choices: { A:"suppress", B:"hide", C:"draw out", D:"conceal" }, answer:"C" },
-  { number: 365, word: "ELIGIBLE", choices: { A:"unqualified", B:"unsuitable", C:"qualified", D:"ineligible" }, answer:"C" },
-  { number: 366, word: "ELUCIDATE", choices: { A:"confuse", B:"obscure", C:"explain", D:"complicate" }, answer:"C" },
-  { number: 367, word: "EMANATE", choices: { A:"absorb", B:"receive", C:"originate", D:"take" }, answer:"C" },
-  { number: 368, word: "EMANCIPATE", choices: { A:"enslave", B:"imprison", C:"free", D:"capture" }, answer:"C" },
-  { number: 369, word: "EMBARK", choices: { A:"end", B:"finish", C:"begin", D:"conclude" }, answer:"C" },
-  { number: 370, word: "EMERGE", choices: { A:"hide", B:"disappear", C:"appear", D:"vanish" }, answer:"C" },
-  { number: 371, word: "EMINENT", choices: { A:"unknown", B:"obscure", C:"distinguished", D:"anonymous" }, answer:"C" },
-  { number: 372, word: "EMPHASIZE", choices: { A:"downplay", B:"minimize", C:"stress", D:"ignore" }, answer:"C" },
-  { number: 373, word: "EMPIRICAL", choices: { A:"theoretical", B:"hypothetical", C:"experimental", D:"speculative" }, answer:"C" },
-  { number: 374, word: "EMULATE", choices: { A:"reject", B:"oppose", C:"imitate", D:"refuse" }, answer:"C" },
-  { number: 375, word: "ENCOMPASS", choices: { A:"exclude", B:"omit", C:"include", D:"reject" }, answer:"C" },
-  { number: 376, word: "ENDORSE", choices: { A:"oppose", B:"reject", C:"support", D:"condemn" }, answer:"C" },
-  { number: 377, word: "ENHANCE", choices: { A:"worsen", B:"degrade", C:"improve", D:"diminish" }, answer:"C" },
-  { number: 378, word: "ENLIGHTEN", choices: { A:"confuse", B:"mislead", C:"inform", D:"deceive" }, answer:"C" },
-  
+  { number: 361, word: "ECCENTRIC", choices: { A:"unconventional", B:"creative", C:"isolated", D:"foolish" }, answer:"A" },
+  { number: 362, word: "EDIFY", choices: { A:"persuade", B:"entertain", C:"comfort", D:"educate" }, answer:"D" },
+  { number: 363, word: "ELABORATE", choices: { A:"difficult", B:"detailed", C:"excessive", D:"ornate" }, answer:"B" },
+  { number: 364, word: "ELICIT", choices: { A:"demand", B:"draw out", C:"request", D:"deduce" }, answer:"B" },
+  { number: 365, word: "ELIGIBLE", choices: { A:"prepared", B:"considered", C:"qualified", D:"accepted" }, answer:"C" },
+  { number: 366, word: "ELUCIDATE", choices: { A:"simplify", B:"explain", C:"reveal", D:"prove" }, answer:"B" },
+  { number: 367, word: "EMANATE", choices: { A:"originate", B:"escape", C:"radiate", D:"transmit" }, answer:"A" },
+  { number: 368, word: "EMANCIPATE", choices: { A:"defend", B:"justify", C:"pardon", D:"free" }, answer:"D" },
+  { number: 369, word: "EMBARK", choices: { A:"begin", B:"travel", C:"prepare", D:"board" }, answer:"A" },
+  { number: 370, word: "EMERGE", choices: { A:"erupt", B:"develop", C:"appear", D:"advance" }, answer:"C" },
+  { number: 371, word: "EMINENT", choices: { A:"distinguished", B:"powerful", C:"wealthy", D:"arrogant" }, answer:"A" },
+  { number: 372, word: "EMPHASIZE", choices: { A:"prioritize", B:"focus on", C:"exaggerate", D:"stress" }, answer:"D" },
+  { number: 373, word: "EMPIRICAL", choices: { A:"theoretical", B:"logical", C:"experimental", D:"statistical" }, answer:"C" },
+  { number: 374, word: "EMULATE", choices: { A:"imitate", B:"admire", C:"challenge", D:"envy" }, answer:"A" },
+  { number: 375, word: "ENCOMPASS", choices: { A:"confine", B:"include", C:"border", D:"define" }, answer:"B" },
+  { number: 376, word: "ENDORSE", choices: { A:"authorize", B:"publicize", C:"recommend", D:"support" }, answer:"D" },
+  { number: 377, word: "ENHANCE", choices: { A:"improve", B:"intensify", C:"decorate", D:"strengthen" }, answer:"A" },
+  { number: 378, word: "ENLIGHTEN", choices: { A:"advise", B:"persuade", C:"inform", D:"reveal" }, answer:"C" },
+
   // F words (18 questions: 379-396)
-  { number: 379, word: "FACILITATE", choices: { A:"hinder", B:"obstruct", C:"assist", D:"block" }, answer:"C" },
-  { number: 380, word: "FACILE", choices: { A:"difficult", B:"complex", C:"easy", D:"hard" }, answer:"C" },
-  { number: 381, word: "FALLOW", choices: { A:"active", B:"productive", C:"unused", D:"cultivated" }, answer:"C" },
-  { number: 382, word: "FEASIBLE", choices: { A:"impossible", B:"impractical", C:"possible", D:"unworkable" }, answer:"C" },
-  { number: 383, word: "FEIGN", choices: { A:"reveal", B:"show", C:"pretend", D:"expose" }, answer:"C" },
-  { number: 384, word: "FINITE", choices: { A:"infinite", B:"endless", C:"limited", D:"boundless" }, answer:"C" },
-  { number: 385, word: "FLAGRANT", choices: { A:"subtle", B:"hidden", C:"blatant", D:"concealed" }, answer:"C" },
-  { number: 386, word: "FLAW", choices: { A:"perfection", B:"strength", C:"defect", D:"virtue" }, answer:"C" },
-  { number: 387, word: "FLUCTUATE", choices: { A:"stabilize", B:"steady", C:"vary", D:"fix" }, answer:"C" },
-  { number: 388, word: "FLUENT", choices: { A:"halting", B:"awkward", C:"smooth", D:"clumsy" }, answer:"C" },
-  { number: 389, word: "FOIBLE", choices: { A:"strength", B:"virtue", C:"weakness", D:"talent" }, answer:"C" },
-  { number: 390, word: "FORBEAR", choices: { A:"indulge", B:"permit", C:"refrain", D:"allow" }, answer:"C" },
-  { number: 391, word: "FORESTALL", choices: { A:"allow", B:"permit", C:"prevent", D:"enable" }, answer:"C" },
-  { number: 392, word: "FORGE", choices: { A:"destroy", B:"break", C:"create", D:"demolish" }, answer:"C" },
-  { number: 393, word: "FORSAKE", choices: { A:"embrace", B:"keep", C:"abandon", D:"maintain" }, answer:"C" },
-  { number: 394, word: "FORTIFY", choices: { A:"weaken", B:"undermine", C:"strengthen", D:"destroy" }, answer:"C" },
-  { number: 395, word: "FOSTER", choices: { A:"discourage", B:"hinder", C:"encourage", D:"prevent" }, answer:"C" },
-  { number: 396, word: "FRAUGHT", choices: { A:"empty", B:"devoid", C:"filled", D:"lacking" }, answer:"C" },
-  
+  { number: 379, word: "FACILITATE", choices: { A:"approve", B:"assist", C:"generate", D:"supervise" }, answer:"B" },
+  { number: 380, word: "FACILE", choices: { A:"effortless", B:"shallow", C:"easy", D:"obvious" }, answer:"C" },
+  { number: 381, word: "FALLOW", choices: { A:"dry", B:"abandoned", C:"barren", D:"unused" }, answer:"D" },
+  { number: 382, word: "FEASIBLE", choices: { A:"possible", B:"reasonable", C:"desirable", D:"affordable" }, answer:"A" },
+  { number: 383, word: "FEIGN", choices: { A:"deceive", B:"imitate", C:"pretend", D:"imagine" }, answer:"C" },
+  { number: 384, word: "FINITE", choices: { A:"temporary", B:"measurable", C:"incomplete", D:"limited" }, answer:"D" },
+  { number: 385, word: "FLAGRANT", choices: { A:"harmful", B:"offensive", C:"blatant", D:"unlawful" }, answer:"C" },
+  { number: 386, word: "FLAW", choices: { A:"complaint", B:"error", C:"defect", D:"crack" }, answer:"C" },
+  { number: 387, word: "FLUCTUATE", choices: { A:"hesitate", B:"vary", C:"alternate", D:"vibrate" }, answer:"B" },
+  { number: 388, word: "FLUENT", choices: { A:"natural", B:"eloquent", C:"smooth", D:"persuasive" }, answer:"C" },
+  { number: 389, word: "FOIBLE", choices: { A:"weakness", B:"bad habit", C:"mistake", D:"secret" }, answer:"A" },
+  { number: 390, word: "FORBEAR", choices: { A:"refrain", B:"resist", C:"postpone", D:"hesitate" }, answer:"A" },
+  { number: 391, word: "FORESTALL", choices: { A:"warn", B:"delay", C:"prevent", D:"defeat" }, answer:"C" },
+  { number: 392, word: "FORGE", choices: { A:"imitate", B:"create", C:"design", D:"assemble" }, answer:"B" },
+  { number: 393, word: "FORSAKE", choices: { A:"betray", B:"neglect", C:"abandon", D:"disown" }, answer:"C" },
+  { number: 394, word: "FORTIFY", choices: { A:"strengthen", B:"prepare", C:"defend", D:"enclose" }, answer:"A" },
+  { number: 395, word: "FOSTER", choices: { A:"advise", B:"adopt", C:"shelter", D:"encourage" }, answer:"D" },
+  { number: 396, word: "FRAUGHT", choices: { A:"filled", B:"risky", C:"complicated", D:"upsetting" }, answer:"A" },
+
   // G words (12 questions: 397-408)
-  { number: 397, word: "GARNER", choices: { A:"lose", B:"scatter", C:"gather", D:"disperse" }, answer:"C" },
-  { number: 398, word: "GAUNT", choices: { A:"plump", B:"healthy", C:"thin", D:"robust" }, answer:"C" },
-  { number: 399, word: "GENERIC", choices: { A:"specific", B:"unique", C:"general", D:"special" }, answer:"C" },
-  { number: 400, word: "GENIAL", choices: { A:"hostile", B:"unfriendly", C:"friendly", D:"cold" }, answer:"C" },
-  { number: 401, word: "GESTURE", choices: { A:"stillness", B:"immobility", C:"signal", D:"inaction" }, answer:"C" },
-  { number: 402, word: "GHASTLY", choices: { A:"pleasant", B:"beautiful", C:"horrible", D:"lovely" }, answer:"C" },
-  { number: 403, word: "GIST", choices: { A:"detail", B:"trivia", C:"essence", D:"specifics" }, answer:"C" },
-  { number: 404, word: "GLEAN", choices: { A:"scatter", B:"disperse", C:"gather", D:"distribute" }, answer:"C" },
-  { number: 405, word: "GLIB", choices: { A:"sincere", B:"thoughtful", C:"smooth", D:"genuine" }, answer:"C" },
-  { number: 406, word: "GRACIOUS", choices: { A:"rude", B:"impolite", C:"courteous", D:"discourteous" }, answer:"C" },
-  { number: 407, word: "GRADUAL", choices: { A:"sudden", B:"abrupt", C:"slow", D:"immediate" }, answer:"C" },
-  { number: 408, word: "GRATIFY", choices: { A:"disappoint", B:"frustrate", C:"please", D:"displease" }, answer:"C" },
-  
+  { number: 397, word: "GARNER", choices: { A:"gather", B:"achieve", C:"deserve", D:"request" }, answer:"A" },
+  { number: 398, word: "GAUNT", choices: { A:"thin", B:"pale", C:"aged", D:"exhausted" }, answer:"A" },
+  { number: 399, word: "GENERIC", choices: { A:"simple", B:"inferior", C:"standard", D:"general" }, answer:"D" },
+  { number: 400, word: "GENIAL", choices: { A:"respectful", B:"sincere", C:"friendly", D:"patient" }, answer:"C" },
+  { number: 401, word: "GESTURE", choices: { A:"reaction", B:"custom", C:"signal", D:"habit" }, answer:"C" },
+  { number: 402, word: "GHASTLY", choices: { A:"frightening", B:"violent", C:"horrible", D:"grotesque" }, answer:"C" },
+  { number: 403, word: "GIST", choices: { A:"an opinion", B:"a summary", C:"essence", D:"a conclusion" }, answer:"C" },
+  { number: 404, word: "GLEAN", choices: { A:"discover", B:"examine", C:"deduce", D:"gather" }, answer:"D" },
+  { number: 405, word: "GLIB", choices: { A:"deceptive", B:"clever", C:"smooth", D:"persuasive" }, answer:"C" },
+  { number: 406, word: "GRACIOUS", choices: { A:"courteous", B:"welcoming", C:"formal", D:"forgiving" }, answer:"A" },
+  { number: 407, word: "GRADUAL", choices: { A:"subtle", B:"unhurried", C:"slight", D:"slow" }, answer:"D" },
+  { number: 408, word: "GRATIFY", choices: { A:"reward", B:"please", C:"appreciate", D:"approve" }, answer:"B" },
+
   // H words (12 questions: 409-420)
-  { number: 409, word: "HACKNEYED", choices: { A:"original", B:"fresh", C:"overused", D:"novel" }, answer:"C" },
-  { number: 410, word: "HAMPER", choices: { A:"help", B:"assist", C:"hinder", D:"aid" }, answer:"C" },
-  { number: 411, word: "HARMONIOUS", choices: { A:"discordant", B:"conflicting", C:"agreeable", D:"clashing" }, answer:"C" },
-  { number: 412, word: "HASTEN", choices: { A:"delay", B:"slow", C:"hurry", D:"dawdle" }, answer:"C" },
-  { number: 413, word: "HAUGHTY", choices: { A:"humble", B:"modest", C:"arrogant", D:"meek" }, answer:"C" },
-  { number: 414, word: "HAVOC", choices: { A:"order", B:"peace", C:"chaos", D:"harmony" }, answer:"C" },
-  { number: 415, word: "HEED", choices: { A:"ignore", B:"disregard", C:"notice", D:"overlook" }, answer:"C" },
-  { number: 416, word: "HEINOUS", choices: { A:"virtuous", B:"good", C:"evil", D:"righteous" }, answer:"C" },
-  { number: 417, word: "HERALD", choices: { A:"conceal", B:"hide", C:"announce", D:"suppress" }, answer:"C" },
-  { number: 418, word: "HERMIT", choices: { A:"socialite", B:"extrovert", C:"recluse", D:"mingler" }, answer:"C" },
-  { number: 419, word: "HINDER", choices: { A:"help", B:"facilitate", C:"obstruct", D:"aid" }, answer:"C" },
-  { number: 420, word: "HUMBLE", choices: { A:"arrogant", B:"proud", C:"modest", D:"boastful" }, answer:"C" },
-  
+  { number: 409, word: "HACKNEYED", choices: { A:"silly", B:"predictable", C:"overused", D:"outdated" }, answer:"C" },
+  { number: 410, word: "HAMPER", choices: { A:"hinder", B:"entangle", C:"weaken", D:"damage" }, answer:"A" },
+  { number: 411, word: "HARMONIOUS", choices: { A:"melodic", B:"balanced", C:"agreeable", D:"cooperative" }, answer:"C" },
+  { number: 412, word: "HASTEN", choices: { A:"chase", B:"urge", C:"propel", D:"hurry" }, answer:"D" },
+  { number: 413, word: "HAUGHTY", choices: { A:"strict", B:"boastful", C:"bossy", D:"arrogant" }, answer:"D" },
+  { number: 414, word: "HAVOC", choices: { A:"chaos", B:"fear", C:"panic", D:"anarchy" }, answer:"A" },
+  { number: 415, word: "HEED", choices: { A:"obey", B:"acknowledge", C:"notice", D:"consider" }, answer:"C" },
+  { number: 416, word: "HEINOUS", choices: { A:"evil", B:"unforgivable", C:"violent", D:"depraved" }, answer:"A" },
+  { number: 417, word: "HERALD", choices: { A:"deliver", B:"present", C:"signal", D:"forecast" }, answer:"C" },
+  { number: 418, word: "HERMIT", choices: { A:"misfit", B:"exile", C:"recluse", D:"monk" }, answer:"C" },
+  { number: 419, word: "HINDER", choices: { A:"complicate", B:"obstruct", C:"sabotage", D:"postpone" }, answer:"B" },
+  { number: 420, word: "HUMBLE", choices: { A:"modest", B:"insignificant", C:"ashamed", D:"apologetic" }, answer:"A" },
+
   // I words (12 questions: 421-432)
-  { number: 421, word: "IDEOLOGY", choices: { A:"pragmatism", B:"practicality", C:"belief system", D:"realism" }, answer:"C" },
-  { number: 422, word: "IGNITE", choices: { A:"extinguish", B:"quench", C:"light", D:"douse" }, answer:"C" },
-  { number: 423, word: "ILLICIT", choices: { A:"legal", B:"lawful", C:"illegal", D:"permitted" }, answer:"C" },
-  { number: 424, word: "ILLUMINATE", choices: { A:"darken", B:"obscure", C:"light up", D:"shadow" }, answer:"C" },
-  { number: 425, word: "IMMACULATE", choices: { A:"dirty", B:"flawed", C:"perfect", D:"imperfect" }, answer:"C" },
-  { number: 426, word: "IMMERSE", choices: { A:"extract", B:"remove", C:"submerge", D:"withdraw" }, answer:"C" },
-  { number: 427, word: "IMMINENT", choices: { A:"distant", B:"remote", C:"impending", D:"far" }, answer:"C" },
-  { number: 428, word: "IMPAIR", choices: { A:"improve", B:"enhance", C:"damage", D:"strengthen" }, answer:"C" },
-  { number: 429, word: "IMPECCABLE", choices: { A:"flawed", B:"imperfect", C:"flawless", D:"faulty" }, answer:"C" },
-  { number: 430, word: "IMPEDE", choices: { A:"help", B:"assist", C:"hinder", D:"facilitate" }, answer:"C" },
-  { number: 431, word: "IMPERATIVE", choices: { A:"optional", B:"unnecessary", C:"essential", D:"trivial" }, answer:"C" },
-  { number: 432, word: "IMPERVIOUS", choices: { A:"vulnerable", B:"susceptible", C:"resistant", D:"permeable" }, answer:"C" },
-  
+  { number: 421, word: "IDEOLOGY", choices: { A:"culture", B:"agenda", C:"belief system", D:"constitution" }, answer:"C" },
+  { number: 422, word: "IGNITE", choices: { A:"agitate", B:"light", C:"trigger", D:"launch" }, answer:"B" },
+  { number: 423, word: "ILLICIT", choices: { A:"illegal", B:"secretive", C:"immoral", D:"harmful" }, answer:"A" },
+  { number: 424, word: "ILLUMINATE", choices: { A:"light up", B:"feature", C:"expose", D:"decorate" }, answer:"A" },
+  { number: 425, word: "IMMACULATE", choices: { A:"holy", B:"perfect", C:"brand new", D:"ideal" }, answer:"B" },
+  { number: 426, word: "IMMERSE", choices: { A:"drown", B:"moisten", C:"submerge", D:"saturate" }, answer:"C" },
+  { number: 427, word: "IMMINENT", choices: { A:"unsettling", B:"dangerous", C:"guaranteed", D:"impending" }, answer:"D" },
+  { number: 428, word: "IMPAIR", choices: { A:"damage", B:"frustrate", C:"disrupt", D:"annoy" }, answer:"A" },
+  { number: 429, word: "IMPECCABLE", choices: { A:"precise", B:"professional", C:"flawless", D:"admirable" }, answer:"C" },
+  { number: 430, word: "IMPEDE", choices: { A:"ruin", B:"challenge", C:"hinder", D:"complicate" }, answer:"C" },
+  { number: 431, word: "IMPERATIVE", choices: { A:"essential", B:"official", C:"immediate", D:"forceful" }, answer:"A" },
+  { number: 432, word: "IMPERVIOUS", choices: { A:"durable", B:"unbreakable", C:"impenetrable", D:"resistant" }, answer:"D" },
+
   // J words (6 questions: 433-438)
-  { number: 433, word: "JEOPARDIZE", choices: { A:"protect", B:"safeguard", C:"endanger", D:"secure" }, answer:"C" },
-  { number: 434, word: "JUBILANT", choices: { A:"sad", B:"depressed", C:"joyful", D:"gloomy" }, answer:"C" },
-  { number: 435, word: "JUDICIOUS", choices: { A:"foolish", B:"reckless", C:"wise", D:"impulsive" }, answer:"C" },
-  { number: 436, word: "JUNCTION", choices: { A:"separation", B:"division", C:"intersection", D:"distance" }, answer:"C" },
-  { number: 437, word: "JUSTIFY", choices: { A:"condemn", B:"criticize", C:"defend", D:"attack" }, answer:"C" },
-  { number: 438, word: "JUXTAPOSE", choices: { A:"separate", B:"divide", C:"place side by side", D:"isolate" }, answer:"C" },
-  
+  { number: 433, word: "JEOPARDIZE", choices: { A:"endanger", B:"worsen", C:"compromise", D:"ruin" }, answer:"A" },
+  { number: 434, word: "JUBILANT", choices: { A:"celebratory", B:"relieved", C:"joyful", D:"ecstatic" }, answer:"C" },
+  { number: 435, word: "JUDICIOUS", choices: { A:"wise", B:"cautious", C:"legal", D:"official" }, answer:"A" },
+  { number: 436, word: "JUNCTION", choices: { A:"boundary", B:"intersection", C:"union", D:"merger" }, answer:"B" },
+  { number: 437, word: "JUSTIFY", choices: { A:"clarify", B:"advocate", C:"confirm", D:"defend" }, answer:"D" },
+  { number: 438, word: "JUXTAPOSE", choices: { A:"analyze", B:"place side by side", C:"rearrange", D:"combine" }, answer:"B" },
+
   // K words (4 questions: 439-442)
-  { number: 439, word: "KINDLE", choices: { A:"extinguish", B:"quench", C:"ignite", D:"douse" }, answer:"C" },
-  { number: 440, word: "KNACK", choices: { A:"inability", B:"weakness", C:"talent", D:"deficiency" }, answer:"C" },
-  { number: 441, word: "KNOLL", choices: { A:"valley", B:"depression", C:"hill", D:"canyon" }, answer:"C" },
-  { number: 442, word: "KUDOS", choices: { A:"criticism", B:"blame", C:"praise", D:"condemnation" }, answer:"C" },
-  
+  { number: 439, word: "KINDLE", choices: { A:"generate", B:"grasp", C:"encourage", D:"ignite" }, answer:"D" },
+  { number: 440, word: "KNACK", choices: { A:"talent", B:"preference", C:"quirk", D:"specialty" }, answer:"A" },
+  { number: 441, word: "KNOLL", choices: { A:"clearing", B:"ridge", C:"hill", D:"meadow" }, answer:"C" },
+  { number: 442, word: "KUDOS", choices: { A:"reward", B:"praise", C:"gratitude", D:"acknowledgement" }, answer:"B" },
+
   // L words (12 questions: 443-454)
-  { number: 443, word: "LABORIOUS", choices: { A:"easy", B:"simple", C:"difficult", D:"effortless" }, answer:"C" },
-  { number: 444, word: "LAMPOON", choices: { A:"praise", B:"honor", C:"satirize", D:"respect" }, answer:"C" },
-  { number: 445, word: "LANGUID", choices: { A:"energetic", B:"vigorous", C:"sluggish", D:"lively" }, answer:"C" },
-  { number: 446, word: "LATENT", choices: { A:"obvious", B:"apparent", C:"dormant", D:"visible" }, answer:"C" },
-  { number: 447, word: "LAUDABLE", choices: { A:"shameful", B:"disgraceful", C:"praiseworthy", D:"deplorable" }, answer:"C" },
-  { number: 448, word: "LAVISH", choices: { A:"meager", B:"sparse", C:"extravagant", D:"modest" }, answer:"C" },
-  { number: 449, word: "LEGACY", choices: { A:"debt", B:"burden", C:"inheritance", D:"obligation" }, answer:"C" },
-  { number: 450, word: "LEGITIMATE", choices: { A:"illegal", B:"unlawful", C:"legal", D:"fraudulent" }, answer:"C" },
-  { number: 451, word: "LETHARGY", choices: { A:"energy", B:"vigor", C:"sluggishness", D:"vitality" }, answer:"C" },
-  { number: 452, word: "LEVITY", choices: { A:"seriousness", B:"gravity", C:"humor", D:"solemnity" }, answer:"C" },
-  { number: 453, word: "LUCID", choices: { A:"confused", B:"unclear", C:"clear", D:"obscure" }, answer:"C" },
-  { number: 454, word: "LUMINOUS", choices: { A:"dark", B:"dim", C:"bright", D:"shadowy" }, answer:"C" },
-  
+  { number: 443, word: "LABORIOUS", choices: { A:"strenuous", B:"lengthy", C:"repetitive", D:"difficult" }, answer:"D" },
+  { number: 444, word: "LAMPOON", choices: { A:"caricature", B:"belittle", C:"expose", D:"satirize" }, answer:"D" },
+  { number: 445, word: "LANGUID", choices: { A:"sluggish", B:"droopy", C:"indifferent", D:"lethargic" }, answer:"A" },
+  { number: 446, word: "LATENT", choices: { A:"old", B:"forgotten", C:"hidden", D:"undeveloped" }, answer:"C" },
+  { number: 447, word: "LAUDABLE", choices: { A:"effective", B:"beneficial", C:"praiseworthy", D:"virtuous" }, answer:"C" },
+  { number: 448, word: "LAVISH", choices: { A:"extravagant", B:"ornate", C:"wasteful", D:"excessive" }, answer:"A" },
+  { number: 449, word: "LEGACY", choices: { A:"legend", B:"history", C:"inheritance", D:"estate" }, answer:"C" },
+  { number: 450, word: "LEGITIMATE", choices: { A:"reasonable", B:"sincere", C:"authentic", D:"legal" }, answer:"D" },
+  { number: 451, word: "LETHARGY", choices: { A:"depression", B:"sluggishness", C:"exhaustion", D:"illness" }, answer:"B" },
+  { number: 452, word: "LEVITY", choices: { A:"playfulness", B:"amusement", C:"joy", D:"humor" }, answer:"D" },
+  { number: 453, word: "LUCID", choices: { A:"logical", B:"clear", C:"brilliant", D:"vivid" }, answer:"B" },
+  { number: 454, word: "LUMINOUS", choices: { A:"bright", B:"vivid", C:"dazzling", D:"glowing" }, answer:"A" },
+
   // M words (12 questions: 455-466)
-  { number: 455, word: "MAGNANIMOUS", choices: { A:"petty", B:"vindictive", C:"generous", D:"spiteful" }, answer:"C" },
-  { number: 456, word: "MAGNITUDE", choices: { A:"insignificance", B:"triviality", C:"size", D:"minuteness" }, answer:"C" },
-  { number: 457, word: "MALICIOUS", choices: { A:"kind", B:"benevolent", C:"spiteful", D:"compassionate" }, answer:"C" },
-  { number: 458, word: "MANDATE", choices: { A:"suggestion", B:"request", C:"command", D:"plea" }, answer:"C" },
-  { number: 459, word: "MANIFEST", choices: { A:"hidden", B:"obscure", C:"evident", D:"concealed" }, answer:"C" },
-  { number: 460, word: "MEAGER", choices: { A:"abundant", B:"plentiful", C:"scanty", D:"ample" }, answer:"C" },
-  { number: 461, word: "MELLOW", choices: { A:"harsh", B:"rough", C:"soft", D:"sharp" }, answer:"C" },
-  { number: 462, word: "MENACE", choices: { A:"safety", B:"protection", C:"threat", D:"security" }, answer:"C" },
-  { number: 463, word: "MENTOR", choices: { A:"student", B:"pupil", C:"guide", D:"follower" }, answer:"C" },
-  { number: 464, word: "METICULOUS", choices: { A:"careless", B:"sloppy", C:"careful", D:"negligent" }, answer:"C" },
-  { number: 465, word: "MIRTH", choices: { A:"sadness", B:"sorrow", C:"merriment", D:"gloom" }, answer:"C" },
-  { number: 466, word: "MITIGATE", choices: { A:"worsen", B:"aggravate", C:"lessen", D:"intensify" }, answer:"C" },
-  
+  { number: 455, word: "MAGNANIMOUS", choices: { A:"merciful", B:"humble", C:"generous", D:"formal" }, answer:"C" },
+  { number: 456, word: "MAGNITUDE", choices: { A:"weight", B:"difficulty", C:"severity", D:"size" }, answer:"D" },
+  { number: 457, word: "MALICIOUS", choices: { A:"destructive", B:"spiteful", C:"deceitful", D:"violent" }, answer:"B" },
+  { number: 458, word: "MANDATE", choices: { A:"law", B:"command", C:"expectation", D:"suggestion" }, answer:"B" },
+  { number: 459, word: "MANIFEST", choices: { A:"proven", B:"unmistakable", C:"evident", D:"obvious" }, answer:"D" },
+  { number: 460, word: "MEAGER", choices: { A:"miserable", B:"trivial", C:"unhealthy", D:"scanty" }, answer:"D" },
+  { number: 461, word: "MELLOW", choices: { A:"ripe", B:"gentle", C:"sweet", D:"relaxed" }, answer:"B" },
+  { number: 462, word: "MENACE", choices: { A:"bully", B:"nuisance", C:"threat", D:"criminal" }, answer:"C" },
+  { number: 463, word: "MENTOR", choices: { A:"guide", B:"patron", C:"professional", D:"sponsor" }, answer:"A" },
+  { number: 464, word: "METICULOUS", choices: { A:"diligent", B:"obsessive", C:"thorough", D:"methodical" }, answer:"C" },
+  { number: 465, word: "MIRTH", choices: { A:"pleasure", B:"excitement", C:"merriment", D:"celebration" }, answer:"C" },
+  { number: 466, word: "MITIGATE", choices: { A:"lessen", B:"resolve", C:"soothe", D:"delay" }, answer:"A" },
+
   // N words (10 questions: 467-476)
-  { number: 467, word: "NASCENT", choices: { A:"dying", B:"mature", C:"emerging", D:"established" }, answer:"C" },
-  { number: 468, word: "NEGLIGIBLE", choices: { A:"significant", B:"important", C:"insignificant", D:"major" }, answer:"C" },
-  { number: 469, word: "NIMBLE", choices: { A:"clumsy", B:"awkward", C:"agile", D:"slow" }, answer:"C" },
-  { number: 470, word: "NOMINAL", choices: { A:"substantial", B:"significant", C:"minimal", D:"large" }, answer:"C" },
-  { number: 471, word: "NONCHALANT", choices: { A:"anxious", B:"worried", C:"casual", D:"concerned" }, answer:"C" },
-  { number: 472, word: "NURTURE", choices: { A:"neglect", B:"abandon", C:"care for", D:"ignore" }, answer:"C" },
-  { number: 473, word: "NOMADIC", choices: { A:"settled", B:"stationary", C:"wandering", D:"fixed" }, answer:"C" },
-  { number: 474, word: "NULLIFY", choices: { A:"validate", B:"confirm", C:"cancel", D:"ratify" }, answer:"C" },
-  { number: 475, word: "NOTABLE", choices: { A:"ordinary", B:"commonplace", C:"remarkable", D:"unremarkable" }, answer:"C" },
-  { number: 476, word: "NOTION", choices: { A:"certainty", B:"fact", C:"idea", D:"reality" }, answer:"C" },
-  
+  { number: 467, word: "NASCENT", choices: { A:"experimental", B:"minor", C:"emerging", D:"fragile" }, answer:"C" },
+  { number: 468, word: "NEGLIGIBLE", choices: { A:"irrelevant", B:"insignificant", C:"overlooked", D:"ignored" }, answer:"B" },
+  { number: 469, word: "NIMBLE", choices: { A:"graceful", B:"lively", C:"swift", D:"agile" }, answer:"D" },
+  { number: 470, word: "NOMINAL", choices: { A:"token", B:"approximate", C:"official", D:"suggested" }, answer:"A" },
+  { number: 471, word: "NONCHALANT", choices: { A:"casual", B:"distracted", C:"uninterested", D:"aloof" }, answer:"A" },
+  { number: 472, word: "NURTURE", choices: { A:"influence", B:"care for", C:"train", D:"instruct" }, answer:"B" },
+  { number: 473, word: "NOMADIC", choices: { A:"solitary", B:"inquisitive", C:"primitive", D:"wandering" }, answer:"D" },
+  { number: 474, word: "NULLIFY", choices: { A:"contradict", B:"erase", C:"cancel", D:"disprove" }, answer:"C" },
+  { number: 475, word: "NOTABLE", choices: { A:"obvious", B:"remarkable", C:"celebrated", D:"unique" }, answer:"B" },
+  { number: 476, word: "NOTION", choices: { A:"hunch", B:"memory", C:"theory", D:"idea" }, answer:"D" },
+
   // O words (10 questions: 477-486)
-  { number: 477, word: "OBLIGE", choices: { A:"exempt", B:"excuse", C:"require", D:"free" }, answer:"C" },
-  { number: 478, word: "OBLITERATE", choices: { A:"create", B:"build", C:"destroy", D:"preserve" }, answer:"C" },
-  { number: 479, word: "OBLIVIOUS", choices: { A:"aware", B:"conscious", C:"unaware", D:"attentive" }, answer:"C" },
-  { number: 480, word: "OBSCURE", choices: { A:"clear", B:"obvious", C:"unclear", D:"evident" }, answer:"C" },
-  { number: 481, word: "OBSTRUCT", choices: { A:"clear", B:"open", C:"block", D:"facilitate" }, answer:"C" },
-  { number: 482, word: "OMINOUS", choices: { A:"promising", B:"hopeful", C:"threatening", D:"encouraging" }, answer:"C" },
-  { number: 483, word: "OPPRESS", choices: { A:"liberate", B:"free", C:"persecute", D:"release" }, answer:"C" },
-  { number: 484, word: "OPTIMUM", choices: { A:"worst", B:"poorest", C:"best", D:"inferior" }, answer:"C" },
-  { number: 485, word: "OPULENT", choices: { A:"poor", B:"simple", C:"luxurious", D:"modest" }, answer:"C" },
-  { number: 486, word: "OVERT", choices: { A:"hidden", B:"secret", C:"obvious", D:"covert" }, answer:"C" },
-  
+  { number: 477, word: "OBLIGE", choices: { A:"serve", B:"assist", C:"require", D:"persuade" }, answer:"C" },
+  { number: 478, word: "OBLITERATE", choices: { A:"destroy", B:"spoil", C:"overwhelm", D:"defeat" }, answer:"A" },
+  { number: 479, word: "OBLIVIOUS", choices: { A:"daydreaming", B:"confused", C:"inattentive", D:"unaware" }, answer:"D" },
+  { number: 480, word: "OBSCURE", choices: { A:"complex", B:"abstract", C:"unclear", D:"mysterious" }, answer:"C" },
+  { number: 481, word: "OBSTRUCT", choices: { A:"interfere with", B:"disrupt", C:"delay", D:"block" }, answer:"D" },
+  { number: 482, word: "OMINOUS", choices: { A:"gloomy", B:"unpleasant", C:"threatening", D:"mysterious" }, answer:"C" },
+  { number: 483, word: "OPPRESS", choices: { A:"control", B:"persecute", C:"harass", D:"intimidate" }, answer:"B" },
+  { number: 484, word: "OPTIMUM", choices: { A:"ideal", B:"best", C:"flawless", D:"supreme" }, answer:"B" },
+  { number: 485, word: "OPULENT", choices: { A:"valuable", B:"pretentious", C:"luxurious", D:"ostentatious" }, answer:"C" },
+  { number: 486, word: "OVERT", choices: { A:"public", B:"unashamed", C:"deliberate", D:"obvious" }, answer:"D" },
+
   // P words (18 questions: 487-504)
-  { number: 487, word: "PACIFY", choices: { A:"agitate", B:"provoke", C:"calm", D:"disturb" }, answer:"C" },
-  { number: 488, word: "PALPABLE", choices: { A:"intangible", B:"invisible", C:"tangible", D:"imperceptible" }, answer:"C" },
-  { number: 489, word: "PARAMOUNT", choices: { A:"trivial", B:"minor", C:"supreme", D:"insignificant" }, answer:"C" },
-  { number: 490, word: "PARDON", choices: { A:"punish", B:"condemn", C:"forgive", D:"blame" }, answer:"C" },
-  { number: 491, word: "PARODY", choices: { A:"tribute", B:"honor", C:"satire", D:"praise" }, answer:"C" },
-  { number: 492, word: "PARTIAL", choices: { A:"complete", B:"total", C:"incomplete", D:"whole" }, answer:"C" },
-  { number: 493, word: "PARTITION", choices: { A:"unite", B:"join", C:"divide", D:"merge" }, answer:"C" },
-  { number: 494, word: "PATENT", choices: { A:"hidden", B:"subtle", C:"obvious", D:"concealed" }, answer:"C" },
-  { number: 495, word: "PAUCITY", choices: { A:"abundance", B:"plenty", C:"scarcity", D:"surplus" }, answer:"C" },
-  { number: 496, word: "PECULIAR", choices: { A:"normal", B:"typical", C:"strange", D:"ordinary" }, answer:"C" },
-  { number: 497, word: "PENSIVE", choices: { A:"carefree", B:"thoughtless", C:"thoughtful", D:"frivolous" }, answer:"C" },
-  { number: 498, word: "PERENNIAL", choices: { A:"temporary", B:"brief", C:"enduring", D:"fleeting" }, answer:"C" },
-  { number: 499, word: "PERIL", choices: { A:"safety", B:"security", C:"danger", D:"protection" }, answer:"C" },
-  { number: 500, word: "PERIPHERAL", choices: { A:"central", B:"core", C:"outer", D:"primary" }, answer:"C" },
-  { number: 501, word: "PERPETUAL", choices: { A:"temporary", B:"brief", C:"continuous", D:"intermittent" }, answer:"C" },
-  { number: 502, word: "PERSIST", choices: { A:"quit", B:"surrender", C:"continue", D:"abandon" }, answer:"C" },
-  { number: 503, word: "PERTURB", choices: { A:"calm", B:"soothe", C:"disturb", D:"comfort" }, answer:"C" },
-  { number: 504, word: "PIVOTAL", choices: { A:"trivial", B:"minor", C:"crucial", D:"unimportant" }, answer:"C" },
-  
+  { number: 487, word: "PACIFY", choices: { A:"comfort", B:"distract", C:"calm", D:"appease" }, answer:"C" },
+  { number: 488, word: "PALPABLE", choices: { A:"intense", B:"obvious", C:"unmistakable", D:"tangible" }, answer:"D" },
+  { number: 489, word: "PARAMOUNT", choices: { A:"fundamental", B:"urgent", C:"supreme", D:"dominant" }, answer:"C" },
+  { number: 490, word: "PARDON", choices: { A:"absolve", B:"liberate", C:"acquit", D:"forgive" }, answer:"D" },
+  { number: 491, word: "PARODY", choices: { A:"farce", B:"satire", C:"comedy", D:"performance" }, answer:"B" },
+  { number: 492, word: "PARTIAL", choices: { A:"opinionated", B:"incomplete", C:"unfair", D:"subjective" }, answer:"B" },
+  { number: 493, word: "PARTITION", choices: { A:"divide", B:"obstacle", C:"border", D:"segment" }, answer:"A" },
+  { number: 494, word: "PATENT", choices: { A:"blatant", B:"guaranteed", C:"certain", D:"obvious" }, answer:"D" },
+  { number: 495, word: "PAUCITY", choices: { A:"poverty", B:"absence", C:"deficiency", D:"shortage" }, answer:"D" },
+  { number: 496, word: "PECULIAR", choices: { A:"memorable", B:"specific", C:"unfamiliar", D:"strange" }, answer:"D" },
+  { number: 497, word: "PENSIVE", choices: { A:"philosophical", B:"preoccupied", C:"thoughtful", D:"melancholy" }, answer:"C" },
+  { number: 498, word: "PERENNIAL", choices: { A:"cyclical", B:"enduring", C:"long-lived", D:"predictable" }, answer:"B" },
+  { number: 499, word: "PERIL", choices: { A:"adversity", B:"vulnerability", C:"uncertainty", D:"danger" }, answer:"D" },
+  { number: 500, word: "PERIPHERAL", choices: { A:"superficial", B:"irrelevant", C:"outer", D:"adjacent" }, answer:"C" },
+  { number: 501, word: "PERPETUAL", choices: { A:"continuous", B:"recurrent", C:"boring", D:"relentless" }, answer:"A" },
+  { number: 502, word: "PERSIST", choices: { A:"repeat", B:"resist", C:"endure", D:"continue" }, answer:"D" },
+  { number: 503, word: "PERTURB", choices: { A:"disturb", B:"confuse", C:"frighten", D:"inconvenience" }, answer:"A" },
+  { number: 504, word: "PIVOTAL", choices: { A:"difficult", B:"transformative", C:"crucial", D:"complex" }, answer:"C" },
+
   // Q words (6 questions: 505-510)
-  { number: 505, word: "QUAINT", choices: { A:"modern", B:"contemporary", C:"charming", D:"new" }, answer:"C" },
-  { number: 506, word: "QUALIFY", choices: { A:"disqualify", B:"exclude", C:"modify", D:"reject" }, answer:"C" },
-  { number: 507, word: "QUALM", choices: { A:"certainty", B:"confidence", C:"doubt", D:"assurance" }, answer:"C" },
-  { number: 508, word: "QUELL", choices: { A:"incite", B:"provoke", C:"suppress", D:"encourage" }, answer:"C" },
-  { number: 509, word: "QUEST", choices: { A:"abandonment", B:"surrender", C:"search", D:"retreat" }, answer:"C" },
-  { number: 510, word: "QUIBBLE", choices: { A:"agree", B:"accept", C:"argue", D:"concur" }, answer:"C" },
-  
+  { number: 505, word: "QUAINT", choices: { A:"delightful", B:"humble", C:"charming", D:"antique" }, answer:"C" },
+  { number: 506, word: "QUALIFY", choices: { A:"define", B:"clarify", C:"limit", D:"elaborate" }, answer:"C" },
+  { number: 507, word: "QUALM", choices: { A:"anxiety", B:"objection", C:"suspicion", D:"doubt" }, answer:"D" },
+  { number: 508, word: "QUELL", choices: { A:"silence", B:"tame", C:"conquer", D:"suppress" }, answer:"D" },
+  { number: 509, word: "QUEST", choices: { A:"search", B:"expedition", C:"pilgrimage", D:"challenge" }, answer:"A" },
+  { number: 510, word: "QUIBBLE", choices: { A:"gossip", B:"protest", C:"argue", D:"hesitate" }, answer:"C" },
+
   // R words (12 questions: 511-522)
-  { number: 511, word: "RAMBLE", choices: { A:"rush", B:"hurry", C:"wander", D:"sprint" }, answer:"C" },
-  { number: 512, word: "RANCOR", choices: { A:"goodwill", B:"kindness", C:"bitterness", D:"friendship" }, answer:"C" },
-  { number: 513, word: "RATIFY", choices: { A:"reject", B:"veto", C:"approve", D:"deny" }, answer:"C" },
-  { number: 514, word: "REBUKE", choices: { A:"praise", B:"compliment", C:"reprimand", D:"commend" }, answer:"C" },
-  { number: 515, word: "RECANT", choices: { A:"affirm", B:"confirm", C:"retract", D:"maintain" }, answer:"C" },
-  { number: 516, word: "RECEPTIVE", choices: { A:"closed", B:"resistant", C:"open", D:"hostile" }, answer:"C" },
-  { number: 517, word: "RECLUSE", choices: { A:"socialite", B:"extrovert", C:"hermit", D:"mingler" }, answer:"C" },
-  { number: 518, word: "RECONCILE", choices: { A:"divide", B:"separate", C:"settle", D:"split" }, answer:"C" },
-  { number: 519, word: "REFUTE", choices: { A:"prove", B:"confirm", C:"disprove", D:"support" }, answer:"C" },
-  { number: 520, word: "RELENTLESS", choices: { A:"sporadic", B:"intermittent", C:"persistent", D:"occasional" }, answer:"C" },
-  { number: 521, word: "RENOUNCE", choices: { A:"embrace", B:"accept", C:"reject", D:"claim" }, answer:"C" },
-  { number: 522, word: "REPUDIATE", choices: { A:"accept", B:"embrace", C:"reject", D:"welcome" }, answer:"C" },
-  
+  { number: 511, word: "RAMBLE", choices: { A:"hike", B:"digress", C:"stroll", D:"wander" }, answer:"D" },
+  { number: 512, word: "RANCOR", choices: { A:"hostility", B:"bitterness", C:"disgust", D:"jealousy" }, answer:"B" },
+  { number: 513, word: "RATIFY", choices: { A:"endorse", B:"enact", C:"authorize", D:"approve" }, answer:"D" },
+  { number: 514, word: "REBUKE", choices: { A:"threaten", B:"insult", C:"admonish", D:"reprimand" }, answer:"D" },
+  { number: 515, word: "RECANT", choices: { A:"deny", B:"amend", C:"retract", D:"apologize" }, answer:"C" },
+  { number: 516, word: "RECEPTIVE", choices: { A:"open", B:"agreeable", C:"curious", D:"attentive" }, answer:"A" },
+  { number: 517, word: "RECLUSE", choices: { A:"troglodyte", B:"coward", C:"hermit", D:"misfit" }, answer:"C" },
+  { number: 518, word: "RECONCILE", choices: { A:"apologize to", B:"mediate", C:"settle", D:"reunite" }, answer:"C" },
+  { number: 519, word: "REFUTE", choices: { A:"counter", B:"debate", C:"challenge", D:"disprove" }, answer:"D" },
+  { number: 520, word: "RELENTLESS", choices: { A:"merciless", B:"persistent", C:"determined", D:"brutal" }, answer:"B" },
+  { number: 521, word: "RENOUNCE", choices: { A:"betray", B:"protest", C:"reject", D:"denounce" }, answer:"C" },
+  { number: 522, word: "REPUDIATE", choices: { A:"challenge", B:"disobey", C:"contradict", D:"reject" }, answer:"D" },
+
   // S words (18 questions: 523-540)
-  { number: 523, word: "SABOTAGE", choices: { A:"support", B:"help", C:"undermine", D:"assist" }, answer:"C" },
-  { number: 524, word: "SAGE", choices: { A:"foolish", B:"ignorant", C:"wise", D:"stupid" }, answer:"C" },
-  { number: 525, word: "SALIENT", choices: { A:"trivial", B:"minor", C:"prominent", D:"insignificant" }, answer:"C" },
-  { number: 526, word: "SALVAGE", choices: { A:"destroy", B:"abandon", C:"save", D:"discard" }, answer:"C" },
-  { number: 527, word: "SANCTION", choices: { A:"forbid", B:"prohibit", C:"approve", D:"ban" }, answer:"C" },
-  { number: 528, word: "SATURATE", choices: { A:"dry", B:"dehydrate", C:"soak", D:"drain" }, answer:"C" },
-  { number: 529, word: "SCANTY", choices: { A:"abundant", B:"plentiful", C:"meager", D:"ample" }, answer:"C" },
-  { number: 530, word: "SCRUTINIZE", choices: { A:"ignore", B:"overlook", C:"examine", D:"neglect" }, answer:"C" },
-  { number: 531, word: "SECLUDE", choices: { A:"expose", B:"reveal", C:"isolate", D:"display" }, answer:"C" },
-  { number: 532, word: "SEDATE", choices: { A:"wild", B:"frantic", C:"calm", D:"excited" }, answer:"C" },
-  { number: 533, word: "SEQUEL", choices: { A:"prequel", B:"beginning", C:"continuation", D:"origin" }, answer:"C" },
-  { number: 534, word: "SHREWD", choices: { A:"naive", B:"foolish", C:"astute", D:"gullible" }, answer:"C" },
-  { number: 535, word: "SIMULTANEOUS", choices: { A:"sequential", B:"successive", C:"concurrent", D:"separate" }, answer:"C" },
-  { number: 536, word: "SINGULAR", choices: { A:"common", B:"ordinary", C:"unique", D:"typical" }, answer:"C" },
-  { number: 537, word: "SKEPTICAL", choices: { A:"trusting", B:"believing", C:"doubtful", D:"credulous" }, answer:"C" },
-  { number: 538, word: "SLUGGISH", choices: { A:"quick", B:"energetic", C:"slow", D:"lively" }, answer:"C" },
-  { number: 539, word: "SOMBER", choices: { A:"cheerful", B:"joyful", C:"serious", D:"happy" }, answer:"C" },
-  { number: 540, word: "SPORADIC", choices: { A:"constant", B:"continuous", C:"irregular", D:"regular" }, answer:"C" },
-  
+  { number: 523, word: "SABOTAGE", choices: { A:"destroy", B:"undermine", C:"frustrate", D:"complicate" }, answer:"B" },
+  { number: 524, word: "SAGE", choices: { A:"spiritual", B:"calm", C:"ancient", D:"wise" }, answer:"D" },
+  { number: 525, word: "SALIENT", choices: { A:"critical", B:"relevant", C:"prominent", D:"apparent" }, answer:"C" },
+  { number: 526, word: "SALVAGE", choices: { A:"save", B:"seize", C:"collect", D:"restore" }, answer:"A" },
+  { number: 527, word: "SANCTION", choices: { A:"subsidize", B:"approve", C:"reward", D:"permit" }, answer:"B" },
+  { number: 528, word: "SATURATE", choices: { A:"overflow", B:"submerge", C:"contaminate", D:"soak" }, answer:"D" },
+  { number: 529, word: "SCANTY", choices: { A:"trivial", B:"meager", C:"flimsy", D:"inadequate" }, answer:"B" },
+  { number: 530, word: "SCRUTINIZE", choices: { A:"examine", B:"judge", C:"scan", D:"question" }, answer:"A" },
+  { number: 531, word: "SECLUDE", choices: { A:"imprison", B:"isolate", C:"conceal", D:"quarantine" }, answer:"B" },
+  { number: 532, word: "SEDATE", choices: { A:"dignified", B:"somber", C:"calm", D:"leisurely" }, answer:"C" },
+  { number: 533, word: "SEQUEL", choices: { A:"aftermath", B:"repetition", C:"epilogue", D:"continuation" }, answer:"D" },
+  { number: 534, word: "SHREWD", choices: { A:"astute", B:"ambitious", C:"cynical", D:"calculating" }, answer:"A" },
+  { number: 535, word: "SIMULTANEOUS", choices: { A:"instantaneous", B:"coordinated", C:"identical", D:"concurrent" }, answer:"D" },
+  { number: 536, word: "SINGULAR", choices: { A:"unfamiliar", B:"superior", C:"solitary", D:"unique" }, answer:"D" },
+  { number: 537, word: "SKEPTICAL", choices: { A:"cautious", B:"doubtful", C:"pessimistic", D:"cynical" }, answer:"B" },
+  { number: 538, word: "SLUGGISH", choices: { A:"boring", B:"slow", C:"feeble", D:"exhausted" }, answer:"B" },
+  { number: 539, word: "SOMBER", choices: { A:"dull", B:"formal", C:"mournful", D:"serious" }, answer:"D" },
+  { number: 540, word: "SPORADIC", choices: { A:"irregular", B:"uncommon", C:"accidental", D:"rare" }, answer:"A" },
+
   // T words (12 questions: 541-552)
-  { number: 541, word: "TACITURN", choices: { A:"talkative", B:"chatty", C:"quiet", D:"verbose" }, answer:"C" },
-  { number: 542, word: "TANGIBLE", choices: { A:"abstract", B:"intangible", C:"real", D:"imaginary" }, answer:"C" },
-  { number: 543, word: "TARNISH", choices: { A:"polish", B:"enhance", C:"damage", D:"improve" }, answer:"C" },
-  { number: 544, word: "TAUT", choices: { A:"loose", B:"slack", C:"tight", D:"relaxed" }, answer:"C" },
-  { number: 545, word: "TEEM", choices: { A:"lack", B:"empty", C:"swarm", D:"deplete" }, answer:"C" },
-  { number: 546, word: "TEMPER", choices: { A:"intensify", B:"aggravate", C:"moderate", D:"worsen" }, answer:"C" },
-  { number: 547, word: "TENUOUS", choices: { A:"strong", B:"solid", C:"weak", D:"firm" }, answer:"C" },
-  { number: 548, word: "TERMINATE", choices: { A:"begin", B:"start", C:"end", D:"commence" }, answer:"C" },
-  { number: 549, word: "THWART", choices: { A:"help", B:"assist", C:"prevent", D:"aid" }, answer:"C" },
-  { number: 550, word: "TIMOROUS", choices: { A:"brave", B:"bold", C:"fearful", D:"courageous" }, answer:"C" },
-  { number: 551, word: "TOIL", choices: { A:"rest", B:"relax", C:"work hard", D:"idle" }, answer:"C" },
-  { number: 552, word: "TURBULENT", choices: { A:"calm", B:"peaceful", C:"chaotic", D:"tranquil" }, answer:"C" },
-  
+  { number: 541, word: "TACITURN", choices: { A:"introspective", B:"quiet", C:"antisocial", D:"melancholy" }, answer:"B" },
+  { number: 542, word: "TANGIBLE", choices: { A:"visible", B:"durable", C:"valuable", D:"real" }, answer:"D" },
+  { number: 543, word: "TARNISH", choices: { A:"damage", B:"weaken", C:"disgrace", D:"discolor" }, answer:"A" },
+  { number: 544, word: "TAUT", choices: { A:"inflexible", B:"tight", C:"strained", D:"stiff" }, answer:"B" },
+  { number: 545, word: "TEEM", choices: { A:"drizzle", B:"overflow", C:"congregate", D:"swarm" }, answer:"D" },
+  { number: 546, word: "TEMPER", choices: { A:"moderate", B:"adjust", C:"influence", D:"weaken" }, answer:"A" },
+  { number: 547, word: "TENUOUS", choices: { A:"unlikely", B:"dubious", C:"insubstantial", D:"weak" }, answer:"D" },
+  { number: 548, word: "TERMINATE", choices: { A:"end", B:"interrupt", C:"dismiss", D:"postpone" }, answer:"A" },
+  { number: 549, word: "THWART", choices: { A:"distract", B:"outwit", C:"prevent", D:"sabotage" }, answer:"C" },
+  { number: 550, word: "TIMOROUS", choices: { A:"overwhelmed", B:"cautious", C:"fearful", D:"hesitant" }, answer:"C" },
+  { number: 551, word: "TOIL", choices: { A:"suffer", B:"endure", C:"persevere", D:"work hard" }, answer:"D" },
+  { number: 552, word: "TURBULENT", choices: { A:"frightening", B:"unpredictable", C:"chaotic", D:"dangerous" }, answer:"C" },
+
   // U words (8 questions: 553-560)
-  { number: 553, word: "UBIQUITOUS", choices: { A:"rare", B:"scarce", C:"everywhere", D:"uncommon" }, answer:"C" },
-  { number: 554, word: "ULTIMATE", choices: { A:"initial", B:"first", C:"final", D:"beginning" }, answer:"C" },
-  { number: 555, word: "UNASSUMING", choices: { A:"arrogant", B:"pretentious", C:"modest", D:"boastful" }, answer:"C" },
-  { number: 556, word: "UNCANNY", choices: { A:"normal", B:"ordinary", C:"strange", D:"typical" }, answer:"C" },
-  { number: 557, word: "UNDERMINE", choices: { A:"support", B:"strengthen", C:"weaken", D:"bolster" }, answer:"C" },
-  { number: 558, word: "UNIFORM", choices: { A:"varied", B:"diverse", C:"consistent", D:"different" }, answer:"C" },
-  { number: 559, word: "UNPRECEDENTED", choices: { A:"common", B:"typical", C:"unparalleled", D:"ordinary" }, answer:"C" },
-  { number: 560, word: "UPHOLD", choices: { A:"reject", B:"abandon", C:"support", D:"discard" }, answer:"C" },
-  
+  { number: 553, word: "UBIQUITOUS", choices: { A:"fashionable", B:"inescapable", C:"pervasive", D:"everywhere" }, answer:"D" },
+  { number: 554, word: "ULTIMATE", choices: { A:"definitive", B:"final", C:"supreme", D:"concluding" }, answer:"B" },
+  { number: 555, word: "UNASSUMING", choices: { A:"modest", B:"insecure", C:"reserved", D:"timid" }, answer:"A" },
+  { number: 556, word: "UNCANNY", choices: { A:"remarkable", B:"coincidental", C:"strange", D:"supernatural" }, answer:"C" },
+  { number: 557, word: "UNDERMINE", choices: { A:"corrupt", B:"discredit", C:"weaken", D:"attack" }, answer:"C" },
+  { number: 558, word: "UNIFORM", choices: { A:"rigid", B:"consistent", C:"orderly", D:"level" }, answer:"B" },
+  { number: 559, word: "UNPRECEDENTED", choices: { A:"miraculous", B:"groundbreaking", C:"extraordinary", D:"unparalleled" }, answer:"D" },
+  { number: 560, word: "UPHOLD", choices: { A:"advocate", B:"justify", C:"support", D:"defend" }, answer:"C" },
+
   // V words (12 questions: 561-572)
-  { number: 561, word: "VALID", choices: { A:"invalid", B:"false", C:"sound", D:"incorrect" }, answer:"C" },
-  { number: 562, word: "VALOR", choices: { A:"cowardice", B:"fear", C:"bravery", D:"timidity" }, answer:"C" },
-  { number: 563, word: "VANQUISH", choices: { A:"surrender", B:"lose", C:"defeat", D:"yield" }, answer:"C" },
-  { number: 564, word: "VENERATE", choices: { A:"disrespect", B:"scorn", C:"revere", D:"mock" }, answer:"C" },
-  { number: 565, word: "VERBOSE", choices: { A:"concise", B:"brief", C:"wordy", D:"succinct" }, answer:"C" },
-  { number: 566, word: "VERSATILE", choices: { A:"limited", B:"narrow", C:"adaptable", D:"specialized" }, answer:"C" },
-  { number: 567, word: "VETO", choices: { A:"approve", B:"accept", C:"reject", D:"endorse" }, answer:"C" },
-  { number: 568, word: "VIABLE", choices: { A:"impossible", B:"impractical", C:"feasible", D:"unworkable" }, answer:"C" },
-  { number: 569, word: "VICIOUS", choices: { A:"kind", B:"gentle", C:"cruel", D:"compassionate" }, answer:"C" },
-  { number: 570, word: "VINDICATE", choices: { A:"condemn", B:"blame", C:"clear", D:"accuse" }, answer:"C" },
-  { number: 571, word: "VIRTUAL", choices: { A:"actual", B:"real", C:"nearly", D:"genuine" }, answer:"C" },
-  { number: 572, word: "VIRULENT", choices: { A:"harmless", B:"benign", C:"poisonous", D:"safe" }, answer:"C" },
-  
+  { number: 561, word: "VALID", choices: { A:"convincing", B:"sound", C:"factual", D:"logical" }, answer:"B" },
+  { number: 562, word: "VALOR", choices: { A:"gallantry", B:"fortitude", C:"determination", D:"bravery" }, answer:"D" },
+  { number: 563, word: "VANQUISH", choices: { A:"exile", B:"humiliate", C:"defeat", D:"eliminate" }, answer:"C" },
+  { number: 564, word: "VENERATE", choices: { A:"revere", B:"cherish", C:"idolize", D:"obey" }, answer:"A" },
+  { number: 565, word: "VERBOSE", choices: { A:"boring", B:"pompous", C:"descriptive", D:"wordy" }, answer:"D" },
+  { number: 566, word: "VERSATILE", choices: { A:"adaptable", B:"ingenious", C:"gifted", D:"accomplished" }, answer:"A" },
+  { number: 567, word: "VETO", choices: { A:"invalidate", B:"reverse", C:"overrule", D:"reject" }, answer:"D" },
+  { number: 568, word: "VIABLE", choices: { A:"effective", B:"profitable", C:"promising", D:"feasible" }, answer:"D" },
+  { number: 569, word: "VICIOUS", choices: { A:"malicious", B:"aggressive", C:"cruel", D:"sadistic" }, answer:"C" },
+  { number: 570, word: "VINDICATE", choices: { A:"defend", B:"clear", C:"avenge", D:"absolve" }, answer:"B" },
+  { number: 571, word: "VIRTUAL", choices: { A:"theoretical", B:"unofficial", C:"potential", D:"nearly" }, answer:"D" },
+  { number: 572, word: "VIRULENT", choices: { A:"destructive", B:"malevolent", C:"poisonous", D:"infectious" }, answer:"C" },
+
   // W words (8 questions: 573-580)
-  { number: 573, word: "WAIVE", choices: { A:"claim", B:"demand", C:"relinquish", D:"insist" }, answer:"C" },
-  { number: 574, word: "WANE", choices: { A:"grow", B:"increase", C:"decrease", D:"expand" }, answer:"C" },
-  { number: 575, word: "WARY", choices: { A:"reckless", B:"careless", C:"cautious", D:"negligent" }, answer:"C" },
-  { number: 576, word: "WHOLESOME", choices: { A:"unhealthy", B:"harmful", C:"healthy", D:"toxic" }, answer:"C" },
-  { number: 577, word: "WIELD", choices: { A:"release", B:"relinquish", C:"hold", D:"drop" }, answer:"C" },
-  { number: 578, word: "WILLFUL", choices: { A:"accidental", B:"unintentional", C:"deliberate", D:"involuntary" }, answer:"C" },
-  { number: 579, word: "WITHER", choices: { A:"flourish", B:"bloom", C:"shrivel", D:"thrive" }, answer:"C" },
-  { number: 580, word: "WRATH", choices: { A:"peace", B:"calm", C:"anger", D:"serenity" }, answer:"C" },
+  { number: 573, word: "WAIVE", choices: { A:"forfeit", B:"relinquish", C:"postpone", D:"cancel" }, answer:"B" },
+  { number: 574, word: "WANE", choices: { A:"decrease", B:"falter", C:"subside", D:"recede" }, answer:"A" },
+  { number: 575, word: "WARY", choices: { A:"skeptical", B:"cautious", C:"vigilant", D:"paranoid" }, answer:"B" },
+  { number: 576, word: "WHOLESOME", choices: { A:"healthy", B:"decent", C:"pure", D:"moral" }, answer:"A" },
+  { number: 577, word: "WIELD", choices: { A:"employ", B:"manipulate", C:"hold", D:"brandish" }, answer:"C" },
+  { number: 578, word: "WILLFUL", choices: { A:"childish", B:"malicious", C:"obstinate", D:"deliberate" }, answer:"D" },
+  { number: 579, word: "WITHER", choices: { A:"atrophy", B:"shrivel", C:"disintegrate", D:"spoil" }, answer:"B" },
+  { number: 580, word: "WRATH", choices: { A:"violence", B:"vengeance", C:"hatred", D:"anger" }, answer:"D" },
+
+  // X, Y, Z words (4 questions: 581-584)
+  { number: 581, word: "XENOPHOBIA", choices: { A:"nationalism", B:"ignorance", C:"hostility", D:"fear of foreigners" }, answer:"D" },
+  { number: 582, word: "YEARN", choices: { A:"long for", B:"envy", C:"reminisce", D:"anticipate" }, answer:"A" },
+  { number: 583, word: "YIELD", choices: { A:"sacrifice", B:"result in", C:"concede", D:"produce" }, answer:"D" },
+  { number: 584, word: "ZENITH", choices: { A:"objective", B:"peak", C:"destination", D:"completion" }, answer:"B" },
   
-  // X, Y, Z words (4 questions: 581-600, with padding to reach 300 total)
-  { number: 581, word: "XENOPHOBIA", choices: { A:"tolerance", B:"acceptance", C:"fear of foreigners", D:"openness" }, answer:"C" },
-  { number: 582, word: "YEARN", choices: { A:"despise", B:"reject", C:"long for", D:"avoid" }, answer:"C" },
-  { number: 583, word: "YIELD", choices: { A:"resist", B:"withhold", C:"produce", D:"refuse" }, answer:"C" },
-  { number: 584, word: "ZENITH", choices: { A:"bottom", B:"nadir", C:"peak", D:"base" }, answer:"C" },
-  
-  // Padding questions 585-600 to reach exactly 300 (using words that weren't in original but fit the pattern)
-  { number: 585, word: "ACCLAIM", choices: { A:"criticism", B:"censure", C:"praise", D:"condemnation" }, answer:"C" },
-  { number: 586, word: "BENEVOLENT", choices: { A:"malevolent", B:"hostile", C:"kind", D:"cruel" }, answer:"C" },
-  { number: 587, word: "COHERENT", choices: { A:"disjointed", B:"scattered", C:"logical", D:"confused" }, answer:"C" },
-  { number: 588, word: "DAUNTING", choices: { A:"reassuring", B:"comforting", C:"intimidating", D:"encouraging" }, answer:"C" },
-  { number: 589, word: "ENHANCE", choices: { A:"diminish", B:"reduce", C:"improve", D:"weaken" }, answer:"C" },
-  { number: 590, word: "FACILITATE", choices: { A:"impede", B:"hinder", C:"assist", D:"obstruct" }, answer:"C" },
-  { number: 591, word: "GARNER", choices: { A:"disperse", B:"lose", C:"gather", D:"scatter" }, answer:"C" },
-  { number: 592, word: "HAMPER", choices: { A:"facilitate", B:"help", C:"hinder", D:"promote" }, answer:"C" },
-  { number: 593, word: "IMMINENT", choices: { A:"far", B:"distant", C:"impending", D:"remote" }, answer:"C" },
-  { number: 594, word: "JUDICIOUS", choices: { A:"rash", B:"impulsive", C:"wise", D:"foolish" }, answer:"C" },
-  { number: 595, word: "KINDLE", choices: { A:"douse", B:"extinguish", C:"ignite", D:"smother" }, answer:"C" },
-  { number: 596, word: "LAVISH", choices: { A:"meager", B:"plain", C:"extravagant", D:"simple" }, answer:"C" },
-  { number: 597, word: "MAGNANIMOUS", choices: { A:"petty", B:"mean", C:"generous", D:"selfish" }, answer:"C" },
-  { number: 598, word: "NASCENT", choices: { A:"mature", B:"established", C:"emerging", D:"old" }, answer:"C" },
-  { number: 599, word: "OPULENT", choices: { A:"plain", B:"modest", C:"luxurious", D:"simple" }, answer:"C" },
-  { number: 600, word: "PIVOTAL", choices: { A:"insignificant", B:"trivial", C:"crucial", D:"minor" }, answer:"C" },
+  // Padding questions 585-600 to reach exactly 300
+  { number: 585, word: "ACCLAIM", choices: { A:"popularity", B:"praise", C:"reputation", D:"acknowledgment" }, answer:"B" },
+  { number: 586, word: "BENEVOLENT", choices: { A:"humble", B:"tolerant", C:"thoughtful", D:"kind" }, answer:"D" },
+  { number: 587, word: "COHERENT", choices: { A:"comprehensive", B:"eloquent", C:"logical", D:"well-written" }, answer:"C" },
+  { number: 588, word: "DAUNTING", choices: { A:"unpleasant", B:"stressful", C:"tiresome", D:"intimidating" }, answer:"D" },
+  { number: 589, word: "ENHANCE", choices: { A:"decorate", B:"improve", C:"expand", D:"exaggerate" }, answer:"B" },
+  { number: 590, word: "FACILITATE", choices: { A:"approve", B:"monitor", C:"expedite", D:"assist" }, answer:"D" },
+  { number: 591, word: "GARNER", choices: { A:"accept", B:"claim", C:"gather", D:"absorb" }, answer:"C" },
+  { number: 592, word: "HAMPER", choices: { A:"spoil", B:"weaken", C:"hinder", D:"disrupt" }, answer:"C" },
+  { number: 593, word: "IMMINENT", choices: { A:"impending", B:"sudden", C:"possible", D:"inevitable" }, answer:"A" },
+  { number: 594, word: "JUDICIOUS", choices: { A:"objective", B:"wise", C:"lawful", D:"impartial" }, answer:"B" },
+  { number: 595, word: "KINDLE", choices: { A:"provoke", B:"nurture", C:"ignite", D:"influence" }, answer:"C" },
+  { number: 596, word: "LAVISH", choices: { A:"wasteful", B:"pretentious", C:"generous", D:"extravagant" }, answer:"D" },
+  { number: 597, word: "MAGNANIMOUS", choices: { A:"impressive", B:"dignified", C:"generous", D:"noble" }, answer:"C" },
+  { number: 598, word: "NASCENT", choices: { A:"emerging", B:"immature", C:"unproven", D:"temporary" }, answer:"A" },
+  { number: 599, word: "OPULENT", choices: { A:"expensive", B:"elegant", C:"ostentatious", D:"luxurious" }, answer:"D" },
+  { number: 600, word: "PIVOTAL", choices: { A:"preliminary", B:"crucial", C:"unexpected", D:"complicated" }, answer:"B" },
 ];
 
 // Optional sentinel
 window.__VOCAB_ENHANCED1_LOADED__ = true;
+
