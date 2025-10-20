@@ -2,7 +2,7 @@
 // Enhanced version with multiple word list support
 
 // ===== Analytics Configuration =====
-const ANALYTICS_URL = 'https://script.google.com/macros/s/AKfycbzI_lTIA6K1mumLkA_FfdYVK4zUzp5bX3mH9SMNAP7DfNhQvYJ3ffEn4LAc80-k5-FK/exec';
+const ANALYTICS_URL = 'https://script.google.com/macros/s/AKfycbxRsXN_weri4aor0qAQQnH_sYbEhJv1njDHZvMv0hoeXkFeNSMBKYmRnFc8I2r7iEWK/exec';
 const SESSION_ID = 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
 let quizStartTime = null;
 let userIP = null;
